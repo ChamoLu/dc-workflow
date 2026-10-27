@@ -1,0 +1,210 @@
+{
+ "position": {
+  "x": -3850,
+  "y": -410
+ },
+ "size": {
+  "width": 500,
+  "height": 872
+ },
+ "view": "vue-shape-view",
+ "shape": "script",
+ "ports": {
+  "groups": {
+   "in": {
+    "position": "left",
+    "zIndex": 10,
+    "markup": [
+     {
+      "tagName": "circle",
+      "selector": "circle"
+     },
+     {
+      "tagName": "path",
+      "selector": "plus"
+     }
+    ],
+    "attrs": {
+     "circle": {
+      "r": 12,
+      "magnet": "passive",
+      "stroke": "#B0AFDF",
+      "strokeWidth": 3,
+      "fill": "#ffffff",
+      "cursor": "pointer",
+      "zIndex": 10,
+      "visibility": "visible",
+      "pointerEvents": "auto"
+     },
+     "plus": {
+      "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+      "strokeWidth": 3,
+      "fill": "none",
+      "pointerEvents": "none",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "stroke": "#B0AFDF",
+      "visibility": "hidden"
+     }
+    }
+   },
+   "out": {
+    "zIndex": 10,
+    "position": "right",
+    "markup": [
+     {
+      "tagName": "circle",
+      "selector": "circle"
+     },
+     {
+      "tagName": "path",
+      "selector": "plus"
+     }
+    ],
+    "attrs": {
+     "circle": {
+      "r": 12,
+      "magnet": true,
+      "stroke": "#B0AFDF",
+      "strokeWidth": 3,
+      "fill": "#ffffff",
+      "cursor": "pointer",
+      "zIndex": 10,
+      "visibility": "visible",
+      "pointerEvents": "auto"
+     },
+     "plus": {
+      "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+      "strokeWidth": 3,
+      "fill": "none",
+      "pointerEvents": "none",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "stroke": "#B0AFDF",
+      "visibility": "hidden"
+     }
+    }
+   }
+  },
+  "items": [
+   {
+    "id": "in_1786064002863_2229",
+    "group": "in",
+    "zIndex": 10,
+    "attrs": {
+     "circle": {
+      "r": 12,
+      "magnet": "passive",
+      "stroke": "#B0AFDF",
+      "strokeWidth": 3,
+      "fill": "#ffffff",
+      "cursor": "pointer",
+      "zIndex": 10,
+      "visibility": "visible",
+      "pointerEvents": "auto"
+     },
+     "plus": {
+      "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+      "strokeWidth": 3,
+      "fill": "none",
+      "pointerEvents": "none",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "stroke": "#B0AFDF",
+      "visibility": "hidden"
+     }
+    }
+   },
+   {
+    "id": "out_1786064002863_2229",
+    "group": "out",
+    "zIndex": 10,
+    "attrs": {
+     "circle": {
+      "r": 12,
+      "magnet": true,
+      "stroke": "#B0AFDF",
+      "strokeWidth": 3,
+      "fill": "#ffffff",
+      "cursor": "pointer",
+      "zIndex": 10,
+      "visibility": "visible",
+      "pointerEvents": "auto"
+     },
+     "plus": {
+      "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+      "strokeWidth": 3,
+      "fill": "none",
+      "pointerEvents": "none",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "stroke": "#B0AFDF",
+      "visibility": "hidden"
+     }
+    }
+   }
+  ]
+ },
+ "id": "script_1786064002863_2229",
+ "data": {
+  "inputParams": [
+   {
+    "key": "4f0e615e-bff0-4f67-8c3b-994bade0af26",
+    "fieldName": "",
+    "selectedType": "template_config",
+    "value": []
+   }
+  ],
+  "scriptType": "Python3",
+  "scriptCode": "def main(params: Dict) -> Dict:   \n    return {\n       \"pageTitle\":\"上街区人民政府\\政务公开\\政府信息公开\\法定主动公开内容\\统计信息\\统计月报\", \n        \"title\": \"2026年2月份经济月报*地方经济\" \n    }",
+  "outputParams": [
+   {
+    "key": "4446eab5-7d59-4aba-9575-ae809245ddd3",
+    "fieldName": "pageTitle",
+    "selectedType": "template_config",
+    "value": [
+     "#template_config__0__templateConfigId",
+     "#template_config__0__pageTitle"
+    ],
+    "globalData": {
+     "indexCode": "pageTitle",
+     "indexName": "路径",
+     "dataType": "String"
+    },
+    "dataType": "String"
+   },
+   {
+    "key": "c5c8cc01-bb9e-4abc-bec8-dce30bd4220a",
+    "fieldName": "title",
+    "selectedType": "template_config",
+    "value": [
+     "#template_config__0__templateConfigId",
+     "#template_config__0__title"
+    ],
+    "globalData": {
+     "indexCode": "title",
+     "indexName": "文章标题",
+     "dataType": "String"
+    },
+    "dataType": "String"
+   }
+  ],
+  "timeout": "120",
+  "failureRetryCount": "0",
+  "uniqueId": 7,
+  "nodeName": "代码执行",
+  "displayName": "造路径",
+  "nodeCode": "script",
+  "outputConfig": "codeOutputResult",
+  "iconName": "code",
+  "iconSize": "18",
+  "isStencil": false,
+  "isExpanded": true,
+  "canDelete": true,
+  "canCopy": true,
+  "canAdd": true,
+  "canEdit": true
+ },
+ "zIndex": 2115,
+ "disableMovable": false
+}

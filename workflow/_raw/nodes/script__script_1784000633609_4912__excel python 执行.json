@@ -1,0 +1,335 @@
+{
+  "position": {
+    "x": -2320,
+    "y": -620
+  },
+  "size": {
+    "width": 500,
+    "height": 992
+  },
+  "view": "vue-shape-view",
+  "shape": "script",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "right",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1784000633609_4912",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_1784000633609_4912",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "script_1784000633609_4912",
+  "data": {
+    "inputParams": [
+      {
+        "key": "97b14f91-eb02-4661-b973-34f17fd20580",
+        "fieldName": "fileMd5",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__fileMd5"
+        ],
+        "globalData": {
+          "indexCode": "fileMd5",
+          "indexName": "文件MD5校验码",
+          "dataType": "String"
+        },
+        "dataType": "String"
+      },
+      {
+        "key": "6cff7509-2d6c-4411-8dfd-5a6f2f99e2d1",
+        "fieldName": "title",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__title"
+        ],
+        "globalData": {
+          "indexCode": "title",
+          "indexName": "文章标题",
+          "dataType": "String"
+        },
+        "dataType": "String"
+      },
+      {
+        "key": "aa3c64a5-35dc-481e-85d4-0f3503a36f2f",
+        "fieldName": "publictime",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__publictime"
+        ],
+        "globalData": {
+          "indexCode": "publictime",
+          "indexName": "信息发布日期",
+          "dataType": "String"
+        },
+        "dataType": "String"
+      },
+      {
+        "key": "8ff274c2-ad3c-4089-b0b7-1a7058cac614",
+        "fieldName": "PythonFile",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__PythonFile"
+        ],
+        "globalData": {
+          "id": "e2396d0b-c850-412a-8b67-2fe40c2e5a9b",
+          "fieldName": "PythonFile",
+          "dataType": "String",
+          "desc": "python文件名",
+          "selectedType": "manual",
+          "expanded": true,
+          "primaryKey": false,
+          "storageFlag": 1,
+          "fromRelated": false,
+          "processOnly": false,
+          "storageLocked": false,
+          "globalData": null,
+          "children": []
+        },
+        "dataType": "String"
+      },
+      {
+        "key": "846a449f-e200-4979-a228-c0d9328f4011",
+        "fieldName": "PythonCode",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__PythonCode"
+        ],
+        "globalData": {
+          "id": "365007e8-8a71-45cf-b0f7-7af3eebc1d11",
+          "fieldName": "PythonCode",
+          "dataType": "String",
+          "desc": "python代码",
+          "selectedType": "manual",
+          "expanded": true,
+          "primaryKey": false,
+          "storageFlag": 1,
+          "fromRelated": false,
+          "processOnly": false,
+          "storageLocked": false,
+          "globalData": null,
+          "children": []
+        },
+        "dataType": "String"
+      }
+    ],
+    "scriptType": "Python3",
+    "scriptCode": "def main(params):\n    python_code = params.get(\"PythonCode\")\n    python_file = params.get(\"PythonFile\")\n\n    if python_file == \"empty\":\n        return {\n            \"code\": -1,\n            \"msg\": \"未配置 pageTitle，PythonFile 为 empty\",\n            \"ExcelData\": []\n        }\n\n    if not isinstance(python_file, str) or not python_file.strip():\n        return {\n            \"code\": -1,\n            \"msg\": \"PythonFile 必须是非空 string，实际类型：%s\" % type(python_file).__name__,\n            \"ExcelData\": []\n        }\n\n    if not isinstance(python_code, str):\n        return {\n            \"code\": -1,\n            \"msg\": \"PythonCode 必须是 string，实际类型：%s\" % type(python_code).__name__,\n            \"ExcelData\": []\n        }\n\n    if not python_code.strip():\n        return {\n            \"code\": -1,\n            \"msg\": \"PythonCode 为空\",\n            \"ExcelData\": []\n        }\n\n    parser_namespace = {\n        \"__name__\": \"__routed_parser__\",\n        \"__file__\": python_file\n    }\n\n    exec(\n        compile(python_code, python_file, \"exec\"),\n        parser_namespace,\n        parser_namespace\n    )\n\n    target_main = parser_namespace.get(\"main\")\n    if not callable(target_main):\n        return {\n            \"code\": -1,\n            \"msg\": \"路由代码中未找到可调用的 main(params)\",\n            \"ExcelData\": []\n        }\n\n    parser_params = dict(params)\n    parser_params.pop(\"PythonCode\", None)\n    parser_params.pop(\"PythonFile\", None)\n\n    return target_main(parser_params)",
+    "outputParams": [
+      {
+        "key": "42a397f0-b5fc-403a-a9cf-8303f95a40ca",
+        "fieldName": "ExcelData",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__excel_data"
+        ],
+        "globalData": {
+          "id": "7df0d2ee-b46b-4d93-9a7d-8e428abcafb0",
+          "fieldName": "excel_data",
+          "dataType": "Array<Object>",
+          "desc": "Excel解析后结果",
+          "selectedType": "manual",
+          "expanded": false,
+          "primaryKey": false,
+          "globalData": null,
+          "children": [
+            {
+              "id": "a8296e43-9571-45bf-a7e8-00af46bdd81f",
+              "fieldName": "end_date",
+              "dataType": "String",
+              "desc": "截止日期",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "bcc4c184-cc32-4cd8-9acd-8b451d7c4b29",
+              "fieldName": "indicator_data",
+              "dataType": "String",
+              "desc": "指标数据",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "99a798ac-c5d6-4356-93ee-d0e41a64d570",
+              "fieldName": "indicator_name",
+              "dataType": "String",
+              "desc": "指标名称",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "7b151afb-6f69-4ddb-9945-903aed8fc091",
+              "fieldName": "indicator_unit",
+              "dataType": "String",
+              "desc": "指标单位",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "children": []
+            }
+          ]
+        },
+        "dataType": "Array<Object>"
+      }
+    ],
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "uniqueId": 3,
+    "nodeName": "代码执行",
+    "displayName": "excel python 执行",
+    "nodeCode": "script",
+    "outputConfig": "codeOutputResult",
+    "iconName": "code",
+    "iconSize": "18",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2512,
+  "disableMovable": false
+}

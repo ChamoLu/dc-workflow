@@ -1,0 +1,679 @@
+{
+ "edges": [
+  {
+   "source": "custom_rule_1782883582058_2442",
+   "target": "script_1781493487647_8448",
+   "label": "",
+   "port": "out_1782883582058_2442"
+  },
+  {
+   "source": "custom_rule_1784000706383_4551",
+   "target": "script_1784000950198_7882",
+   "label": "",
+   "port": "out_1784000706383_4551"
+  },
+  {
+   "source": "script_1784000760345_8300",
+   "target": "custom_rule_1784000706383_4551",
+   "label": "",
+   "port": "out_1784000760345_8300"
+  },
+  {
+   "source": "script_1784000950198_7882",
+   "target": "script_1784000824030_5230",
+   "label": "",
+   "port": "out_1784000950198_7882"
+  },
+  {
+   "source": "script_1784000824030_5230",
+   "target": "condition_1785918771965_4589",
+   "label": "",
+   "port": "out_1784000824030_5230"
+  },
+  {
+   "source": "condition_1785918771965_4589",
+   "target": "end",
+   "label": "ELSE",
+   "port": "out_8560eca8-0aa8-491c-ad77-018514f27256"
+  },
+  {
+   "source": "script_1781493487647_8448",
+   "target": "script_1784000633609_4912",
+   "label": "",
+   "port": "out_1781493487647_8448"
+  },
+  {
+   "source": "script_1784000633609_4912",
+   "target": "script_1784000760345_8300",
+   "label": "",
+   "port": "out_1784000633609_4912"
+  },
+  {
+   "source": "start",
+   "target": "script_1786064002863_2229",
+   "label": "",
+   "port": "start-out"
+  },
+  {
+   "source": "script_1786064002863_2229",
+   "target": "custom_rule_1782883582058_2442",
+   "label": "",
+   "port": "out_1786064002863_2229"
+  }
+ ],
+ "templateConfig": {
+  "id": "9bc33534-2b9f-45c5-85c8-bf8e34b07bd3",
+  "shape": "template_config",
+  "data": {
+   "fileMd5": "",
+   "templateConfig": [
+    {
+     "id": "8effea03-acc3-4558-a9b8-35b317d9973a",
+     "globalData": {
+      "indexCode": "fileMd5",
+      "indexName": "文件MD5校验码",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "fileMd5",
+     "desc": "文件MD5校验码",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "57584987-c0bc-41dc-8363-81097f30bc5f",
+     "globalData": {
+      "indexCode": "columnName",
+      "indexName": "栏目名称",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "columnName",
+     "desc": "栏目名称",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "0c535cf8-3472-4c63-a6ea-102de80178c6",
+     "globalData": {
+      "indexCode": "title",
+      "indexName": "文章标题",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "title",
+     "desc": "文章标题",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "a98b27b8-d0f7-4d48-ad3a-910fd3b37766",
+     "globalData": {
+      "indexCode": "pushtime",
+      "indexName": "发布时间",
+      "dataType": "Time"
+     },
+     "dataType": "Time",
+     "fieldName": "pushtime",
+     "desc": "发布时间",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "1a1376de-d937-4eb3-a728-9393a73c3eef",
+     "globalData": {
+      "indexCode": "parseFileMd5",
+      "indexName": "解析文件MD5",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "parseFileMd5",
+     "desc": "解析文件MD5",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "073a6b0b-5f0f-435c-ab08-34eab98b553f",
+     "globalData": {
+      "indexCode": "pageTitle",
+      "indexName": "路径",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "pageTitle",
+     "desc": "路径",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "06f8f88b-e639-4b0d-92cb-b52ac0bf40d7",
+     "globalData": {
+      "indexCode": "rid",
+      "indexName": "资源标识（类型_数据id_分表位_数据版本）",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "rid",
+     "desc": "资源标识（类型_数据id_分表位_数据版本）",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "daba0faa-11d9-4976-81a7-20badd4b0d2a",
+     "fieldName": "out_data",
+     "dataType": "Array<Object>",
+     "desc": "最终输出",
+     "selectedType": "manual",
+     "expanded": true,
+     "globalData": null,
+     "primaryKey": false,
+     "children": [
+      {
+       "id": "2e10069d-bf8a-4740-8af7-5ebfa0d41615",
+       "fieldName": "end_date",
+       "dataType": "String",
+       "desc": "截止日期",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "52d00d12-7fe0-49e9-9e36-6663502c56ae",
+       "fieldName": "indicator_data",
+       "dataType": "String",
+       "desc": "指标数据",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "6c234047-ff99-4c08-bf96-1822a6eb504a",
+       "fieldName": "indicator_name",
+       "dataType": "String",
+       "desc": "指标名称",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "8b54d62e-5ae7-4eb3-a979-a31e2f6c90a7",
+       "fieldName": "indicator_code",
+       "dataType": "String",
+       "desc": "指标代码",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "e90a8a16-65b1-4d0c-98b4-c9d890f1aea0",
+       "fieldName": "unit_ratio",
+       "dataType": "String",
+       "desc": "单位比例",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "8450ded8-bf52-4989-a116-a9a827a5e09f",
+       "fieldName": "pushtime",
+       "dataType": "String",
+       "desc": "发布时间",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "f0f644f1-3819-4e42-ad52-1fdc174caa7f",
+       "fieldName": "remark",
+       "dataType": "String",
+       "desc": "备注",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "50776166-e2c1-4f83-9921-1cb983adfc33",
+       "fieldName": "indicator_release_frequency",
+       "dataType": "String",
+       "desc": "披露频率",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "93398e21-cc22-478a-9f80-4be07f9a6aa8",
+       "fieldName": "indicator_unit",
+       "dataType": "String",
+       "desc": "采集到的单位",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      },
+      {
+       "id": "7d9e6d7c-4cd3-4812-b787-87c5e8c2c409",
+       "fieldName": "KB_unit",
+       "dataType": "String",
+       "desc": "库表单位",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      },
+      {
+       "id": "5714b1df-e6a1-4a9b-93b3-e0637b57b41d",
+       "fieldName": "convert_ratio",
+       "dataType": "String",
+       "desc": "转换率",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      },
+      {
+       "id": "93ab4331-2560-41d2-97a2-898ad2c53e1b",
+       "fieldName": "publictime",
+       "dataType": "String",
+       "desc": "信息发布日期",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      }
+     ]
+    },
+    {
+     "id": "0bc58bd8-9ae5-4721-b9eb-10e339fc2e25",
+     "globalData": {
+      "indexCode": "end_date",
+      "indexName": "截止日期",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "end_date",
+     "desc": "截止日期",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "67b6a09b-fd9c-4441-8689-2210607ed012",
+     "globalData": {
+      "indexCode": "indicator_data",
+      "indexName": "指标数据",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "indicator_data",
+     "desc": "指标数据",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "ad5fc00e-a103-4f80-bd7d-ea80e38024d9",
+     "globalData": {
+      "indexCode": "indicator_name",
+      "indexName": "指标名称",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "indicator_name",
+     "desc": "指标名称",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "690005c1-d813-4a8a-9e84-3a2de1107dd0",
+     "globalData": {
+      "indexCode": "indicator_unit",
+      "indexName": "指标单位",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "indicator_unit",
+     "desc": "指标单位",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "56e7410a-989d-4ace-aee7-0545a0afe296",
+     "globalData": {
+      "indexCode": "fileType",
+      "indexName": "文件类型（json/pdf等）",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "fileType",
+     "desc": "文件类型（json/pdf等）",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "fadebf68-a98f-4597-bd15-1ff95c67e355",
+     "fieldName": "GZK",
+     "dataType": "Array<Object>",
+     "desc": "规则库原始",
+     "selectedType": "manual",
+     "expanded": true,
+     "globalData": null,
+     "primaryKey": false,
+     "children": [
+      {
+       "id": "980f76a5-fe51-479a-a3c6-ad0ec1011e6b",
+       "fieldName": "ZBDM",
+       "dataType": "String",
+       "desc": "规则库指标代码",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "5a35f69f-f4d6-45a7-ae09-27694c5a2319",
+       "fieldName": "ZBMC",
+       "dataType": "String",
+       "desc": "规则库指标名称",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "f2b3ab6a-b14f-4ad3-8b44-02fc5df96ce0",
+       "fieldName": "ZBDW",
+       "dataType": "String",
+       "desc": "规则库指标单位",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "17bd3235-7953-43e9-9e33-cb08a007209c",
+       "fieldName": "unit_ratio",
+       "dataType": "String",
+       "desc": "单位比例",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "2bf671f1-588c-4d28-a912-52d3117bbeea",
+       "fieldName": "GZKJG",
+       "dataType": "String",
+       "desc": "规则库结果",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      },
+      {
+       "id": "abdfb2d6-18dd-4c41-9572-6fd23ee4a622",
+       "fieldName": "indicator_release_frequency",
+       "dataType": "String",
+       "desc": "披露频率",
+       "selectedType": "manual",
+       "expanded": true,
+       "globalData": null,
+       "primaryKey": false,
+       "children": []
+      }
+     ]
+    },
+    {
+     "id": "9f49a725-ea90-4351-8cfb-7ad85c7ac6c3",
+     "fieldName": "convert_ratio",
+     "dataType": "String",
+     "desc": "转换率",
+     "selectedType": "manual",
+     "expanded": true,
+     "globalData": null,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "09353c21-bc26-4921-ab1c-d99ba14c1bb2",
+     "fieldName": "KB_unit",
+     "dataType": "String",
+     "desc": "库表单位",
+     "selectedType": "manual",
+     "expanded": true,
+     "globalData": null,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "14eb0a89-65c2-45e2-9ce6-70ff87d92b7f",
+     "fieldName": "standard_unit",
+     "dataType": "String",
+     "desc": "标准单位",
+     "selectedType": "manual",
+     "expanded": true,
+     "globalData": null,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "8cef2f03-ee60-40c3-a0c7-53a630474bf9",
+     "globalData": {
+      "indexCode": "release_frequency",
+      "indexName": "披露频率",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "release_frequency",
+     "desc": "披露频率",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "17a9cac6-eaac-4cde-a9d5-cae14592711e",
+     "globalData": {
+      "indexCode": "markdownMD5",
+      "indexName": "MarkdownMD5文件",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "markdownMD5",
+     "desc": "MarkdownMD5文件",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    },
+    {
+     "id": "7df0d2ee-b46b-4d93-9a7d-8e428abcafb0",
+     "fieldName": "excel_data",
+     "dataType": "Array<Object>",
+     "desc": "Excel解析后结果",
+     "selectedType": "manual",
+     "expanded": false,
+     "primaryKey": false,
+     "globalData": null,
+     "children": [
+      {
+       "id": "a8296e43-9571-45bf-a7e8-00af46bdd81f",
+       "fieldName": "end_date",
+       "dataType": "String",
+       "desc": "截止日期",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      },
+      {
+       "id": "bcc4c184-cc32-4cd8-9acd-8b451d7c4b29",
+       "fieldName": "indicator_data",
+       "dataType": "String",
+       "desc": "指标数据",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      },
+      {
+       "id": "99a798ac-c5d6-4356-93ee-d0e41a64d570",
+       "fieldName": "indicator_name",
+       "dataType": "String",
+       "desc": "指标名称",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      },
+      {
+       "id": "7b151afb-6f69-4ddb-9945-903aed8fc091",
+       "fieldName": "indicator_unit",
+       "dataType": "String",
+       "desc": "指标单位",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      }
+     ]
+    },
+    {
+     "id": "7cdc17e8-9f12-43da-b9e4-984b7f065ec1",
+     "fieldName": "unitArray",
+     "dataType": "Array<Object>",
+     "desc": "单位匹配使用",
+     "selectedType": "manual",
+     "expanded": false,
+     "primaryKey": false,
+     "globalData": null,
+     "children": [
+      {
+       "id": "cdeba199-d08f-4fe4-a072-374a4631273b",
+       "fieldName": "indicator_unit",
+       "dataType": "String",
+       "desc": "采集单位",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      },
+      {
+       "id": "8f82932a-2a28-4dd3-8b23-4208a37fc353",
+       "fieldName": "KB_unit",
+       "dataType": "String",
+       "desc": "库表单位",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      },
+      {
+       "id": "47e950c1-4f8a-4643-9291-7208475eade5",
+       "fieldName": "convert_ratio",
+       "dataType": "String",
+       "desc": "转换率",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      }
+     ]
+    },
+    {
+     "id": "8f57bf90-e649-4c79-a887-816390291565",
+     "globalData": {
+      "indexCode": "publictime",
+      "indexName": "信息发布日期",
+      "dataType": "String"
+     },
+     "dataType": "String",
+     "fieldName": "publictime",
+     "desc": "信息发布日期",
+     "selectedType": "source_field",
+     "expanded": true,
+     "primaryKey": false,
+     "children": []
+    }
+   ],
+   "uniqueId": 0,
+   "nodeName": "模板配置",
+   "displayName": "模板配置",
+   "nodeCode": "template_config",
+   "iconName": "manage",
+   "outputConfig": "templateConfigId",
+   "iconSize": "20",
+   "isStencil": false,
+   "isExpanded": true,
+   "canDelete": true,
+   "canCopy": true,
+   "canAdd": true,
+   "canEdit": true
+  }
+ },
+ "workflow": {
+  "id": "2112366700040351745",
+  "appName": "excel-Agent-test1020",
+  "appDesc": null,
+  "tableName": null,
+  "runType": "manual",
+  "type": "app_center",
+  "releaseTime": "2026-08-06 11:44:58",
+  "creatorName": "陆佳祎",
+  "creator": "1394424",
+  "groupName": null
+ }
+}

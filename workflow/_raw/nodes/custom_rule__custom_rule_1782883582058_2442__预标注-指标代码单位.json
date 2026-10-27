@@ -1,0 +1,288 @@
+{
+  "position": {
+    "x": -5130,
+    "y": 180
+  },
+  "size": {
+    "width": 400,
+    "height": 599
+  },
+  "view": "vue-shape-view",
+  "shape": "custom_rule",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "right",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1782883582058_2442",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_1782883582058_2442",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "custom_rule_1782883582058_2442",
+  "data": {
+    "serviceApiId": "25",
+    "inputParams": [
+      {
+        "desc": "pageTitle",
+        "dataType": "String",
+        "fieldName": "pageTitle",
+        "isReadOnly": false,
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__pageTitle"
+        ],
+        "widgetType": "input",
+        "globalData": {
+          "indexCode": "pageTitle",
+          "indexName": "路径",
+          "dataType": "String"
+        }
+      }
+    ],
+    "outputParams": [
+      {
+        "desc": "indicator_code",
+        "dataType": "String",
+        "fieldName": "indicator_code",
+        "isReadOnly": false,
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__GZK",
+          "#template_config__0__GZK.ZBDM"
+        ],
+        "widgetType": "input",
+        "globalData": {
+          "id": "980f76a5-fe51-479a-a3c6-ad0ec1011e6b",
+          "fieldName": "ZBDM",
+          "dataType": "String",
+          "desc": "规则库指标代码",
+          "selectedType": "manual",
+          "expanded": true,
+          "globalData": null,
+          "primaryKey": false,
+          "children": []
+        }
+      },
+      {
+        "desc": "indicator_name",
+        "dataType": "String",
+        "fieldName": "indicator_name",
+        "isReadOnly": false,
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__GZK",
+          "#template_config__0__GZK.ZBMC"
+        ],
+        "widgetType": "input",
+        "globalData": {
+          "id": "5a35f69f-f4d6-45a7-ae09-27694c5a2319",
+          "fieldName": "ZBMC",
+          "dataType": "String",
+          "desc": "规则库指标名称",
+          "selectedType": "manual",
+          "expanded": true,
+          "globalData": null,
+          "primaryKey": false,
+          "children": []
+        }
+      },
+      {
+        "desc": "constant_name",
+        "dataType": "String",
+        "fieldName": "constant_name",
+        "isReadOnly": false,
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__GZK",
+          "#template_config__0__GZK.ZBDW"
+        ],
+        "widgetType": "input",
+        "globalData": {
+          "id": "f2b3ab6a-b14f-4ad3-8b44-02fc5df96ce0",
+          "fieldName": "ZBDW",
+          "dataType": "String",
+          "desc": "规则库指标单位",
+          "selectedType": "manual",
+          "expanded": true,
+          "globalData": null,
+          "primaryKey": false,
+          "children": []
+        }
+      },
+      {
+        "desc": "indicator_release_frequency",
+        "dataType": "String",
+        "fieldName": "indicator_release_frequency",
+        "isReadOnly": false,
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__GZK",
+          "#template_config__0__GZK.indicator_release_frequency"
+        ],
+        "widgetType": "input",
+        "globalData": {
+          "id": "abdfb2d6-18dd-4c41-9572-6fd23ee4a622",
+          "fieldName": "indicator_release_frequency",
+          "dataType": "String",
+          "desc": "披露频率",
+          "selectedType": "manual",
+          "expanded": true,
+          "globalData": null,
+          "primaryKey": false,
+          "children": []
+        }
+      }
+    ],
+    "ruleId": "206",
+    "ruleType": "dynamic_query",
+    "ruleIndexId": "7167",
+    "batchExecution": false,
+    "sourceType": 1,
+    "uniqueId": 0,
+    "nodeName": "自定义规则",
+    "displayName": "预标注-指标代码单位",
+    "nodeCode": "custom_rule",
+    "outputConfig": "workflowRuleEngineResult",
+    "iconName": "t-b-setting",
+    "iconSize": "16",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2471
+}

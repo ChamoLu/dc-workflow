@@ -1,0 +1,12 @@
+{
+  "status": 1,
+  "body": {
+    "modelVO": {
+      "modelName": "DeepSeek-V4.1-Flash",
+      "modelTag": "deepseek-v4.1-flash",
+      "modelSource": "BaiLian",
+      "modelType": "LLM",
+      "modelTypeName": "LLM"
+    }
+  }
+}

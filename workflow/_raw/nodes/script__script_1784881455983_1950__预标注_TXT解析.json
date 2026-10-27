@@ -1,0 +1,299 @@
+{
+  "position": {
+    "x": -2150,
+    "y": 480
+  },
+  "size": {
+    "width": 500,
+    "height": 50
+  },
+  "view": "vue-shape-view",
+  "shape": "script",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "right",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1784881455983_1950",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_1784881455983_1950",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "script_1784881455983_1950",
+  "data": {
+    "inputParams": [
+      {
+        "key": "97b14f91-eb02-4661-b973-34f17fd20580",
+        "fieldName": "fileMd5",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__fileMd5"
+        ],
+        "globalData": {
+          "indexCode": "fileMd5",
+          "indexName": "文件MD5校验码",
+          "dataType": "String"
+        },
+        "dataType": "String"
+      }
+    ],
+    "scriptType": "Python3",
+    "scriptCode": "import requests\nfrom io import StringIO\nimport calendar\n\nBASE_DOWNLOAD_URL = \"http://service-1.example.invalid/api/file/download/\"\n\ndef format_end_date(date_str):\n    \"\"\"\n    将YYYYMM转换为YYYY-MM-DD（月末）\n    例如：\n    202607 -> 2026-07-31\n    \"\"\"\n    date_str = str(date_str).strip()\n    if len(date_str) != 6:\n        return date_str\n    year = int(date_str[:4])\n    month = int(date_str[4:6])\n    last_day = calendar.monthrange(year, month)[1]\n    return f\"{year}-{month:02d}-{last_day:02d}\"\n\ndef main(params):\n    file_md5 = params.get(\"fileMd5\")\n\n    if not file_md5:\n        return {\n            \"code\": -1,\n            \"msg\": \"缺少fileMd5\",\n            \"OUTDATA\": []\n        }\n\n    OUTDATA = []\n\n    try:\n        url = BASE_DOWNLOAD_URL + file_md5\n        response = requests.get(url)\n\n        if response.status_code != 200:\n            return {\n                \"code\": -1,\n                \"msg\": \"文件下载失败\",\n                \"OUTDATA\": []\n            }\n\n        content = response.content.decode(\"utf-8\")\n\n        for line in StringIO(content):\n            line = line.strip()\n            if not line:\n                continue\n\n            parts = line.split(\",\")\n            if len(parts) != 2:\n                continue\n\n            OUTDATA.append({\n                \"end_date\": format_end_date(parts[0]),\n                \"indicator_data\": parts[1].strip()\n            })\n\n        return {\n            \"code\": 0,\n            \"msg\": \"解析成功\",\n            \"OUTDATA\": OUTDATA\n        }\n\n    except Exception as e:\n        return {\n            \"code\": -1,\n            \"msg\": str(e),\n            \"OUTDATA\": []\n        }",
+    "outputParams": [
+      {
+        "key": "42a397f0-b5fc-403a-a9cf-8303f95a40ca",
+        "fieldName": "OUTDATA",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__out_data"
+        ],
+        "globalData": {
+          "id": "daba0faa-11d9-4976-81a7-20badd4b0d2a",
+          "fieldName": "out_data",
+          "dataType": "Array<Object>",
+          "desc": "最终输出",
+          "children": [
+            {
+              "id": "2e10069d-bf8a-4740-8af7-5ebfa0d41615",
+              "fieldName": "end_date",
+              "dataType": "String",
+              "desc": "截止日期",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "52d00d12-7fe0-49e9-9e36-6663502c56ae",
+              "fieldName": "indicator_data",
+              "dataType": "String",
+              "desc": "指标数据",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "6c234047-ff99-4c08-bf96-1822a6eb504a",
+              "fieldName": "indicator_name",
+              "dataType": "String",
+              "desc": "指标名称",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "8b54d62e-5ae7-4eb3-a979-a31e2f6c90a7",
+              "fieldName": "indicator_code",
+              "dataType": "String",
+              "desc": "指标代码",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": true,
+              "globalData": null
+            },
+            {
+              "id": "e90a8a16-65b1-4d0c-98b4-c9d890f1aea0",
+              "fieldName": "unit_ratio",
+              "dataType": "String",
+              "desc": "单位比例",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "8450ded8-bf52-4989-a116-a9a827a5e09f",
+              "fieldName": "pushtime",
+              "dataType": "String",
+              "desc": "发布时间",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "f0f644f1-3819-4e42-ad52-1fdc174caa7f",
+              "fieldName": "remark",
+              "dataType": "String",
+              "desc": "备注",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "50776166-e2c1-4f83-9921-1cb983adfc33",
+              "fieldName": "indicator_release_frequency",
+              "dataType": "String",
+              "desc": "披露频率",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            }
+          ],
+          "selectedType": "manual",
+          "expanded": true,
+          "isRequired": false,
+          "globalData": null
+        },
+        "dataType": "Array<Object>"
+      }
+    ],
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "uniqueId": 9,
+    "nodeName": "代码执行",
+    "displayName": "预标注_TXT解析",
+    "nodeCode": "script",
+    "outputConfig": "codeOutputResult",
+    "iconName": "code",
+    "iconSize": "18",
+    "isStencil": false,
+    "isExpanded": false,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2369,
+  "disableMovable": false
+}

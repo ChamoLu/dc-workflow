@@ -1,0 +1,270 @@
+{
+ "position": {
+  "x": -2130,
+  "y": -400
+ },
+ "size": {
+  "width": 500,
+  "height": 872
+ },
+ "view": "vue-shape-view",
+ "shape": "script",
+ "ports": {
+  "groups": {
+   "in": {
+    "position": "left",
+    "zIndex": 10,
+    "markup": [
+     {
+      "tagName": "circle",
+      "selector": "circle"
+     },
+     {
+      "tagName": "path",
+      "selector": "plus"
+     }
+    ],
+    "attrs": {
+     "circle": {
+      "r": 12,
+      "magnet": "passive",
+      "stroke": "#B0AFDF",
+      "strokeWidth": 3,
+      "fill": "#ffffff",
+      "cursor": "pointer",
+      "zIndex": 10,
+      "visibility": "visible",
+      "pointerEvents": "auto"
+     },
+     "plus": {
+      "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+      "strokeWidth": 3,
+      "fill": "none",
+      "pointerEvents": "none",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "stroke": "#B0AFDF",
+      "visibility": "hidden"
+     }
+    }
+   },
+   "out": {
+    "zIndex": 10,
+    "position": "right",
+    "markup": [
+     {
+      "tagName": "circle",
+      "selector": "circle"
+     },
+     {
+      "tagName": "path",
+      "selector": "plus"
+     }
+    ],
+    "attrs": {
+     "circle": {
+      "r": 12,
+      "magnet": true,
+      "stroke": "#B0AFDF",
+      "strokeWidth": 3,
+      "fill": "#ffffff",
+      "cursor": "pointer",
+      "zIndex": 10,
+      "visibility": "visible",
+      "pointerEvents": "auto"
+     },
+     "plus": {
+      "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+      "strokeWidth": 3,
+      "fill": "none",
+      "pointerEvents": "none",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "stroke": "#B0AFDF",
+      "visibility": "hidden"
+     }
+    }
+   }
+  },
+  "items": [
+   {
+    "id": "in_1784000633609_4912",
+    "group": "in",
+    "zIndex": 10,
+    "attrs": {
+     "circle": {
+      "r": 12,
+      "magnet": "passive",
+      "stroke": "#B0AFDF",
+      "strokeWidth": 3,
+      "fill": "#ffffff",
+      "cursor": "pointer",
+      "zIndex": 10,
+      "visibility": "visible",
+      "pointerEvents": "auto"
+     },
+     "plus": {
+      "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+      "strokeWidth": 3,
+      "fill": "none",
+      "pointerEvents": "none",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "stroke": "#B0AFDF",
+      "visibility": "hidden"
+     }
+    }
+   },
+   {
+    "id": "out_1784000633609_4912",
+    "group": "out",
+    "zIndex": 10,
+    "attrs": {
+     "circle": {
+      "r": 12,
+      "magnet": true,
+      "stroke": "#B0AFDF",
+      "strokeWidth": 3,
+      "fill": "#ffffff",
+      "cursor": "pointer",
+      "zIndex": 10,
+      "visibility": "visible",
+      "pointerEvents": "auto"
+     },
+     "plus": {
+      "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+      "strokeWidth": 3,
+      "fill": "none",
+      "pointerEvents": "none",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "stroke": "#B0AFDF",
+      "visibility": "hidden"
+     }
+    }
+   }
+  ]
+ },
+ "id": "script_1784000633609_4912",
+ "data": {
+  "inputParams": [
+   {
+    "key": "97b14f91-eb02-4661-b973-34f17fd20580",
+    "fieldName": "fileMd5",
+    "selectedType": "template_config",
+    "value": [
+     "#template_config__0__templateConfigId",
+     "#template_config__0__fileMd5"
+    ],
+    "globalData": {
+     "indexCode": "fileMd5",
+     "indexName": "文件MD5校验码",
+     "dataType": "String"
+    },
+    "dataType": "String"
+   },
+   {
+    "key": "1a9fbdb3-d718-4e36-92e2-9da08cf112d4",
+    "fieldName": "title",
+    "selectedType": "template_config",
+    "value": [
+     "#template_config__0__templateConfigId",
+     "#template_config__0__title"
+    ],
+    "globalData": {
+     "indexCode": "title",
+     "indexName": "文章标题",
+     "dataType": "String"
+    },
+    "dataType": "String"
+   }
+  ],
+  "scriptType": "Python3",
+  "scriptCode": "# 数据源：上街区人民政府\n# 数据源路径代码：2085711403154546690\n# 数据来源编码：01020002879\n# 路径：上街区人民政府\\政务公开\\政府信息公开\\法定主动公开内容\\统计信息\\统计月报\n# 目标表：usrDFJJYXSJB\n# 运行时从title解析统计期；不读取GZK，生产输出不含indicator_code。\n\nimport re\nimport calendar\nimport requests\nfrom io import BytesIO\nimport openpyxl\n\n_DOWNLOAD_URL = \"http://service-1.example.invalid/api/file/download/\"\n\n\ndef _clean(value):\n    if value is None:\n        return \"\"\n    text = str(value).replace(\"\\n\", \"\").replace(\"\\r\", \"\").strip()\n    text = text.replace(\"、\", \"\").replace(\",\", \"\").replace(\"'\", \"\")\n    text = text.replace(\"*\", \"\")\n    return text\n\n\ndef _valid(value):\n    if value is None or isinstance(value, bool):\n        return False\n    if isinstance(value, (int, float)):\n        return True\n    text = _clean(value)\n    return bool(text) and text not in {\"-\", \"—\", \"－\", \"--\", \"N/A\", \"NA\"}\n\n\ndef _value(value):\n    if isinstance(value, (int, float)) and not isinstance(value, bool):\n        return value\n    return _clean(value)\n\n\ndef _date_from_title(title):\n    text = _clean(title)\n    matches = re.findall(r\"(?<!\\d)(20\\d{2})年\\s*(1[0-2]|0?[1-9])月\", text)\n    if len(matches) != 1:\n        return \"\"\n    year, month = int(matches[0][0]), int(matches[0][1])\n    return \"%04d-%02d-%02d\" % (year, month, calendar.monthrange(year, month)[1])\n\n\ndef _download(params):\n    file_md5 = params.get(\"fileMd5\")\n    if not file_md5:\n        raise ValueError(\"fileMd5 is required\")\n    response = requests.get(_DOWNLOAD_URL + str(file_md5), timeout=60)\n    response.raise_for_status()\n    return response.content\n\n\ndef _append(records, evidence, name, data, unit, end_date, name_refs,\n            data_ref, unit_refs, date_refs):\n    record = {\n        \"indicator_name\": _clean(name),\n        \"indicator_data\": data,\n        \"indicator_unit\": unit or \"-\",\n        \"end_date\": end_date or \"\"\n    }\n    if not record[\"indicator_name\"]:\n        return\n    index = len(records)\n    records.append(record)\n    if evidence is not None:\n        evidence.append({\n            \"record_index\": index,\n            \"name_refs\": name_refs,\n            \"data_ref\": data_ref,\n            \"unit_refs\": unit_refs,\n            \"date_refs\": date_refs\n        })\n\n\ndef _annotation(value):\n    if not isinstance(value, str):\n        return None\n    match = re.fullmatch(r\"(?:提高|上升|增加)\\s*([0-9]+(?:\\.[0-9]+)?)\\s*(个百分点|百分点)\", value.strip())\n    if match:\n        return match.group(1), match.group(2)\n    return None\n\n\ndef _extract(ws, title, evidence=None):\n    records = []\n    end_date = _date_from_title(title)\n    date_refs = [\"runtime:title\"] if end_date else []\n\n    # 首块：累计列C、同比列D；A21脚注规定带星指标增长口径为比年初增长。\n    for row in range(4, 21):\n        label = _clean(ws.cell(row, 1).value)\n        if not label or row == 10:\n            if row == 10:\n                pass\n            continue\n        if row in (18, 19):\n            growth_name = \"比年初增长\"\n        else:\n            growth_name = \"比去年同期±%\"\n        base_unit = \"万元\"\n        if row == 12:\n            base_unit = \"吨标准煤\"\n        elif row == 13:\n            base_unit = \"吨标准煤/万元\"\n        elif row == 20:\n            base_unit = \"%\"\n        c = ws.cell(row, 3).value\n        if _valid(c):\n            _append(records, evidence, label + \"累计\", _value(c), base_unit,\n                    end_date, [\"主要经济指标!A%d\" % row, \"主要经济指标!C3\"],\n                    \"主要经济指标!C%d\" % row,\n                    [\"主要经济指标!C2\" if row not in (12, 13, 20) else \"主要经济指标!A%d\" % row],\n                    date_refs)\n        d = ws.cell(row, 4).value\n        if row == 20:\n            parsed = _annotation(d)\n            if parsed:\n                data, unit = parsed\n                _append(records, evidence, label + growth_name, data, unit,\n                        end_date, [\"主要经济指标!A20\", \"主要经济指标!A21\"],\n                        \"主要经济指标!D20\", [\"主要经济指标!D20\"], date_refs)\n        elif _valid(d):\n            _append(records, evidence, label + growth_name, _value(d), \"%\",\n                    end_date, [\"主要经济指标!A%d\" % row, \"主要经济指标!D3\", \"主要经济指标!A21\" if row in (18, 19) else \"主要经济指标!D3\"],\n                    \"主要经济指标!D%d\" % row, [\"主要经济指标!D3\"], date_refs)\n\n    # 第二块：规模以上工业增加值。\n    second_names = {\n        27: \"规模以上工业增加值\",\n        28: \"规模以上工业增加值制造业\",\n        29: \"规模以上工业增加值电热气水的生产和供应业\",\n        30: \"规模以上工业增加值非公有制\",\n        31: \"规模以上工业增加值大中型企业\",\n        32: \"规模以上工业增加值高技术产业\",\n        33: \"规模以上工业增加值高技术产业占规上工业比重（%）\",\n        34: \"规模以上工业增加值高新技术产业\",\n        35: \"规模以上工业增加值高新技术产业占规上工业比重（%）\",\n        36: \"规模以上工业增加值战略新兴产业\",\n        37: \"规模以上工业增加值战略新兴产业占规上工业比重（%）\",\n        38: \"规模以上工业增加值工业主导产业合计\",\n        39: \"规模以上工业增加值工业主导产业合计装备制造\",\n        40: \"规模以上工业增加值工业主导产业合计铝冶炼\",\n        41: \"规模以上工业增加值工业主导产业合计非金属矿物制品业\"\n    }\n    for row, base in second_names.items():\n        c = ws.cell(row, 3).value\n        d = ws.cell(row, 4).value\n        c_unit = \"%\" if row in (33, 35, 37) else \"-\"\n        if _valid(c):\n            _append(records, evidence, base + \"累计\", _value(c), c_unit, end_date,\n                    [\"主要经济指标!A%d\" % row, \"主要经济指标!A24\", \"主要经济指标!C26\"],\n                    \"主要经济指标!C%d\" % row,\n                    [\"主要经济指标!A%d\" % row] if c_unit == \"%\" else [], date_refs)\n        if _valid(d):\n            _append(records, evidence, base + \"比去年同期±%\", _value(d), \"%\", end_date,\n                    [\"主要经济指标!A%d\" % row, \"主要经济指标!A24\", \"主要经济指标!D26\"],\n                    \"主要经济指标!D%d\" % row, [\"主要经济指标!D26\"], date_refs)\n\n    # 第三块：固定资产投资完成额，仅有同比列B。\n    third_names = {\n        48: \"固定资产投资完成额固定资产投资\",\n        49: \"固定资产投资完成额固定资产投资工业投资\",\n        50: \"固定资产投资完成额固定资产投资房地产投资\",\n        51: \"固定资产投资完成额固定资产投资基础设施\",\n        52: \"固定资产投资完成额固定资产投资民间投资\",\n        54: \"固定资产投资完成额固定资产投资按产业类型分第一产业\",\n        55: \"固定资产投资完成额固定资产投资按产业类型分第二产业\",\n        56: \"固定资产投资完成额固定资产投资按产业类型分第三产业\",\n        58: \"固定资产投资完成额固定资产投资按建设性质分新建\",\n        59: \"固定资产投资完成额固定资产投资按建设性质分扩建\",\n        60: \"固定资产投资完成额固定资产投资按建设性质分改建和技术改造\"\n    }\n    for row, name in third_names.items():\n        value = ws.cell(row, 2).value\n        if _valid(value):\n            refs = [\"主要经济指标!A%d\" % row, \"主要经济指标!A45\", \"主要经济指标!B47\"]\n            _append(records, evidence, name + \"比去年同期±%\", _value(value), \"%\", end_date,\n                    refs, \"主要经济指标!B%d\" % row, [\"主要经济指标!B47\"], date_refs)\n\n    # 第四块：社会消费品零售总额。\n    fourth_names = {\n        66: \"社会消费品零售总额\",\n        68: \"社会消费品零售总额按规模分限额以上\",\n        69: \"社会消费品零售总额按规模分限额以下\",\n        71: \"社会消费品零售总额按行业分批发业\",\n        72: \"社会消费品零售总额按行业分零售业\",\n        73: \"社会消费品零售总额按行业分住宿业\",\n        74: \"社会消费品零售总额按行业分餐饮业\"\n    }\n    for row, name in fourth_names.items():\n        c = ws.cell(row, 3).value\n        d = ws.cell(row, 4).value\n        if _valid(c):\n            _append(records, evidence, name + \"累计\", _value(c), \"万元\", end_date,\n                    [\"主要经济指标!A%d\" % row, \"主要经济指标!A63\", \"主要经济指标!C65\"],\n                    \"主要经济指标!C%d\" % row, [\"主要经济指标!C64\"], date_refs)\n        if _valid(d):\n            _append(records, evidence, name + \"比去年同期±%\", _value(d), \"%\", end_date,\n                    [\"主要经济指标!A%d\" % row, \"主要经济指标!A63\", \"主要经济指标!D65\"],\n                    \"主要经济指标!D%d\" % row, [\"主要经济指标!D65\"], date_refs)\n    return records, evidence\n\n\ndef _run(params, with_evidence=False):\n    raw = _download(params)\n    workbook = openpyxl.load_workbook(BytesIO(raw), data_only=True, read_only=False)\n    if \"主要经济指标\" not in workbook.sheetnames:\n        raise ValueError(\"missing sheet: 主要经济指标\")\n    records, evidence = _extract(workbook[\"主要经济指标\"], params.get(\"title\", \"\"), [] if with_evidence else None)\n    result = {\"code\": 0, \"msg\": \"success\", \"ExcelData\": records}\n    if with_evidence:\n        result[\"_dc_evidence\"] = evidence\n    return result\n\n\ndef main(params):\n    return _run(params, False)\n\n\ndef _dc_validate(params):\n    return _run(params, True)\n",
+  "outputParams": [
+   {
+    "key": "42a397f0-b5fc-403a-a9cf-8303f95a40ca",
+    "fieldName": "ExcelData",
+    "selectedType": "template_config",
+    "value": [
+     "#template_config__0__templateConfigId",
+     "#template_config__0__excel_data"
+    ],
+    "globalData": {
+     "id": "7df0d2ee-b46b-4d93-9a7d-8e428abcafb0",
+     "fieldName": "excel_data",
+     "dataType": "Array<Object>",
+     "desc": "Excel解析后结果",
+     "selectedType": "manual",
+     "expanded": false,
+     "primaryKey": false,
+     "globalData": null,
+     "children": [
+      {
+       "id": "a8296e43-9571-45bf-a7e8-00af46bdd81f",
+       "fieldName": "end_date",
+       "dataType": "String",
+       "desc": "截止日期",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      },
+      {
+       "id": "bcc4c184-cc32-4cd8-9acd-8b451d7c4b29",
+       "fieldName": "indicator_data",
+       "dataType": "String",
+       "desc": "指标数据",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      },
+      {
+       "id": "99a798ac-c5d6-4356-93ee-d0e41a64d570",
+       "fieldName": "indicator_name",
+       "dataType": "String",
+       "desc": "指标名称",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      },
+      {
+       "id": "7b151afb-6f69-4ddb-9945-903aed8fc091",
+       "fieldName": "indicator_unit",
+       "dataType": "String",
+       "desc": "指标单位",
+       "selectedType": "manual",
+       "expanded": true,
+       "primaryKey": false,
+       "globalData": null,
+       "children": []
+      }
+     ]
+    },
+    "dataType": "Array<Object>"
+   }
+  ],
+  "timeout": "120",
+  "failureRetryCount": "0",
+  "uniqueId": 3,
+  "nodeName": "代码执行",
+  "displayName": "预标注_表格解析",
+  "nodeCode": "script",
+  "outputConfig": "codeOutputResult",
+  "iconName": "code",
+  "iconSize": "18",
+  "isStencil": false,
+  "isExpanded": true,
+  "canDelete": true,
+  "canCopy": true,
+  "canAdd": true,
+  "canEdit": true
+ },
+ "zIndex": 2121,
+ "disableMovable": false
+}

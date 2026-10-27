@@ -1,0 +1,44 @@
+# Local credentials; only sanitized configuration templates may be committed.
+.env
+.env.*
+!.env.example
+*.env
+!*.env.example
+secrets.*
+credentials.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Task payloads, model requests/responses, service tokens, databases, and caches.
+runtime/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+*.log
+*.sqlite*
+*.db
+*.lock
+.owners/
+.staging/
+.versions/
+.runtime.json
+
+# Original UI screenshots may expose internal addresses or account details.
+_capture/
+*.png
+*.jpg
+*.jpeg
+
+.DS_Store
+Thumbs.db

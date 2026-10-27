@@ -1,0 +1,115 @@
+{
+ "position": {
+  "x": 1470,
+  "y": 60
+ },
+ "size": {
+  "width": 260,
+  "height": 90
+ },
+ "view": "vue-shape-view",
+ "shape": "end",
+ "ports": {
+  "groups": {
+   "in": {
+    "position": "left",
+    "zIndex": 10,
+    "markup": [
+     {
+      "tagName": "circle",
+      "selector": "circle"
+     },
+     {
+      "tagName": "path",
+      "selector": "plus"
+     }
+    ],
+    "attrs": {
+     "circle": {
+      "r": 12,
+      "magnet": "passive",
+      "stroke": "#B0AFDF",
+      "strokeWidth": 3,
+      "fill": "#ffffff",
+      "cursor": "pointer",
+      "zIndex": 10,
+      "visibility": "visible",
+      "pointerEvents": "auto"
+     },
+     "plus": {
+      "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+      "strokeWidth": 3,
+      "fill": "none",
+      "pointerEvents": "none",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "stroke": "#B0AFDF",
+      "visibility": "hidden"
+     }
+    }
+   }
+  },
+  "items": [
+   {
+    "id": "end-in",
+    "group": "in",
+    "zIndex": 10,
+    "attrs": {
+     "circle": {
+      "r": 12,
+      "magnet": "passive",
+      "stroke": "#B0AFDF",
+      "strokeWidth": 3,
+      "fill": "#ffffff",
+      "cursor": "pointer",
+      "zIndex": 10,
+      "visibility": "visible",
+      "pointerEvents": "auto"
+     },
+     "plus": {
+      "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+      "strokeWidth": 3,
+      "fill": "none",
+      "pointerEvents": "none",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "stroke": "#B0AFDF",
+      "visibility": "hidden"
+     }
+    }
+   }
+  ]
+ },
+ "id": "end",
+ "data": {
+  "result": [
+   {
+    "workflowId": "2085556973963509762",
+    "workflowInstanceId": "2112365181336481793",
+    "fileMd5": null,
+    "inputMap": {
+     "fileMd5": "C02BBD1DEB3A82CCA96B66D873969E18"
+    },
+    "status": "success",
+    "workflowInstanceActionId": "2008117670046775378",
+    "output": {
+     "nodeTitleAlias": "发送",
+     "resultTxt": "{\"end_date\":null,\"release_frequency\":null,\"indicator_data\":null,\"parseFileMd5\":null,\"unitArray\":{\"indicator_unit\":[\"万元\",\"%\"],\"KB_unit\":[\"万元\",\"%\"],\"convert_ratio\":[1.000000000000,1.000000000000]},\"publictime\":null,\"convert_ratio\":null,\"pageTitle\":\"上街区人民政府\\\\政务公开\\\\政府信息公开\\\\法定主动公开内容\\\\统计信息\\\\统计月报\",\"indicator_name\":null,\"KB_unit\":null,\"fileMd5\":\"C02BBD1DEB3A82CCA96B66D873969E18\",\"markdownMD5\":null,\"title\":\"2026年2月份经济月报*地方经济\",\"rid\":null,\"out_data\":[{\"end_date\":\"2026-02-28\",\"indicator_data\":\"441442\",\"indicator_code\":\"1010103100\",\"publictime\":\"\",\"indicator_unit\":\"万元\",\"convert_ratio\":\"1\",\"indicator_name\":\"地区生产总值累计\",\"unit_ratio\":\"\",\"KB_unit\":\"万元\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"3.9\",\"indicator_code\":\"1010103099\",\"publictime\":\"\",\"indicator_unit\":\"%\",\"convert_ratio\":\"1\",\"indicator_name\":\"地区生产总值比去年同期±%\",\"unit_ratio\":\"\",\"KB_unit\":\"%\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"90\",\"indicator_code\":\"1010103242\",\"publictime\":\"\",\"indicator_unit\":\"万元\",\"convert_ratio\":\"1\",\"indicator_name\":\"第一产业累计\",\"unit_ratio\":\"\",\"KB_unit\":\"万元\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"4.5\",\"indicator_code\":\"1010103241\",\"publictime\":\"\",\"indicator_unit\":\"%\",\"convert_ratio\":\"1\",\"indicator_name\":\"第一产业比去年同期±%\",\"unit_ratio\":\"\",\"KB_unit\":\"%\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"165824\",\"indicator_code\":\"1010103174\",\"publictime\":\"\",\"indicator_unit\":\"万元\",\"convert_ratio\":\"1\",\"indicator_name\":\"第二产业累计\",\"unit_ratio\":\"\",\"KB_unit\":\"万元\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"3.8\",\"indicator_code\":\"1010103173\",\"publictime\":\"\",\"indicator_unit\":\"%\",\"convert_ratio\":\"1\",\"indicator_name\":\"第二产业比去年同期±%\",\"unit_ratio\":\"\",\"KB_unit\":\"%\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"275528\",\"indicator_code\":\"1010103208\",\"publictime\":\"\",\"indicator_unit\":\"万元\",\"convert_ratio\":\"1\",\"indicator_name\":\"第三产业累计\",\"unit_ratio\":\"\",\"KB_unit\":\"万元\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"3.9\",\"indicator_code\":\"1010103207\",\"publictime\":\"\",\"indicator_unit\":\"%\",\"convert_ratio\":\"1\",\"indicator_name\":\"第三产业比去年同期±%\",\"unit_ratio\":\"\",\"KB_unit\":\"%\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"4.6\",\"indicator_code\":\"1100202045\",\"publictime\":\"\",\"indicator_unit\":\"%\",\"convert_ratio\":\"1\",\"indicator_name\":\"规模以上工业增加值比去年同期±%\",\"unit_ratio\":\"\",\"KB_unit\":\"%\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"10.5\",\"indicator_code\":\"1020102258\",\"publictime\":\"\",\"indicator_unit\":\"%\",\"convert_ratio\":\"1\",\"indicator_name\":\"固定资产投资比去年同期±%\",\"unit_ratio\":\"\",\"KB_unit\":\"%\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"144003\",\"indicator_code\":\"1151802006\",\"publictime\":\"\",\"indicator_unit\":\"万元\",\"convert_ratio\":\"1\",\"indicator_name\":\"社会消费品零售总额累计\",\"unit_ratio\":\"\",\"KB_unit\":\"万元\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"6.2\",\"indicator_code\":\"1151802022\",\"publictime\":\"\",\"indicator_unit\":\"%\",\"convert_ratio\":\"1\",\"indicator_name\":\"社会消费品零售总额比去年同期±%\",\"unit_ratio\":\"\",\"KB_unit\":\"%\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"41404\",\"indicator_code\":\"1060303054\",\"publictime\":\"\",\"indicator_unit\":\"万元\",\"convert_ratio\":\"1\",\"indicator_name\":\"一般公共预算收入累计\",\"unit_ratio\":\"\",\"KB_unit\":\"万元\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"0.86\",\"indicator_code\":\"1060303070\",\"publictime\":\"\",\"indicator_unit\":\"%\",\"convert_ratio\":\"1\",\"indicator_name\":\"一般公共预算收入比去年同期±%\",\"unit_ratio\":\"\",\"KB_unit\":\"%\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"4.6\",\"indicator_code\":\"1100202045\",\"publictime\":\"\",\"indicator_unit\":\"%\",\"convert_ratio\":\"1\",\"indicator_name\":\"规模以上工业增加值比去年同期±%\",\"unit_ratio\":\"\",\"KB_unit\":\"%\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"144003\",\"indicator_code\":\"1151802006\",\"publictime\":\"\",\"indicator_unit\":\"万元\",\"convert_ratio\":\"1\",\"indicator_name\":\"社会消费品零售总额累计\",\"unit_ratio\":\"\",\"KB_unit\":\"万元\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"6.2\",\"indicator_code\":\"1151802022\",\"publictime\":\"\",\"indicator_unit\":\"%\",\"convert_ratio\":\"1\",\"indicator_name\":\"社会消费品零售总额比去年同期±%\",\"unit_ratio\":\"\",\"KB_unit\":\"%\",\"remark\":\"\",\"indicator_release_frequency\":null,\"pushtime\":null}],\"pushtime\":null,\"indicator_unit\":null,\"GZK\":{\"ZBDW\":[\"%\",\"%\",\"%\",\"万元\",\"%\",\"万元\",\"万元\",\"万元\",\"%\",\"%\",\"万元\",\"万元\",\"万元\",\"%\",\"%\",\"%\",\"%\",\"吨标准煤\",\"%\",\"万元\",\"%\"],\"ZBMC\":[\"万元工业增加值能耗(吨标准煤/万元)比去年同期±%\",\"第三产业比去年同期±%\",\"规模以上工业综合能源消费量(吨标准煤)比去年同期±%\",\"金融机构各项贷款余额*累计\",\"金融机构各项存款余额*比去年同期±%\",\"地区生产总值累计\",\"第一产业累计\",\"一般公共预算收入累计\",\"规模以上工业增加值比去年同期±%\",\"金融机构各项贷款余额*比去年同期±%\",\"金融机构各项存款余额*累计\",\"社会消费品零售总额累计\",\"第三产业累计\",\"社会消费品零售总额比去年同期±%\",\"地区生产总值比去年同期±%\",\"第二产业比去年同期±%\",\"一般公共预算收入比去年同期±%\",\"规模以上工业综合能源消费量(吨标准煤)累计\",\"固定资产投资比去年同期±%\",\"第二产业累计\",\"第一产业比去年同期±%\"],\"GZKJG\":[{\"rule_indicator_code\":1100801609,\"rule_indicator_name\":\"万元工业增加值能耗(吨标准煤/万元)比去年同期±%\",\"rule_constant_name\":\"%\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1010103207,\"rule_indicator_name\":\"第三产业比去年同期±%\",\"rule_constant_name\":\"%\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"季\"},{\"rule_indicator_code\":1100801593,\"rule_indicator_name\":\"规模以上工业综合能源消费量(吨标准煤)比去年同期±%\",\"rule_constant_name\":\"%\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1070201532,\"rule_indicator_name\":\"金融机构各项贷款余额*累计\",\"rule_constant_name\":\"万元\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1070101462,\"rule_indicator_name\":\"金融机构各项存款余额*比去年同期±%\",\"rule_constant_name\":\"%\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1010103100,\"rule_indicator_name\":\"地区生产总值累计\",\"rule_constant_name\":\"万元\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"季\"},{\"rule_indicator_code\":1010103242,\"rule_indicator_name\":\"第一产业累计\",\"rule_constant_name\":\"万元\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"季\"},{\"rule_indicator_code\":1060303054,\"rule_indicator_name\":\"一般公共预算收入累计\",\"rule_constant_name\":\"万元\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1100202045,\"rule_indicator_name\":\"规模以上工业增加值比去年同期±%\",\"rule_constant_name\":\"%\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1070201562,\"rule_indicator_name\":\"金融机构各项贷款余额*比去年同期±%\",\"rule_constant_name\":\"%\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1070101455,\"rule_indicator_name\":\"金融机构各项存款余额*累计\",\"rule_constant_name\":\"万元\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1151802006,\"rule_indicator_name\":\"社会消费品零售总额累计\",\"rule_constant_name\":\"万元\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1010103208,\"rule_indicator_name\":\"第三产业累计\",\"rule_constant_name\":\"万元\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"季\"},{\"rule_indicator_code\":1151802022,\"rule_indicator_name\":\"社会消费品零售总额比去年同期±%\",\"rule_constant_name\":\"%\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1010103099,\"rule_indicator_name\":\"地区生产总值比去年同期±%\",\"rule_constant_name\":\"%\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"季\"},{\"rule_indicator_code\":1010103173,\"rule_indicator_name\":\"第二产业比去年同期±%\",\"rule_constant_name\":\"%\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"季\"},{\"rule_indicator_code\":1060303070,\"rule_indicator_name\":\"一般公共预算收入比去年同期±%\",\"rule_constant_name\":\"%\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1100801577,\"rule_indicator_name\":\"规模以上工业综合能源消费量(吨标准煤)累计\",\"rule_constant_name\":\"吨标准煤\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1020102258,\"rule_indicator_name\":\"固定资产投资比去年同期±%\",\"rule_constant_name\":\"%\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"月\"},{\"rule_indicator_code\":1010103174,\"rule_indicator_name\":\"第二产业累计\",\"rule_constant_name\":\"万元\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"季\"},{\"rule_indicator_code\":1010103241,\"rule_indicator_name\":\"第一产业比去年同期±%\",\"rule_constant_name\":\"%\",\"rule_unit_ratio\":\"\",\"indicator_release_frequency\":\"季\"}],\"ZBDM\":[1100801609,1010103207,1100801593,1070201532,1070101462,1010103100,1010103242,1060303054,1100202045,1070201562,1070101455,1151802006,1010103208,1151802022,1010103099,1010103173,1060303070,1100801577,1020102258,1010103174,1010103241],\"indicator_release_frequency\":[\"月\",\"季\",\"月\",\"月\",\"月\",\"季\",\"季\",\"月\",\"月\",\"月\",\"月\",\"月\",\"季\",\"月\",\"季\",\"季\",\"月\",\"月\",\"月\",\"季\",\"季\"]},\"standard_unit\":null,\"fileType\":null,\"excel_data\":[{\"end_date\":\"2026-02-28\",\"indicator_data\":\"441442\",\"indicator_unit\":\"万元\",\"indicator_name\":\"地区生产总值累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"3.9\",\"indicator_unit\":\"%\",\"indicator_name\":\"地区生产总值比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"90\",\"indicator_unit\":\"万元\",\"indicator_name\":\"第一产业累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"4.5\",\"indicator_unit\":\"%\",\"indicator_name\":\"第一产业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"165824\",\"indicator_unit\":\"万元\",\"indicator_name\":\"第二产业累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"3.8\",\"indicator_unit\":\"%\",\"indicator_name\":\"第二产业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"138004\",\"indicator_unit\":\"万元\",\"indicator_name\":\"工业累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"5\",\"indicator_unit\":\"%\",\"indicator_name\":\"工业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"27819\",\"indicator_unit\":\"万元\",\"indicator_name\":\"建筑业累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"-1.9\",\"indicator_unit\":\"%\",\"indicator_name\":\"建筑业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"275528\",\"indicator_unit\":\"万元\",\"indicator_name\":\"第三产业累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"3.9\",\"indicator_unit\":\"%\",\"indicator_name\":\"第三产业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"4.6\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"138654\",\"indicator_unit\":\"吨标准煤\",\"indicator_name\":\"规模以上工业综合能源消费量（吨标准煤）累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"-30.8\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业综合能源消费量（吨标准煤）比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"-33.87\",\"indicator_unit\":\"%\",\"indicator_name\":\"万元工业增加值能耗（吨标准煤/万元）比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"10.5\",\"indicator_unit\":\"%\",\"indicator_name\":\"固定资产投资比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"144003\",\"indicator_unit\":\"万元\",\"indicator_name\":\"社会消费品零售总额累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"6.2\",\"indicator_unit\":\"%\",\"indicator_name\":\"社会消费品零售总额比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"46414\",\"indicator_unit\":\"万元\",\"indicator_name\":\"地方财政收入累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"41404\",\"indicator_unit\":\"万元\",\"indicator_name\":\"一般公共预算收入累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"0.86\",\"indicator_unit\":\"%\",\"indicator_name\":\"一般公共预算收入比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"3257568.002719\",\"indicator_unit\":\"万元\",\"indicator_name\":\"金融机构各项存款余额累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"8.1\",\"indicator_unit\":\"%\",\"indicator_name\":\"金融机构各项存款余额比年初增长\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"1633374.848481\",\"indicator_unit\":\"万元\",\"indicator_name\":\"金融机构各项贷款余额累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"-0.8\",\"indicator_unit\":\"%\",\"indicator_name\":\"金融机构各项贷款余额比年初增长\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"101.2\",\"indicator_unit\":\"%\",\"indicator_name\":\"居民消费价格总指数（%）累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"1.2\",\"indicator_unit\":\"个百分点\",\"indicator_name\":\"居民消费价格总指数（%）比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"4.6\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"4.1\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值制造业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"5.3\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值电热气水的生产和供应业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"21.3\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值非公有制比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"-6.6\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值大中型企业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"40.2\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值高技术产业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"2.4\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值高技术产业占规上工业比重（%）累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"0.3\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值高新技术产业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"53.2\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值高新技术产业占规上工业比重（%）累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"7.5\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值战略新兴产业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"11.1\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值战略新兴产业占规上工业比重（%）累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"0.2\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值工业主导产业合计比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"21.3\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值工业主导产业合计装备制造比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"-34.6\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值工业主导产业合计铝冶炼比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"2.2\",\"indicator_unit\":\"%\",\"indicator_name\":\"规模以上工业增加值工业主导产业合计非金属矿物制品业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"10.5\",\"indicator_unit\":\"%\",\"indicator_name\":\"固定资产投资完成额固定资产投资比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"14.4\",\"indicator_unit\":\"%\",\"indicator_name\":\"固定资产投资完成额固定资产投资工业投资比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"33.8\",\"indicator_unit\":\"%\",\"indicator_name\":\"固定资产投资完成额固定资产投资房地产投资比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"-52.7\",\"indicator_unit\":\"%\",\"indicator_name\":\"固定资产投资完成额固定资产投资基础设施比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"20\",\"indicator_unit\":\"%\",\"indicator_name\":\"固定资产投资完成额固定资产投资民间投资比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"15.5\",\"indicator_unit\":\"%\",\"indicator_name\":\"固定资产投资完成额固定资产投资按产业类型分第二产业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"6\",\"indicator_unit\":\"%\",\"indicator_name\":\"固定资产投资完成额固定资产投资按产业类型分第三产业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"44.5\",\"indicator_unit\":\"%\",\"indicator_name\":\"固定资产投资完成额固定资产投资按建设性质分新建比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"-57.2\",\"indicator_unit\":\"%\",\"indicator_name\":\"固定资产投资完成额固定资产投资按建设性质分扩建比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"-48.2\",\"indicator_unit\":\"%\",\"indicator_name\":\"固定资产投资完成额固定资产投资按建设性质分改建和技术改造比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"144003\",\"indicator_unit\":\"万元\",\"indicator_name\":\"社会消费品零售总额累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"6.2\",\"indicator_unit\":\"%\",\"indicator_name\":\"社会消费品零售总额比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"17150.6\",\"indicator_unit\":\"万元\",\"indicator_name\":\"社会消费品零售总额按规模分限额以上累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"34.8\",\"indicator_unit\":\"%\",\"indicator_name\":\"社会消费品零售总额按规模分限额以上比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"126852.4\",\"indicator_unit\":\"万元\",\"indicator_name\":\"社会消费品零售总额按规模分限额以下累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"3.2\",\"indicator_unit\":\"%\",\"indicator_name\":\"社会消费品零售总额按规模分限额以下比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"418685\",\"indicator_unit\":\"万元\",\"indicator_name\":\"社会消费品零售总额按行业分批发业累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"1.1\",\"indicator_unit\":\"%\",\"indicator_name\":\"社会消费品零售总额按行业分批发业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"62559\",\"indicator_unit\":\"万元\",\"indicator_name\":\"社会消费品零售总额按行业分零售业累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"10.4\",\"indicator_unit\":\"%\",\"indicator_name\":\"社会消费品零售总额按行业分零售业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"804\",\"indicator_unit\":\"万元\",\"indicator_name\":\"社会消费品零售总额按行业分住宿业累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"8.2\",\"indicator_unit\":\"%\",\"indicator_name\":\"社会消费品零售总额按行业分住宿业比去年同期±%\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"19557\",\"indicator_unit\":\"万元\",\"indicator_name\":\"社会消费品零售总额按行业分餐饮业累计\"},{\"end_date\":\"2026-02-28\",\"indicator_data\":\"6.9\",\"indicator_unit\":\"%\",\"indicator_name\":\"社会消费品零售总额按行业分餐饮业比去年同期±%\"}],\"columnName\":null}"
+    }
+   }
+  ],
+  "uniqueId": 0,
+  "nodeName": "结束",
+  "displayName": "发送",
+  "nodeCode": "end",
+  "iconName": "power",
+  "iconSize": "16",
+  "isStencil": false,
+  "isExpanded": true,
+  "canDelete": false,
+  "canCopy": false,
+  "canAdd": true,
+  "canEdit": true
+ },
+ "zIndex": 2128
+}

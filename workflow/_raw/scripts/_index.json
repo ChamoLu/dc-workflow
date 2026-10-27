@@ -1,0 +1,182 @@
+[
+  {
+    "file": "01_指标单位清洗_184.py",
+    "nodeId": "script_1784881514079_184",
+    "displayName": "指标单位清洗",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 40,
+    "chars": 990
+  },
+  {
+    "file": "02_指标单位清洗_1414.py",
+    "nodeId": "script_1785149007095_1414",
+    "displayName": "指标单位清洗",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 108,
+    "chars": 2838
+  },
+  {
+    "file": "03_预标注_TXT解析_1950.py",
+    "nodeId": "script_1784881455983_1950",
+    "displayName": "预标注_TXT解析",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 71,
+    "chars": 1600
+  },
+  {
+    "file": "04_内审_区分嫌疑数据_2034.py",
+    "nodeId": "script_1789899524608_2034",
+    "displayName": "内审_区分嫌疑数据",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 303,
+    "chars": 5144
+  },
+  {
+    "file": "05_内审_数据为空清洗_2657.py",
+    "nodeId": "script_1784881528342_2657",
+    "displayName": "内审_数据为空清洗",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 43,
+    "chars": 924
+  },
+  {
+    "file": "06_预标注_表格数据匹配_2938.py",
+    "nodeId": "script_1785147364004_2938",
+    "displayName": "预标注_表格数据匹配",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 130,
+    "chars": 3616
+  },
+  {
+    "file": "07_代码执行_4185.py",
+    "nodeId": "script_1789901334598_4185",
+    "displayName": "代码执行",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 12,
+    "chars": 198
+  },
+  {
+    "file": "08_预标注_TXT数据匹配_4633.py",
+    "nodeId": "script_1784881503023_4633",
+    "displayName": "预标注_TXT数据匹配",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 67,
+    "chars": 2247
+  },
+  {
+    "file": "09_excel_python_执行_4912.py",
+    "nodeId": "script_1784000633609_4912",
+    "displayName": "excel python 执行",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 56,
+    "chars": 1440
+  },
+  {
+    "file": "10_内审_数据为空清洗_5230.py",
+    "nodeId": "script_1784000824030_5230",
+    "displayName": "内审_数据为空清洗",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 39,
+    "chars": 1097
+  },
+  {
+    "file": "11_html_python_执行_5242.py",
+    "nodeId": "script_1788421429256_5242",
+    "displayName": "html python 执行",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 22,
+    "chars": 544
+  },
+  {
+    "file": "12_内审_前置校验_6387.py",
+    "nodeId": "script_1789899980900_6387",
+    "displayName": "内审_前置校验",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 533,
+    "chars": 10390
+  },
+  {
+    "file": "13_指标单位清洗_7882.py",
+    "nodeId": "script_1784000950198_7882",
+    "displayName": "指标单位清洗",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 108,
+    "chars": 2838
+  },
+  {
+    "file": "14_预标注_表格数据匹配_8300.py",
+    "nodeId": "script_1784000760345_8300",
+    "displayName": "预标注_表格数据匹配",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 93,
+    "chars": 2847
+  },
+  {
+    "file": "15_预标注_规则库查询转_8448.py",
+    "nodeId": "script_1781493487647_8448",
+    "displayName": "预标注_规则库查询转",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "1",
+    "lines": 31,
+    "chars": 894
+  },
+  {
+    "file": "16_指标单位清洗_9163.py",
+    "nodeId": "script_1783336551993_9163",
+    "displayName": "指标单位清洗",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 52,
+    "chars": 1131
+  },
+  {
+    "file": "17_预标注_指标代码匹配_9513.py",
+    "nodeId": "script_1782882488873_9513",
+    "displayName": "预标注_指标代码匹配",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 97,
+    "chars": 2636
+  },
+  {
+    "file": "18_内审_数据为空清洗_9684.py",
+    "nodeId": "script_1784622420092_9684",
+    "displayName": "内审_数据为空清洗",
+    "scriptType": "Python3",
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "lines": 43,
+    "chars": 924
+  }
+]

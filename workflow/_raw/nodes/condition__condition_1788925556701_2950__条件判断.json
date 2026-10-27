@@ -1,0 +1,300 @@
+{
+  "position": {
+    "x": -2990,
+    "y": 860
+  },
+  "size": {
+    "width": 450,
+    "height": 307
+  },
+  "view": "vue-shape-view",
+  "shape": "condition",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "absolute",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "out_6bc47e54-176e-4518-87d9-1b1338a97952",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "hidden",
+            "pointerEvents": "none"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "IF",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 60
+        }
+      },
+      {
+        "id": "out_b2eac185-0c45-475e-8543-39ce39375155",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "ELSE",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 215
+        }
+      },
+      {
+        "id": "in_1788925556701_2950",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "condition_1788925556701_2950",
+  "data": {
+    "uniqueId": 13,
+    "branches": [
+      {
+        "branchCode": "6bc47e54-176e-4518-87d9-1b1338a97952",
+        "logic": "or",
+        "condition": [
+          {
+            "conditionCode": "1486dd26-1c01-4770-8b5c-de0b8079a10b",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__PromptFile",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__PromptFile"
+            ],
+            "dataType": "String",
+            "rightValue": "empty",
+            "method": "contains",
+            "globalData": {
+              "id": "9641f3fe-43de-4ffe-bd51-056b9711f2f0",
+              "fieldName": "PromptFile",
+              "dataType": "String",
+              "desc": "Prompt文件内容",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "storageFlag": 2,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          },
+          {
+            "conditionCode": "efac9c2c-b6e1-48c0-b133-70ff4da53fce",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__PromptCode",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__PromptCode"
+            ],
+            "dataType": "String",
+            "rightValue": "",
+            "method": "isEmpty",
+            "globalData": {
+              "id": "948bf193-23e8-41df-9647-9bacdf78a3f9",
+              "fieldName": "PromptCode",
+              "dataType": "String",
+              "desc": "Prompt文件内容",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "storageFlag": 2,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          }
+        ],
+        "branchName": "IF"
+      },
+      {
+        "branchCode": "b2eac185-0c45-475e-8543-39ce39375155",
+        "logic": "and",
+        "condition": [],
+        "branchName": "ELSE"
+      }
+    ],
+    "nodeName": "条件判断",
+    "displayName": "条件判断",
+    "nodeCode": "condition",
+    "iconName": "shuffle",
+    "outputConfig": "",
+    "iconSize": "22",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2524
+}

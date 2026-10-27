@@ -1,0 +1,300 @@
+{
+  "position": {
+    "x": -2930,
+    "y": -350
+  },
+  "size": {
+    "width": 450,
+    "height": 307
+  },
+  "view": "vue-shape-view",
+  "shape": "condition",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "absolute",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "out_fc4d232e-0393-424a-9ded-c6edbd2ded1c",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "hidden",
+            "pointerEvents": "none"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "IF",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 60
+        }
+      },
+      {
+        "id": "out_0d54e906-47a9-429b-8d8e-5dd10481292d",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "ELSE",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 215
+        }
+      },
+      {
+        "id": "in_1788925023921_9802",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "condition_1788925023921_9802",
+  "data": {
+    "uniqueId": 11,
+    "branches": [
+      {
+        "branchCode": "fc4d232e-0393-424a-9ded-c6edbd2ded1c",
+        "logic": "or",
+        "condition": [
+          {
+            "conditionCode": "014aed90-7a6f-442e-8683-503c51e3ca4a",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__PythonFile",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__PythonFile"
+            ],
+            "dataType": "String",
+            "rightValue": "empty",
+            "method": "contains",
+            "globalData": {
+              "id": "e2396d0b-c850-412a-8b67-2fe40c2e5a9b",
+              "fieldName": "PythonFile",
+              "dataType": "String",
+              "desc": "python文件名",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "storageFlag": 2,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          },
+          {
+            "conditionCode": "612e881e-a647-4bfc-a0ed-26bd2d471d62",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__PythonCode",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__PythonCode"
+            ],
+            "dataType": "String",
+            "rightValue": "",
+            "method": "isEmpty",
+            "globalData": {
+              "id": "365007e8-8a71-45cf-b0f7-7af3eebc1d11",
+              "fieldName": "PythonCode",
+              "dataType": "String",
+              "desc": "python代码",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "storageFlag": 2,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          }
+        ],
+        "branchName": "IF"
+      },
+      {
+        "branchCode": "0d54e906-47a9-429b-8d8e-5dd10481292d",
+        "logic": "and",
+        "condition": [],
+        "branchName": "ELSE"
+      }
+    ],
+    "nodeName": "条件判断",
+    "displayName": "条件判断",
+    "nodeCode": "condition",
+    "iconName": "shuffle",
+    "outputConfig": "",
+    "iconSize": "22",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2520
+}

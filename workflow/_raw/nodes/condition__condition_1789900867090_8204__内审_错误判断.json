@@ -1,0 +1,300 @@
+{
+  "position": {
+    "x": 4670,
+    "y": -150
+  },
+  "size": {
+    "width": 450,
+    "height": 307
+  },
+  "view": "vue-shape-view",
+  "shape": "condition",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "absolute",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1789900867090_8204",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_d18532aa-4e2c-4adf-a87e-a197c1cb9490",
+        "group": "out",
+        "zIndex": 10,
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 60
+        },
+        "attrs": {
+          "text": {
+            "text": "IF",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          },
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_69aee5ed-56be-42ac-ad08-28bda06ede48",
+        "group": "out",
+        "zIndex": 10,
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 215
+        },
+        "attrs": {
+          "text": {
+            "text": "ELSE",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          },
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "condition_1789900867090_8204",
+  "data": {
+    "uniqueId": 16,
+    "branches": [
+      {
+        "branchCode": "d18532aa-4e2c-4adf-a87e-a197c1cb9490",
+        "logic": "and",
+        "condition": [
+          {
+            "conditionCode": "dbd3d286-8bd8-4065-8a99-691b28a8e970",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__warning_data.indicator_code",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__warning_data",
+              "#template_config__0__warning_data.indicator_code"
+            ],
+            "dataType": "String",
+            "rightValue": "empty",
+            "method": "excludes",
+            "globalData": {
+              "id": "ce75b18c-bbdf-40bc-9603-10d3036aebc1",
+              "fieldName": "indicator_code",
+              "dataType": "String",
+              "desc": "指标代码",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          },
+          {
+            "conditionCode": "2bd6df37-ef6d-413d-8b64-39f329507e2e",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__warning_data.indicator_data",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__warning_data",
+              "#template_config__0__warning_data.indicator_data"
+            ],
+            "dataType": "String",
+            "rightValue": "empty",
+            "method": "excludes",
+            "globalData": {
+              "id": "f8f04644-d993-4baa-9719-1fa6f75fd22c",
+              "fieldName": "indicator_data",
+              "dataType": "String",
+              "desc": "指标数据",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          }
+        ],
+        "branchName": "IF"
+      },
+      {
+        "branchCode": "69aee5ed-56be-42ac-ad08-28bda06ede48",
+        "logic": "and",
+        "condition": [],
+        "branchName": "ELSE"
+      }
+    ],
+    "nodeName": "条件判断",
+    "displayName": "内审_错误判断",
+    "nodeCode": "condition",
+    "iconName": "shuffle",
+    "outputConfig": "",
+    "iconSize": "22",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2559
+}

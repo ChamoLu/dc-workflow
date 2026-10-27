@@ -1,0 +1,273 @@
+{
+  "position": {
+    "x": -1640,
+    "y": 1030
+  },
+  "size": {
+    "width": 400,
+    "height": 50
+  },
+  "view": "vue-shape-view",
+  "shape": "custom_rule",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "right",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1784622356690_2817",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_1784622356690_2817",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "custom_rule_1784622356690_2817",
+  "data": {
+    "serviceApiId": "25",
+    "inputParams": [
+      {
+        "desc": "raw_unit",
+        "dataType": "String",
+        "fieldName": "raw_unit",
+        "isReadOnly": false,
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__unitArray",
+          "#template_config__0__unitArray.indicator_unit"
+        ],
+        "widgetType": "input"
+      },
+      {
+        "desc": "target_code",
+        "dataType": "String",
+        "fieldName": "target_code",
+        "isReadOnly": false,
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__unitArray",
+          "#template_config__0__unitArray.KB_unit"
+        ],
+        "widgetType": "input"
+      }
+    ],
+    "outputParams": [
+      {
+        "desc": "raw_unit",
+        "dataType": "String",
+        "fieldName": "raw_unit",
+        "isReadOnly": false,
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__unitArray",
+          "#template_config__0__unitArray.indicator_unit"
+        ],
+        "widgetType": "input",
+        "globalData": {
+          "id": "cdeba199-d08f-4fe4-a072-374a4631273b",
+          "fieldName": "indicator_unit",
+          "dataType": "String",
+          "desc": "采集单位",
+          "selectedType": "manual",
+          "expanded": true,
+          "primaryKey": false,
+          "globalData": null,
+          "children": []
+        }
+      },
+      {
+        "desc": "target_code",
+        "dataType": "String",
+        "fieldName": "target_code",
+        "isReadOnly": false,
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__unitArray",
+          "#template_config__0__unitArray.KB_unit"
+        ],
+        "widgetType": "input",
+        "globalData": {
+          "id": "8f82932a-2a28-4dd3-8b23-4208a37fc353",
+          "fieldName": "KB_unit",
+          "dataType": "String",
+          "desc": "库表单位",
+          "selectedType": "manual",
+          "expanded": true,
+          "primaryKey": false,
+          "globalData": null,
+          "children": []
+        }
+      },
+      {
+        "desc": "convert_ratio",
+        "dataType": "String",
+        "fieldName": "convert_ratio",
+        "isReadOnly": false,
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__unitArray",
+          "#template_config__0__unitArray.convert_ratio"
+        ],
+        "widgetType": "input",
+        "globalData": {
+          "id": "47e950c1-4f8a-4643-9291-7208475eade5",
+          "fieldName": "convert_ratio",
+          "dataType": "String",
+          "desc": "转换率",
+          "selectedType": "manual",
+          "expanded": true,
+          "primaryKey": false,
+          "globalData": null,
+          "children": []
+        }
+      }
+    ],
+    "ruleId": "206",
+    "ruleType": "dynamic_query",
+    "ruleIndexId": "3549",
+    "batchExecution": false,
+    "sourceType": 1,
+    "uniqueId": 5,
+    "nodeName": "自定义规则",
+    "displayName": "预标注_转换率查询",
+    "nodeCode": "custom_rule",
+    "outputConfig": "workflowRuleEngineResult",
+    "iconName": "t-b-setting",
+    "iconSize": "16",
+    "isStencil": false,
+    "isExpanded": false,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2431
+}

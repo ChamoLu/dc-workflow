@@ -1,0 +1,216 @@
+{
+  "position": {
+    "x": 6040,
+    "y": -490
+  },
+  "size": {
+    "width": 400,
+    "height": 50
+  },
+  "view": "vue-shape-view",
+  "shape": "mark_task",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "right",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1789901258389_3138",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_1789901258389_3138",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "mark_task_1789901258389_3138",
+  "data": {
+    "uniqueId": 1,
+    "markTaskTypeCode": "MARK0018",
+    "typeName": "EDB标注（团队）",
+    "filterTaskPolicy": [
+      "activeAccept",
+      "autoAssign"
+    ],
+    "markTaskPolicyCode": "activeAccept",
+    "fieldSource": "taskTemplate",
+    "taskTemplateId": "2103026958354526212",
+    "difficulty": 3,
+    "markFields": [
+      {
+        "dataType": "String",
+        "indexCode": "indicator_data",
+        "indexName": "",
+        "isRequired": false
+      },
+      {
+        "dataType": "String",
+        "indexCode": "indicator_name",
+        "indexName": "",
+        "isRequired": false
+      },
+      {
+        "dataType": "String",
+        "indexCode": "end_date",
+        "indexName": "",
+        "isRequired": false
+      },
+      {
+        "dataType": "String",
+        "indexCode": "publictime",
+        "indexName": "",
+        "isRequired": false
+      },
+      {
+        "dataType": "String",
+        "indexCode": "indicator_unit",
+        "indexName": "",
+        "isRequired": false
+      },
+      {
+        "dataType": "Array<Object>",
+        "indexCode": "warning_data",
+        "indexName": "",
+        "isRequired": false
+      }
+    ],
+    "timeLimit": 1440,
+    "timeLimitUnit": "minute",
+    "priorityParams": [],
+    "nodeName": "标注任务",
+    "displayName": "内审_json标注",
+    "nodeCode": "mark_task",
+    "iconName": "message",
+    "outputConfig": "markTaskId",
+    "iconSize": "22",
+    "isStencil": false,
+    "isExpanded": false,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2571
+}

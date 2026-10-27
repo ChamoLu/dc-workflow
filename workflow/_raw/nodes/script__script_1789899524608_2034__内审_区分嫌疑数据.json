@@ -1,0 +1,741 @@
+{
+  "position": {
+    "x": 1830,
+    "y": -250
+  },
+  "size": {
+    "width": 500,
+    "height": 912
+  },
+  "view": "vue-shape-view",
+  "shape": "script",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "right",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1789899524608_2034",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_1789899524608_2034",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "script_1789899524608_2034",
+  "data": {
+    "inputParams": [
+      {
+        "key": "8e710424-3d2f-4cee-922b-fa03aced31f2",
+        "fieldName": "OUTDATA",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__out_data"
+        ],
+        "globalData": {
+          "id": "daba0faa-11d9-4976-81a7-20badd4b0d2a",
+          "fieldName": "out_data",
+          "dataType": "Array<Object>",
+          "desc": "最终输出",
+          "selectedType": "manual",
+          "expanded": true,
+          "globalData": null,
+          "primaryKey": false,
+          "processOnly": false,
+          "storageFlag": 1,
+          "children": [
+            {
+              "id": "2e10069d-bf8a-4740-8af7-5ebfa0d41615",
+              "fieldName": "end_date",
+              "dataType": "String",
+              "desc": "截止日期",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "52d00d12-7fe0-49e9-9e36-6663502c56ae",
+              "fieldName": "indicator_data",
+              "dataType": "String",
+              "desc": "指标数据",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "6c234047-ff99-4c08-bf96-1822a6eb504a",
+              "fieldName": "indicator_name",
+              "dataType": "String",
+              "desc": "指标名称",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "8b54d62e-5ae7-4eb3-a979-a31e2f6c90a7",
+              "fieldName": "indicator_code",
+              "dataType": "String",
+              "desc": "指标代码",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "e90a8a16-65b1-4d0c-98b4-c9d890f1aea0",
+              "fieldName": "unit_ratio",
+              "dataType": "String",
+              "desc": "单位比例",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "8450ded8-bf52-4989-a116-a9a827a5e09f",
+              "fieldName": "pushtime",
+              "dataType": "String",
+              "desc": "发布时间",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "f0f644f1-3819-4e42-ad52-1fdc174caa7f",
+              "fieldName": "remark",
+              "dataType": "String",
+              "desc": "备注",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "50776166-e2c1-4f83-9921-1cb983adfc33",
+              "fieldName": "indicator_release_frequency",
+              "dataType": "String",
+              "desc": "披露频率",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "93398e21-cc22-478a-9f80-4be07f9a6aa8",
+              "fieldName": "indicator_unit",
+              "dataType": "String",
+              "desc": "采集到的单位",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "7d9e6d7c-4cd3-4812-b787-87c5e8c2c409",
+              "fieldName": "KB_unit",
+              "dataType": "String",
+              "desc": "库表单位",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "5714b1df-e6a1-4a9b-93b3-e0637b57b41d",
+              "fieldName": "convert_ratio",
+              "dataType": "String",
+              "desc": "转换率",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "5a99f283-4e2d-4bf9-9190-e09bb1d0f5f1",
+              "fieldName": "publictime",
+              "dataType": "String",
+              "desc": "信息发布日期",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "processOnly": false,
+              "children": []
+            }
+          ]
+        },
+        "dataType": "Array<Object>"
+      },
+      {
+        "key": "77c34a6d-6716-4f49-8dc0-6dc87d71a866",
+        "fieldName": "PLPL",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__out_data",
+          "#template_config__0__out_data.indicator_release_frequency"
+        ],
+        "globalData": {
+          "id": "50776166-e2c1-4f83-9921-1cb983adfc33",
+          "fieldName": "indicator_release_frequency",
+          "dataType": "String",
+          "desc": "披露频率",
+          "selectedType": "manual",
+          "expanded": true,
+          "globalData": null,
+          "primaryKey": false,
+          "processOnly": false,
+          "children": []
+        },
+        "dataType": "String"
+      }
+    ],
+    "scriptType": "Python3",
+    "scriptCode": "# -*- coding: utf-8 -*-\n\n\"\"\"\n区分嫌疑数据规则：\n\n输入：\n    OUTDATA\n\n输出：\n    OUTDATA\n    warningdata\n\n校验规则：\n\n1. indicator_release_frequency 为“月”时：\n   end_date 必须是对应月份最后一天\n   → remark = \"截止日期不是月末\"\n\n2. indicator_release_frequency 为“季”时：\n   end_date 必须是3月、6月、9月、12月的最后一天\n   → remark = \"截止日期不是季末\"\n\n3. indicator_release_frequency 为“半年”时：\n   end_date 必须是6月或12月的最后一天\n   → remark = \"截止日期不是半年末\"\n\n4. indicator_release_frequency 为“年”时：\n   end_date 必须是12月31日\n   → remark = \"截止日期不是年末\"\n\n5. 同一条数据存在多个问题：\n   → warningdata 只放一次\n   → remark 合并多个问题\n\n6. OUTDATA 原样输出，不删除数据。\n\n7. warningdata 无异常时：\n   indicator_code = \"empty\"\n   indicator_name = \"empty\"\n\n说明：\n- indicator_data 为0不再作为异常判断。\n\"\"\"\n\nimport calendar\nimport datetime\n\n\ndef is_empty(value):\n    \"\"\"判断字段是否为空\"\"\"\n\n    if value is None:\n        return True\n\n    if isinstance(value, str):\n        return value.strip() == \"\"\n\n    return False\n\n\ndef parse_date(value):\n    \"\"\"将常见日期格式转换为date，解析失败返回None\"\"\"\n\n    if value is None:\n        return None\n\n    if isinstance(value, datetime.datetime):\n        return value.date()\n\n    if isinstance(value, datetime.date):\n        return value\n\n    text = str(value).strip()\n\n    if not text:\n        return None\n\n    formats = [\n        \"%Y-%m-%d\",\n        \"%Y/%m/%d\",\n        \"%Y.%m.%d\",\n        \"%Y年%m月%d日\",\n        \"%Y年%m月%d号\",\n        \"%Y-%m-%d %H:%M:%S\",\n        \"%Y/%m/%d %H:%M:%S\",\n    ]\n\n    for fmt in formats:\n\n        try:\n            return datetime.datetime.strptime(\n                text,\n                fmt\n            ).date()\n\n        except ValueError:\n            continue\n\n    return None\n\n\ndef is_month_end(value):\n    \"\"\"判断是否为月末\"\"\"\n\n    dt = parse_date(value)\n\n    if dt is None:\n        return False\n\n    last_day = calendar.monthrange(\n        dt.year,\n        dt.month\n    )[1]\n\n    return dt.day == last_day\n\n\ndef is_quarter_end(value):\n    \"\"\"判断是否为季末\"\"\"\n\n    dt = parse_date(value)\n\n    if dt is None:\n        return False\n\n    return (\n        dt.month in (3, 6, 9, 12)\n        and is_month_end(dt)\n    )\n\n\ndef is_half_year_end(value):\n    \"\"\"判断是否为半年末\"\"\"\n\n    dt = parse_date(value)\n\n    if dt is None:\n        return False\n\n    return (\n        dt.month in (6, 12)\n        and is_month_end(dt)\n    )\n\n\ndef is_year_end(value):\n    \"\"\"判断是否为年末\"\"\"\n\n    dt = parse_date(value)\n\n    if dt is None:\n        return False\n\n    return (\n        dt.month == 12\n        and dt.day == 31\n    )\n\n\ndef main(params):\n\n    OUTDATA = params.get(\n        \"OUTDATA\",\n        []\n    )\n\n    if not isinstance(\n        OUTDATA,\n        list\n    ):\n        OUTDATA = []\n\n    warningdata = []\n\n    for data in OUTDATA:\n\n        if not isinstance(\n            data,\n            dict\n        ):\n            continue\n\n        remarks = []\n\n        # =========================\n        # 获取频率和截止日期\n        # =========================\n\n        frequency = str(\n            data.get(\n                \"indicator_release_frequency\"\n            ) or \"\"\n        ).strip()\n\n        end_date = data.get(\n            \"end_date\"\n        )\n\n        # =========================\n        # 规则1：月频\n        # =========================\n\n        if frequency == \"月\":\n\n            if not is_empty(\n                end_date\n            ):\n\n                if not is_month_end(\n                    end_date\n                ):\n\n                    remarks.append(\n                        \"截止日期不是月末\"\n                    )\n\n        # =========================\n        # 规则2：季频\n        # =========================\n\n        elif frequency == \"季\":\n\n            if not is_empty(\n                end_date\n            ):\n\n                if not is_quarter_end(\n                    end_date\n                ):\n\n                    remarks.append(\n                        \"截止日期不是季末\"\n                    )\n\n        # =========================\n        # 规则3：半年频\n        # =========================\n\n        elif frequency == \"半年\":\n\n            if not is_empty(\n                end_date\n            ):\n\n                if not is_half_year_end(\n                    end_date\n                ):\n\n                    remarks.append(\n                        \"截止日期不是半年末\"\n                    )\n\n        # =========================\n        # 规则4：年频\n        # =========================\n\n        elif frequency == \"年\":\n\n            if not is_empty(\n                end_date\n            ):\n\n                if not is_year_end(\n                    end_date\n                ):\n\n                    remarks.append(\n                        \"截止日期不是年末\"\n                    )\n\n        # =========================\n        # 有异常则进入warningdata\n        # =========================\n\n        if remarks:\n\n            warning_item = data.copy()\n\n            warning_item[\n                \"remark\"\n            ] = \"；\".join(\n                remarks\n            )\n\n            warningdata.append(\n                warning_item\n            )\n\n    # =========================\n    # 没有异常时生成占位数据\n    # =========================\n\n    if not warningdata:\n\n        warningdata.append({\n            \"indicator_code\": \"empty\",\n            \"indicator_name\": \"empty\"\n        })\n\n    return {\n        \"OUTDATA\": OUTDATA,\n        \"warningdata\": warningdata\n    }",
+    "outputParams": [
+      {
+        "key": "a610601c-d8d1-4d53-984a-f3853762fea1",
+        "fieldName": "OUTDATA",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__out_data"
+        ],
+        "globalData": {
+          "id": "daba0faa-11d9-4976-81a7-20badd4b0d2a",
+          "fieldName": "out_data",
+          "dataType": "Array<Object>",
+          "desc": "最终输出",
+          "selectedType": "manual",
+          "expanded": true,
+          "globalData": null,
+          "primaryKey": false,
+          "processOnly": false,
+          "storageFlag": 1,
+          "children": [
+            {
+              "id": "2e10069d-bf8a-4740-8af7-5ebfa0d41615",
+              "fieldName": "end_date",
+              "dataType": "String",
+              "desc": "截止日期",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "52d00d12-7fe0-49e9-9e36-6663502c56ae",
+              "fieldName": "indicator_data",
+              "dataType": "String",
+              "desc": "指标数据",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "6c234047-ff99-4c08-bf96-1822a6eb504a",
+              "fieldName": "indicator_name",
+              "dataType": "String",
+              "desc": "指标名称",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "8b54d62e-5ae7-4eb3-a979-a31e2f6c90a7",
+              "fieldName": "indicator_code",
+              "dataType": "String",
+              "desc": "指标代码",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "e90a8a16-65b1-4d0c-98b4-c9d890f1aea0",
+              "fieldName": "unit_ratio",
+              "dataType": "String",
+              "desc": "单位比例",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "8450ded8-bf52-4989-a116-a9a827a5e09f",
+              "fieldName": "pushtime",
+              "dataType": "String",
+              "desc": "发布时间",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "f0f644f1-3819-4e42-ad52-1fdc174caa7f",
+              "fieldName": "remark",
+              "dataType": "String",
+              "desc": "备注",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "50776166-e2c1-4f83-9921-1cb983adfc33",
+              "fieldName": "indicator_release_frequency",
+              "dataType": "String",
+              "desc": "披露频率",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "93398e21-cc22-478a-9f80-4be07f9a6aa8",
+              "fieldName": "indicator_unit",
+              "dataType": "String",
+              "desc": "采集到的单位",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "7d9e6d7c-4cd3-4812-b787-87c5e8c2c409",
+              "fieldName": "KB_unit",
+              "dataType": "String",
+              "desc": "库表单位",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "5714b1df-e6a1-4a9b-93b3-e0637b57b41d",
+              "fieldName": "convert_ratio",
+              "dataType": "String",
+              "desc": "转换率",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "5a99f283-4e2d-4bf9-9190-e09bb1d0f5f1",
+              "fieldName": "publictime",
+              "dataType": "String",
+              "desc": "信息发布日期",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "processOnly": false,
+              "children": []
+            }
+          ]
+        },
+        "dataType": "Array<Object>"
+      },
+      {
+        "key": "3e4626e2-6c25-4190-99bf-171c8cffd469",
+        "fieldName": "warningdata",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__warning_data"
+        ],
+        "globalData": {
+          "id": "b660aa21-5b65-4f21-96de-4eb79c58d663",
+          "fieldName": "warning_data",
+          "dataType": "Array<Object>",
+          "desc": "问题数据",
+          "selectedType": "manual",
+          "expanded": true,
+          "primaryKey": false,
+          "storageFlag": 2,
+          "fromRelated": false,
+          "processOnly": false,
+          "storageLocked": false,
+          "globalData": null,
+          "children": [
+            {
+              "id": "aea66ec9-a03e-4ad5-9c14-0a340f8e23b1",
+              "fieldName": "end_date",
+              "dataType": "String",
+              "desc": "截止日期",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "f8f04644-d993-4baa-9719-1fa6f75fd22c",
+              "fieldName": "indicator_data",
+              "dataType": "String",
+              "desc": "指标数据",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "abd60f65-6aa8-4a16-8fe9-9c80856256b4",
+              "fieldName": "indicator_name",
+              "dataType": "String",
+              "desc": "指标名称",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "ce75b18c-bbdf-40bc-9603-10d3036aebc1",
+              "fieldName": "indicator_code",
+              "dataType": "String",
+              "desc": "指标代码",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "a77b7bff-7f69-4776-8b92-51ef3b23a9cb",
+              "fieldName": "unit_ratio",
+              "dataType": "String",
+              "desc": "单位比例",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "93e4b363-5f90-441a-9dd2-0b671c7d6f7f",
+              "fieldName": "remark",
+              "dataType": "String",
+              "desc": "备注",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "019332f6-c013-435f-a399-f6f8a845c5a8",
+              "fieldName": "indicator_release_frequency",
+              "dataType": "String",
+              "desc": "披露频率",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "92fac6be-8049-4809-9e9e-1213d5ee2671",
+              "fieldName": "indicator_unit",
+              "dataType": "String",
+              "desc": "采集到的单位",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "bc562848-5b8d-4306-9747-b1d7a2964526",
+              "fieldName": "KB_unit",
+              "dataType": "String",
+              "desc": "库表单位",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "f0ab9a1b-ba52-4c9b-853e-e2995982b3a9",
+              "fieldName": "convert_ratio",
+              "dataType": "String",
+              "desc": "转换率",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "afc985f4-6f22-489e-90e3-937ef97deac0",
+              "fieldName": "publictime",
+              "dataType": "String",
+              "desc": "信息发布日期",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "8e0954cd-058f-4bfa-a3a7-bd1b1fa34ad0",
+              "fieldName": "is_zero",
+              "dataType": "String",
+              "desc": "为零数据",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "981ce5bf-cd71-4f70-994f-ba7e29a27a33",
+              "fieldName": "problem_fin_time",
+              "dataType": "String",
+              "desc": "非末数据",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            }
+          ]
+        },
+        "dataType": "Array<Object>"
+      }
+    ],
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "uniqueId": 46,
+    "nodeName": "代码执行",
+    "displayName": "内审_区分嫌疑数据",
+    "nodeCode": "script",
+    "outputConfig": "codeOutputResult",
+    "iconName": "code",
+    "iconSize": "18",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2589,
+  "disableMovable": false
+}

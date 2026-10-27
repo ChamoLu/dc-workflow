@@ -1,0 +1,262 @@
+{
+  "position": {
+    "x": -4660,
+    "y": 80
+  },
+  "size": {
+    "width": 500,
+    "height": 832
+  },
+  "view": "vue-shape-view",
+  "shape": "script",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "right",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1781493487647_8448",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_1781493487647_8448",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "script_1781493487647_8448",
+  "data": {
+    "inputParams": [
+      {
+        "key": "90c8698b-5b5a-4492-b3a3-6769d058a042",
+        "fieldName": "GZK",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__GZK"
+        ],
+        "globalData": {
+          "id": "fadebf68-a98f-4597-bd15-1ff95c67e355",
+          "fieldName": "GZK",
+          "dataType": "Array<Object>",
+          "desc": "规则库原始",
+          "children": [
+            {
+              "id": "980f76a5-fe51-479a-a3c6-ad0ec1011e6b",
+              "fieldName": "ZBDM",
+              "dataType": "String",
+              "desc": "规则库指标代码",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "5a35f69f-f4d6-45a7-ae09-27694c5a2319",
+              "fieldName": "ZBMC",
+              "dataType": "String",
+              "desc": "规则库指标名称",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "f2b3ab6a-b14f-4ad3-8b44-02fc5df96ce0",
+              "fieldName": "ZBDW",
+              "dataType": "String",
+              "desc": "规则库指标单位",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "17bd3235-7953-43e9-9e33-cb08a007209c",
+              "fieldName": "unit_ratio",
+              "dataType": "String",
+              "desc": "单位比例",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            }
+          ],
+          "selectedType": "manual",
+          "expanded": true,
+          "isRequired": false,
+          "globalData": null
+        },
+        "dataType": "Array<Object>"
+      }
+    ],
+    "scriptType": "Python3",
+    "scriptCode": "def main(params):\n    data = params.get(\"GZK\", {})\n\n    codes = data.get(\"ZBDM\", [])\n    names = data.get(\"ZBMC\", [])\n    constants = data.get(\"ZBDW\", [])\n    ratios = data.get(\"unit_ratio\", [])\n    frequencies = data.get(\"indicator_release_frequency\", [])\n\n    max_len = max(\n        len(codes),\n        len(names),\n        len(constants),\n        len(ratios),\n        len(frequencies)\n    )\n\n    GZKJG = []\n\n    for i in range(max_len):\n        GZKJG.append({\n            \"rule_indicator_code\": codes[i] if i < len(codes) else \"\",\n            \"rule_indicator_name\": names[i] if i < len(names) else \"\",\n            \"rule_constant_name\": constants[i] if i < len(constants) else \"\",\n            \"rule_unit_ratio\": ratios[i] if i < len(ratios) else \"\",\n            \"indicator_release_frequency\": frequencies[i] if i < len(frequencies) else \"\"\n        })\n\n    return {\n        \"GZKJG\": GZKJG\n    }",
+    "outputParams": [
+      {
+        "key": "d1dc02b9-d20a-4292-a4f2-3c09fec67c4c",
+        "fieldName": "GZKJG",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__GZK",
+          "#template_config__0__GZK.GZKJG"
+        ],
+        "globalData": {
+          "id": "2bf671f1-588c-4d28-a912-52d3117bbeea",
+          "fieldName": "GZKJG",
+          "dataType": "String",
+          "desc": "规则库结果",
+          "children": [],
+          "selectedType": "manual",
+          "expanded": true,
+          "isRequired": false,
+          "globalData": null
+        },
+        "dataType": "String"
+      }
+    ],
+    "timeout": "120",
+    "failureRetryCount": "1",
+    "uniqueId": 0,
+    "nodeName": "代码执行",
+    "displayName": "预标注_规则库查询转",
+    "nodeCode": "script",
+    "outputConfig": "codeOutputResult",
+    "iconName": "code",
+    "iconSize": "18",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2472,
+  "disableMovable": false
+}

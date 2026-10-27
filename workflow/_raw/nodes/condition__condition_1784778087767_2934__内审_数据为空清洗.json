@@ -1,0 +1,382 @@
+{
+  "position": {
+    "x": 190,
+    "y": 190
+  },
+  "size": {
+    "width": 450,
+    "height": 307
+  },
+  "view": "vue-shape-view",
+  "shape": "condition",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "absolute",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1784778087767_2934",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_63354fdb-638a-400b-8616-458391c4d64d",
+        "group": "out",
+        "zIndex": 10,
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 60
+        },
+        "attrs": {
+          "text": {
+            "text": "IF",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          },
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "hidden",
+            "pointerEvents": "none"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_5e1e9e95-5b5b-4f00-976e-656e727c0f33",
+        "group": "out",
+        "zIndex": 10,
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 215
+        },
+        "attrs": {
+          "text": {
+            "text": "ELSE",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          },
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "condition_1784778087767_2934",
+  "data": {
+    "uniqueId": 3,
+    "branches": [
+      {
+        "branchCode": "63354fdb-638a-400b-8616-458391c4d64d",
+        "logic": "or",
+        "condition": [
+          {
+            "conditionCode": "e9c81b33-091e-45b0-8fae-96bdc7fdf7d0",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__out_data",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__out_data"
+            ],
+            "dataType": "Array<Object>",
+            "rightValue": "empty",
+            "method": "contains",
+            "globalData": {
+              "id": "daba0faa-11d9-4976-81a7-20badd4b0d2a",
+              "fieldName": "out_data",
+              "dataType": "Array<Object>",
+              "desc": "最终输出",
+              "children": [
+                {
+                  "id": "2e10069d-bf8a-4740-8af7-5ebfa0d41615",
+                  "fieldName": "end_date",
+                  "dataType": "String",
+                  "desc": "截止日期",
+                  "children": [],
+                  "selectedType": "manual",
+                  "expanded": true,
+                  "isRequired": false,
+                  "globalData": null
+                },
+                {
+                  "id": "52d00d12-7fe0-49e9-9e36-6663502c56ae",
+                  "fieldName": "indicator_data",
+                  "dataType": "String",
+                  "desc": "指标数据",
+                  "children": [],
+                  "selectedType": "manual",
+                  "expanded": true,
+                  "isRequired": false,
+                  "globalData": null
+                },
+                {
+                  "id": "6c234047-ff99-4c08-bf96-1822a6eb504a",
+                  "fieldName": "indicator_name",
+                  "dataType": "String",
+                  "desc": "指标名称",
+                  "children": [],
+                  "selectedType": "manual",
+                  "expanded": true,
+                  "isRequired": false,
+                  "globalData": null
+                },
+                {
+                  "id": "8b54d62e-5ae7-4eb3-a979-a31e2f6c90a7",
+                  "fieldName": "indicator_code",
+                  "dataType": "String",
+                  "desc": "指标代码",
+                  "children": [],
+                  "selectedType": "manual",
+                  "expanded": true,
+                  "isRequired": true,
+                  "globalData": null
+                },
+                {
+                  "id": "e90a8a16-65b1-4d0c-98b4-c9d890f1aea0",
+                  "fieldName": "unit_ratio",
+                  "dataType": "String",
+                  "desc": "单位比例",
+                  "children": [],
+                  "selectedType": "manual",
+                  "expanded": true,
+                  "isRequired": false,
+                  "globalData": null
+                },
+                {
+                  "id": "8450ded8-bf52-4989-a116-a9a827a5e09f",
+                  "fieldName": "pushtime",
+                  "dataType": "String",
+                  "desc": "发布时间",
+                  "children": [],
+                  "selectedType": "manual",
+                  "expanded": true,
+                  "isRequired": false,
+                  "globalData": null
+                },
+                {
+                  "id": "f0f644f1-3819-4e42-ad52-1fdc174caa7f",
+                  "fieldName": "remark",
+                  "dataType": "String",
+                  "desc": "备注",
+                  "children": [],
+                  "selectedType": "manual",
+                  "expanded": true,
+                  "isRequired": false,
+                  "globalData": null
+                },
+                {
+                  "id": "50776166-e2c1-4f83-9921-1cb983adfc33",
+                  "fieldName": "indicator_release_frequency",
+                  "dataType": "String",
+                  "desc": "披露频率",
+                  "children": [],
+                  "selectedType": "manual",
+                  "expanded": true,
+                  "isRequired": false,
+                  "globalData": null
+                }
+              ],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          },
+          {
+            "conditionCode": "3cc38e6e-4d4c-452f-93e8-18b5a8e0ed82",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__out_data.indicator_data",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__out_data",
+              "#template_config__0__out_data.indicator_data"
+            ],
+            "dataType": "String",
+            "rightValue": "empty",
+            "method": "contains",
+            "globalData": {
+              "id": "52d00d12-7fe0-49e9-9e36-6663502c56ae",
+              "fieldName": "indicator_data",
+              "dataType": "String",
+              "desc": "指标数据",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "children": []
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          }
+        ],
+        "branchName": "IF"
+      },
+      {
+        "branchCode": "5e1e9e95-5b5b-4f00-976e-656e727c0f33",
+        "logic": "and",
+        "condition": [],
+        "branchName": "ELSE"
+      }
+    ],
+    "nodeName": "条件判断",
+    "displayName": "内审_数据为空清洗",
+    "nodeCode": "condition",
+    "iconName": "shuffle",
+    "outputConfig": "",
+    "iconSize": "22",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2368
+}

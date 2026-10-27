@@ -1,0 +1,553 @@
+{
+  "position": {
+    "x": -4100,
+    "y": 110
+  },
+  "size": {
+    "width": 450,
+    "height": 773
+  },
+  "view": "vue-shape-view",
+  "shape": "condition",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "absolute",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "out_2ad29b45-8dc6-49e5-a0fc-062ed321c8be",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "IF",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 60
+        }
+      },
+      {
+        "id": "out_349c996b-466e-4472-aeea-c9613a270091",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "ELSE IF 1",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 252
+        }
+      },
+      {
+        "id": "out_ddc1fbcb-dc65-4e61-9183-a8fbdb030ac1",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "ELSE IF 2",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 371
+        }
+      },
+      {
+        "id": "out_1ea5e109-f152-4815-afec-5f3321926cbe",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "ELSE IF 3",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 489
+        }
+      },
+      {
+        "id": "out_e3985879-cc46-49be-b5aa-9a7d7a9bbd8f",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "ELSE",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 681
+        }
+      },
+      {
+        "id": "in_1784000545353_3060",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "condition_1784000545353_3060",
+  "data": {
+    "uniqueId": 1,
+    "branches": [
+      {
+        "branchCode": "2ad29b45-8dc6-49e5-a0fc-062ed321c8be",
+        "logic": "or",
+        "condition": [
+          {
+            "conditionCode": "cea21a77-912a-4aa3-94b7-6462a9a385b8",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__fileType",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__fileType"
+            ],
+            "dataType": "String",
+            "rightValue": "xls",
+            "method": "contains",
+            "globalData": {
+              "indexCode": "fileType",
+              "indexName": "文件类型（json/pdf等）",
+              "dataType": "String"
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          },
+          {
+            "conditionCode": "451a7b0f-cafa-4023-ad9a-33885219ab67",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__fileType",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__fileType"
+            ],
+            "dataType": "String",
+            "rightValue": "xlsx",
+            "method": "contains",
+            "globalData": {
+              "indexCode": "fileType",
+              "indexName": "文件类型（json/pdf等）",
+              "dataType": "String"
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          },
+          {
+            "conditionCode": "0674929a-78ff-4edd-8902-f1249835e352",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__fileType",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__fileType"
+            ],
+            "dataType": "String",
+            "rightValue": "csv",
+            "method": "contains",
+            "globalData": {
+              "indexCode": "fileType",
+              "indexName": "文件类型（json/pdf等）",
+              "dataType": "String"
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          }
+        ],
+        "branchName": "IF"
+      },
+      {
+        "branchCode": "349c996b-466e-4472-aeea-c9613a270091",
+        "logic": "and",
+        "condition": [
+          {
+            "conditionCode": "ab4bf447-2933-4667-992f-d64e8cc94434",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__fileType",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__fileType"
+            ],
+            "dataType": "String",
+            "rightValue": "json",
+            "method": "contains",
+            "globalData": {
+              "indexCode": "fileType",
+              "indexName": "文件类型（json/pdf等）",
+              "dataType": "String"
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          }
+        ],
+        "branchName": "ELSE IF"
+      },
+      {
+        "branchCode": "ddc1fbcb-dc65-4e61-9183-a8fbdb030ac1",
+        "logic": "and",
+        "condition": [
+          {
+            "conditionCode": "b4df8e4d-3555-4137-8dd6-9a5d7acd79b4",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__fileType",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__fileType"
+            ],
+            "dataType": "String",
+            "rightValue": "txt",
+            "method": "contains",
+            "globalData": {
+              "indexCode": "fileType",
+              "indexName": "文件类型（json/pdf等）",
+              "dataType": "String"
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          }
+        ],
+        "branchName": "ELSE IF"
+      },
+      {
+        "branchCode": "1ea5e109-f152-4815-afec-5f3321926cbe",
+        "logic": "or",
+        "condition": [
+          {
+            "conditionCode": "785a59f6-1c09-4a71-87a7-9843ed3ce58b",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__fileType",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__fileType"
+            ],
+            "dataType": "String",
+            "rightValue": "html",
+            "method": "contains",
+            "globalData": {
+              "indexCode": "fileType",
+              "indexName": "文件类型（json/pdf等）",
+              "dataType": "String"
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          },
+          {
+            "conditionCode": "e88e7499-419e-44d0-bbc4-934468f2ef90",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__fileType",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__fileType"
+            ],
+            "dataType": "String",
+            "rightValue": "htm",
+            "method": "contains",
+            "globalData": {
+              "indexCode": "fileType",
+              "indexName": "文件类型（json/pdf等）",
+              "dataType": "String"
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          },
+          {
+            "conditionCode": "06d9c213-b444-4d49-a0b2-d87464d32bcf",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__fileType",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__fileType"
+            ],
+            "dataType": "String",
+            "rightValue": "shtml",
+            "method": "contains",
+            "globalData": {
+              "indexCode": "fileType",
+              "indexName": "文件类型（json/pdf等）",
+              "dataType": "String"
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          }
+        ],
+        "branchName": "ELSE IF"
+      },
+      {
+        "branchCode": "e3985879-cc46-49be-b5aa-9a7d7a9bbd8f",
+        "logic": "and",
+        "condition": [],
+        "branchName": "ELSE"
+      }
+    ],
+    "nodeName": "条件判断",
+    "displayName": "预标注_文件类型判断",
+    "nodeCode": "condition",
+    "iconName": "shuffle",
+    "outputConfig": "",
+    "iconSize": "22",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2473
+}

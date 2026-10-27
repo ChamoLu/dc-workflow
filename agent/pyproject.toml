@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dc-asset-agent"
+version = "0.4.0"
+description = "Local generation and validation of reusable statistical extraction assets"
+requires-python = ">=3.10"
+dependencies = [
+  "langgraph>=1,<2", "langgraph-checkpoint-sqlite", "pydantic>=2,<3",
+  "pydantic-settings>=2,<3", "SQLAlchemy>=2,<3", "httpx>=0.27,<1",
+  "openpyxl>=3.1,<4", "xlrd>=2,<3", "requests>=2,<3", "PyYAML>=6,<7",
+  "fastapi>=0.115,<1", "uvicorn>=0.30,<1",
+]
+
+[project.scripts]
+dc-agent = "dc_agent.entrypoints.cli:main"
+dc-agent-service = "dc_agent.entrypoints.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dc_agent = ["profiles/*.md"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+extend-exclude = ["runtime"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

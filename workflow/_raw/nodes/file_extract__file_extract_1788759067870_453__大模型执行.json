@@ -1,0 +1,362 @@
+{
+  "position": {
+    "x": -2470,
+    "y": 1030
+  },
+  "size": {
+    "width": 400,
+    "height": 815
+  },
+  "view": "vue-shape-view",
+  "shape": "file_extract",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "right",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1788759067870_453",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_1788759067870_453",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "file_extract_1788759067870_453",
+  "data": {
+    "fileMd5": "#template_config__0__markdownMD5",
+    "batchRead": false,
+    "modelSource": "BaiLian",
+    "aiModelId": "2101861565690597377",
+    "prompt": "<span class=\"highlighted-item\" node-pk=\"#template_config__0__PromptCode\" data-token=\"true\" contenteditable=\"false\">PromptCode</span>\n​<span class=\"highlighted-item\" node-pk=\"#template_config__0__GZK\" data-token=\"true\" contenteditable=\"false\">GZK</span>\n​<span class=\"highlighted-item\" node-pk=\"#template_config__0__title\" data-token=\"true\" contenteditable=\"false\">title</span>\n​<span class=\"highlighted-item\" node-pk=\"#template_config__0__publictime\" data-token=\"true\" contenteditable=\"false\">publictime</span><br class=\"Apple-interchange-newline\">​\n你是 Markdown 表格提取的大模型执行节点。输入变量PromptCode是已经由上游路由节点选定的提示词文件完整原文，你必须完整读取并严格执行其中的内容，执行PromptCode时会用到对应GZK,title,publictime中的内容。\n<br>",
+    "batchExecution": "1",
+    "isTemperatureEnabled": false,
+    "isTopPEnabled": false,
+    "temperature": 1,
+    "topP": 0.8,
+    "maxTimeout": "120",
+    "failureRetryCount": "3",
+    "uniqueId": 0,
+    "nodeName": "大模型",
+    "displayName": "大模型执行",
+    "nodeCode": "file_extract",
+    "iconName": "android-locate",
+    "outputConfig": "extractResult",
+    "iconSize": "18",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true,
+    "inputConfig": {
+      "selectedType": "template_config",
+      "key": "#template_config__0__markdownMD5",
+      "keyArray": [
+        "#template_config__0__templateConfigId",
+        "#template_config__0__markdownMD5"
+      ],
+      "globalData": {
+        "indexCode": "markdownMD5",
+        "indexName": "MarkdownMD5文件",
+        "dataType": "String"
+      }
+    },
+    "outputFields": [
+      {
+        "fieldCode": "e8274819-c749-401f-98d3-ca13be2271b0",
+        "selectedType": "template_config",
+        "key": "#template_config__0__out_data",
+        "value": "",
+        "keyArray": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__out_data"
+        ],
+        "desc": "最终输出",
+        "globalData": {
+          "id": "daba0faa-11d9-4976-81a7-20badd4b0d2a",
+          "fieldName": "out_data",
+          "dataType": "Array<Object>",
+          "desc": "最终输出",
+          "selectedType": "manual",
+          "expanded": true,
+          "globalData": null,
+          "primaryKey": false,
+          "processOnly": false,
+          "storageFlag": 1,
+          "children": [
+            {
+              "id": "2e10069d-bf8a-4740-8af7-5ebfa0d41615",
+              "fieldName": "end_date",
+              "dataType": "String",
+              "desc": "截止日期",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "52d00d12-7fe0-49e9-9e36-6663502c56ae",
+              "fieldName": "indicator_data",
+              "dataType": "String",
+              "desc": "指标数据",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "6c234047-ff99-4c08-bf96-1822a6eb504a",
+              "fieldName": "indicator_name",
+              "dataType": "String",
+              "desc": "指标名称",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "8b54d62e-5ae7-4eb3-a979-a31e2f6c90a7",
+              "fieldName": "indicator_code",
+              "dataType": "String",
+              "desc": "指标代码",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "e90a8a16-65b1-4d0c-98b4-c9d890f1aea0",
+              "fieldName": "unit_ratio",
+              "dataType": "String",
+              "desc": "单位比例",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "8450ded8-bf52-4989-a116-a9a827a5e09f",
+              "fieldName": "pushtime",
+              "dataType": "String",
+              "desc": "发布时间",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "f0f644f1-3819-4e42-ad52-1fdc174caa7f",
+              "fieldName": "remark",
+              "dataType": "String",
+              "desc": "备注",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "50776166-e2c1-4f83-9921-1cb983adfc33",
+              "fieldName": "indicator_release_frequency",
+              "dataType": "String",
+              "desc": "披露频率",
+              "selectedType": "manual",
+              "expanded": true,
+              "globalData": null,
+              "primaryKey": false,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "93398e21-cc22-478a-9f80-4be07f9a6aa8",
+              "fieldName": "indicator_unit",
+              "dataType": "String",
+              "desc": "采集到的单位",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "7d9e6d7c-4cd3-4812-b787-87c5e8c2c409",
+              "fieldName": "KB_unit",
+              "dataType": "String",
+              "desc": "库表单位",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "5714b1df-e6a1-4a9b-93b3-e0637b57b41d",
+              "fieldName": "convert_ratio",
+              "dataType": "String",
+              "desc": "转换率",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "processOnly": false,
+              "children": []
+            },
+            {
+              "id": "5a99f283-4e2d-4bf9-9190-e09bb1d0f5f1",
+              "fieldName": "publictime",
+              "dataType": "String",
+              "desc": "信息发布日期",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "processOnly": false,
+              "children": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "zIndex": 2532,
+  "disableMovable": false
+}

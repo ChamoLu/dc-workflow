@@ -1,0 +1,432 @@
+{
+  "position": {
+    "x": 2930,
+    "y": -380
+  },
+  "size": {
+    "width": 450,
+    "height": 506
+  },
+  "view": "vue-shape-view",
+  "shape": "condition",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "absolute",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "out_f17f240e-5b4d-45ca-8a8b-efc056269228",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "IF",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 60
+        }
+      },
+      {
+        "id": "out_a471c3a8-b174-481c-b509-060aa426705a",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "ELSE IF 1",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 178
+        }
+      },
+      {
+        "id": "out_3c599952-90cb-44fd-b3eb-4dccac82f6e3",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "ELSE IF 2",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 297
+        }
+      },
+      {
+        "id": "out_d304cced-3e90-4f5b-9c4a-7908a27492dc",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          },
+          "text": {
+            "text": "ELSE",
+            "fill": "#000",
+            "fontSize": 12,
+            "textAnchor": "start",
+            "textVerticalAnchor": "1",
+            "dx": -10,
+            "dy": 1
+          }
+        },
+        "position": "absolute",
+        "args": {
+          "strict": false,
+          "dx": 0,
+          "x": 450,
+          "y": 415
+        }
+      },
+      {
+        "id": "in_1789899819395_9075",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "condition_1789899819395_9075",
+  "data": {
+    "uniqueId": 15,
+    "branches": [
+      {
+        "branchCode": "f17f240e-5b4d-45ca-8a8b-efc056269228",
+        "logic": "and",
+        "condition": [
+          {
+            "conditionCode": "4891497f-a8e6-4cdb-a6aa-3764c9ca5392",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__warning_data.indicator_release_frequency",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__warning_data",
+              "#template_config__0__warning_data.indicator_release_frequency"
+            ],
+            "dataType": "String",
+            "rightValue": "月",
+            "method": "contains",
+            "globalData": {
+              "id": "019332f6-c013-435f-a399-f6f8a845c5a8",
+              "fieldName": "indicator_release_frequency",
+              "dataType": "String",
+              "desc": "披露频率",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          }
+        ],
+        "branchName": "IF"
+      },
+      {
+        "branchCode": "a471c3a8-b174-481c-b509-060aa426705a",
+        "logic": "and",
+        "condition": [
+          {
+            "conditionCode": "14603f58-92de-44d3-957a-3f0a178eb0ef",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__warning_data.indicator_release_frequency",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__warning_data",
+              "#template_config__0__warning_data.indicator_release_frequency"
+            ],
+            "dataType": "String",
+            "rightValue": "季",
+            "method": "contains",
+            "globalData": {
+              "id": "019332f6-c013-435f-a399-f6f8a845c5a8",
+              "fieldName": "indicator_release_frequency",
+              "dataType": "String",
+              "desc": "披露频率",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          }
+        ],
+        "branchName": "ELSE IF"
+      },
+      {
+        "branchCode": "3c599952-90cb-44fd-b3eb-4dccac82f6e3",
+        "logic": "and",
+        "condition": [
+          {
+            "conditionCode": "8b2698c3-f65d-4090-9eb6-dc2597091cba",
+            "selectedType": "template_config",
+            "leftKey": "#template_config__0__warning_data.indicator_release_frequency",
+            "leftKeyArray": [
+              "#template_config__0__templateConfigId",
+              "#template_config__0__warning_data",
+              "#template_config__0__warning_data.indicator_release_frequency"
+            ],
+            "dataType": "String",
+            "rightValue": "年",
+            "method": "contains",
+            "globalData": {
+              "id": "019332f6-c013-435f-a399-f6f8a845c5a8",
+              "fieldName": "indicator_release_frequency",
+              "dataType": "String",
+              "desc": "披露频率",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "fromRelated": false,
+              "processOnly": false,
+              "storageLocked": false,
+              "globalData": null,
+              "children": []
+            },
+            "isRightVariable": false,
+            "rightVariableValue": "",
+            "rightVariableLabel": ""
+          }
+        ],
+        "branchName": "ELSE IF"
+      },
+      {
+        "branchCode": "d304cced-3e90-4f5b-9c4a-7908a27492dc",
+        "logic": "and",
+        "condition": [],
+        "branchName": "ELSE"
+      }
+    ],
+    "nodeName": "条件判断",
+    "displayName": "内审_区分嫌疑数据",
+    "nodeCode": "condition",
+    "iconName": "shuffle",
+    "outputConfig": "",
+    "iconSize": "22",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2544
+}

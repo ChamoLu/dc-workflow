@@ -1,0 +1,6 @@
+FROM python:3.12-slim
+# Build explicitly with docker build -f Dockerfile.runner -t dc-agent-runner:local .
+# Keep candidate execution packages separate from the framework/model credentials.
+RUN pip install --no-cache-dir requests==2.32.5 openpyxl==3.1.5 xlrd==2.0.2
+USER 65534:65534
+WORKDIR /tmp

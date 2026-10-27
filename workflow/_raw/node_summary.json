@@ -1,0 +1,2921 @@
+{
+  "agent_1788489761228_3708": {
+    "id": "agent_1788489761228_3708",
+    "shape": "agent",
+    "displayName": "excel Agent",
+    "nodeName": "Agent",
+    "position": {
+      "x": -3440,
+      "y": -700
+    },
+    "data": {
+      "model": "qwen-plus",
+      "skillId": "334",
+      "maxSteps": "15",
+      "failRetryCount": "3",
+      "maxTimeout": "120",
+      "inputParams": [
+        {
+          "fieldName": "pageTitle",
+          "desc": "路径",
+          "dataType": null,
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "pageTitle"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "PythonCode",
+          "desc": "python代码",
+          "dataType": null,
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "PythonCode"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "PythonFile",
+          "desc": "python文件名",
+          "dataType": "",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "PythonFile"
+          ],
+          "globalData": null
+        }
+      ],
+      "taskPrompt": "你是 Excel Python 代码路由节点，不执行 Python 代码。\n\n规划并严格按以下固定步骤执行，不得增加下载、外部资源查询、Python 执行或兜底选择步骤：\n\n```text\nread_skill_config\n→ find_mapping\n→ find_skill_python_file_by_exact_name\n→ read_skill_python_file_content\n→ output_result\n```\n\n- `read_skill_config`：直接读取当前 Skill 内的 `python-page-title-config.json`。\n- `find_mapping`：完整遍历 `mappings`，以 `pageTitle` 得到唯一精确匹配的 `PythonFile`。\n- `find_skill_python_file_by_exact_name`：在当前 Skill 文件列表中以完整文件名唯一精确匹配该 `.py` 文件。\n- `read_skill_python_file_content`：直接读取该 Skill `.py` 文件的完整原始文本。\n- `output_result`：只有已验证取得该同名 `.py` 文件的完整、非空原始文本后，才输出文件名和原文；读取代码为空时先按下列重试规则处理，不得立即把真实文件名输出为成功结果。\n\n## 成功判定与重试规则\n\n`PythonFile` 命中不等于路由成功。只有下列两个字段同时满足时才是成功：\n\n```json\n{\n  \"PythonFile\": \"已精确匹配的 .py 文件名\",\n  \"PythonCode\": \"从该同名 Skill .py 文件完整读取到的非空原始代码\"\n}\n```\n\n在输出前必须同时确认：\n\n1. 当前 Skill 中唯一存在与 `PythonFile` 完全同名的 `.py` 文件；\n2. `PythonCode` 是从该同名文件直接读取的 string，不是文件名、文件列表、元数据、错误响应、摘要或片段；\n3. `PythonCode.strip()` 非空，且原文包含 parser 入口 `def main(`。\n\n如果已找到真实 `PythonFile`，但 `PythonCode` 为空、缺失、截断或不是原始代码，这不是“未配置 pageTitle”，而是“代码读取未完成”。必须使用平台提供的每次失败重试机会，保持同一个 `PythonFile` 不变，重新执行 `find_skill_python_file_by_exact_name` 和 `read_skill_python_file_content`，重点取得该文件的完整原文。\n\n重试时不得改选其他 Python 文件、不得猜测或生成代码、不得输出代码片段，也不得输出真实 `PythonFile` 加空 `PythonCode`。只有所有重试均无法读取并验证同一文件原文时，才输出：\n\n```json\n{\"PythonFile\":\"empty\",\"PythonCode\":\"\"}\n```\n\n读取工作流传入的 pageTitle，并直接读取当前 Skill 内的 `python-page-title-config.json`，完整遍历其中的 `mappings`：\n\n1. 只有 pageTitle 与某一 mappings.pageTitle 完全相等，且该条目的 PythonFile 能在当前 Skill 的文件列表中按完整文件名唯一找到一个 `.py` 文件时，才是成功路由。\n2. 成功时，直接读取当前 Skill 中该 `.py` 文件的完整原始代码文本，并只输出：\n{\n  \"PythonFile\": \"目标 Python 文件的完整文件名.py\",\n  \"PythonCode\": \"目标 Python 文件的完整原始代码文本\"\n}\n3. 完整遍历后如果不存在唯一可用的精确匹配（包括 pageTitle 未配置、重复配置、配置错误、Skill 文件缺失或无法直接读取），必须只输出：\n{\"PythonFile\":\"empty\",\"PythonCode\":\"\"}\n\nPythonFile 和 PythonCode 均为 string。PythonCode 必须保留原代码的全部字符、换行和缩进；不要增加 Markdown 代码围栏、说明或任何其他文本。非 `\"empty\"` 的 PythonFile 绝不允许搭配空、缺失或非代码的 PythonCode。\n\n禁止调用 download_file，禁止使用 fileMd5、parseFileMd5、任何下载参数或外部资源 ID 来查找、读取或下载配置和 Python 代码。PythonFile 只是当前 Skill 中的文件名；必须用它在当前 Skill 文件列表中进行完整文件名的唯一精确匹配后，直接读取对应 `.py` 文件原文。\n\n不得执行 Python，不得下载或解析 Excel，不得修改或生成 Python 代码，不得根据 title、GZK、文件相似名称、路径片段、目录顺序或其他信息猜测文件。不得把文件读取错误、404 JSON、工具响应对象或文件元数据写入 PythonCode。PythonFile 为 \"empty\" 时，PythonCode 必须为 \"\"；不得选择任何替代文件。不得输出 ExcelData、OUTDATA、out_data、GZK、code、msg 或其他字段。",
+      "outputInstruction": "{\n  \"PythonCode\": \"对应 Python 文件的完整原始代码\",\n  \"PythonFile\": \"对应 Python 文件名.py\"\n}"
+    }
+  },
+  "agent_1788490801520_763": {
+    "id": "agent_1788490801520_763",
+    "shape": "agent",
+    "displayName": "HTML Agent",
+    "nodeName": "Agent",
+    "position": {
+      "x": -3550,
+      "y": -1800
+    },
+    "data": {
+      "model": "qwen-plus",
+      "skillId": "223",
+      "maxSteps": "10",
+      "failRetryCount": "3",
+      "maxTimeout": "120",
+      "inputParams": [
+        {
+          "fieldName": "pageTitle",
+          "desc": "路径",
+          "dataType": null,
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "pageTitle"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "PythonCode",
+          "desc": "python代码",
+          "dataType": null,
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "PythonCode"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "PythonFile",
+          "desc": "python文件名",
+          "dataType": "",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "PythonFile"
+          ],
+          "globalData": null
+        }
+      ],
+      "taskPrompt": "你是 HTML Python 代码路由节点，不执行 Python 代码。你的唯一职责是：根据 pageTitle 在当前 Skill 内精确定位既有 Python 文件，并把该文件完整原始文本作为 PythonCode 返回。\n\n规划并严格按以下固定步骤执行，不得增加下载、外部资源查询、Python 执行或兜底选择步骤：\n\n```text\nread_skill_config\n→ find_mapping\n→ find_skill_python_file_by_exact_name\n→ read_skill_python_file_content\n→ output_result\n```\n\n- `read_skill_config`：直接读取当前 Skill 内的 `python-page-title-config.json`。\n- `find_mapping`：完整遍历 `mappings`，以 `pageTitle` 得到唯一精确匹配的 `PythonFile`。\n- `find_skill_python_file_by_exact_name`：在当前 Skill 文件列表中以完整文件名唯一精确匹配该 `.py` 文件。\n- `read_skill_python_file_content`：直接读取该 Skill `.py` 文件的完整原始文本。\n- `output_result`：只有已验证取得该同名 `.py` 文件的完整、非空原始文本后，才输出文件名和原文；读取代码为空时先按下列重试规则处理。\n\n## 成功判定与重试规则\n\n`PythonFile` 命中不等于路由成功。只有下列两个字段同时满足时才是成功：\n\n```json\n{\n  \"PythonFile\": \"已精确匹配的 .py 文件名\",\n  \"PythonCode\": \"从该同名 Skill .py 文件完整读取到的非空原始代码\"\n}\n```\n\n在输出前必须同时确认：\n\n1. 当前 Skill 中唯一存在与 `PythonFile` 完全同名的 `.py` 文件；\n2. `PythonCode` 是从该同名文件直接读取的 string，不是文件名、文件列表、元数据、错误响应、摘要或片段；\n3. `PythonCode.strip()` 非空，且原文包含 parser 入口 `def main(`。\n\n如果已找到真实 `PythonFile`，但 `PythonCode` 为空、缺失、截断或不是原始代码，这不是“未配置 pageTitle”，而是“代码读取未完成”。必须使用平台提供的每次失败重试机会，保持同一个 `PythonFile` 不变，重新执行 `find_skill_python_file_by_exact_name` 和 `read_skill_python_file_content`，重点取得该文件的完整原文。\n\n重试时不得改选其他 Python 文件、不得猜测或生成代码、不得输出代码片段，也不得输出真实 `PythonFile` 加空 `PythonCode`。只有所有重试均无法读取并验证同一文件原文时，才输出：\n\n```json\n{\"PythonFile\":\"empty\",\"PythonCode\":\"\"}\n```\n\n读取工作流传入的 pageTitle，并直接读取当前 Skill 内的 `python-page-title-config.json`，完整遍历其中的 `mappings`：\n\n1. 只有 pageTitle 与某一 mappings.pageTitle 完全相等，且该条目的 PythonFile 能在当前 Skill 的文件列表中按完整文件名唯一找到一个 `.py` 文件时，才是成功路由。\n2. 成功时，直接读取当前 Skill 中该 `.py` 文件的完整原始代码文本，并只输出：\n{\n  \"PythonFile\": \"目标 Python 文件的完整文件名.py\",\n  \"PythonCode\": \"该目标 Python 文件的完整原始代码文本\"\n}\n3. 仅当完整遍历后不存在唯一精确匹配、映射重复/损坏、命中 unresolved_page_title_conflicts，或所有重试均无法读取并验证精确配置的同名文件时，才输出：\n{\"PythonFile\":\"empty\",\"PythonCode\":\"\"}\n\n输出限制：PythonCode 和 PythonFile 都必须为 string。成功时 PythonCode 只能是原始代码，不能增加 Markdown 代码围栏、说明、摘要或任何额外文本；非 `\"empty\"` 的 PythonFile 绝不允许搭配空、缺失或非代码的 PythonCode。禁止调用 download_file，禁止使用 fileMd5、parseFileMd5、任何下载参数或外部资源 ID 来查找、读取或下载配置和 Python 代码。不得调用 main(params) 或修改/生成 Python 代码。不得执行 Python，不得下载、解析或判断 HTML、Markdown、markdownMD5、GZK 或 ExcelData。不得输出 ExcelData、OUTDATA、out_data、GZK、code、msg 或其他字段。",
+      "outputInstruction": "{\n  \"PythonCode\": \"目标 HTML Python 文件的完整原始代码文本\",\n  \"PythonFile\": \"目标 Python 文件名.py\"\n}"
+    }
+  },
+  "agent_1788747171993_2204": {
+    "id": "agent_1788747171993_2204",
+    "shape": "agent",
+    "displayName": "md-Agent",
+    "nodeName": "Agent",
+    "position": {
+      "x": -3540,
+      "y": 640
+    },
+    "data": {
+      "model": "qwen-plus",
+      "skillId": "337",
+      "maxSteps": "15",
+      "failRetryCount": "3",
+      "maxTimeout": "180",
+      "inputParams": [
+        {
+          "fieldName": "pageTitle",
+          "desc": "路径",
+          "dataType": "",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "pageTitle"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "#template_config__0__PromptCode",
+          "desc": "",
+          "dataType": "",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "PromptCode"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "PromptFile",
+          "desc": "Prompt文件名",
+          "dataType": "",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "PromptFile"
+          ],
+          "globalData": null
+        }
+      ],
+      "taskPrompt": "你是 Markdown 提示词路由节点，不执行提示词内容，也不提取 Markdown 数据。你的唯一职责是：根据 pageTitle 在当前 Skill 内精确定位既有提示词文件，并把该文件完整原始文本作为 PromptCode 返回。\n\n规划并严格按以下固定步骤执行，不得增加下载、外部资源查询、Markdown 提取、提示词执行或兜底选择步骤：\n\n```text\nread_skill_config\n→ find_mapping\n→ find_skill_prompt_file_by_exact_name\n→ read_skill_prompt_file_content\n→ output_result\n```\n\n- `read_skill_config`：直接读取当前 Skill 内的 `prompt-pageTitle-config.json`。\n- `find_mapping`：完整遍历 `mappings`，以 `pageTitle` 得到唯一精确匹配的 `PromptFileName`。\n- `find_skill_prompt_file_by_exact_name`：在当前 Skill 文件列表中以完整文件名唯一精确匹配该 `.md` 文件。\n- `read_skill_prompt_file_content`：直接读取该 Skill `.md` 文件的完整原始文本，作为 `PromptCode`，并保留其文件名作为 `PromptFile`。\n- `output_result`：只有已验证取得该同名 `.md` 文件的完整、非空原始文本后，才输出文件名和原文；读取提示词为空时先按下列重试规则处理。\n\n## 成功判定与重试规则\n\n`PromptFileName` 或 `PromptFile` 命中不等于路由成功。只有下列两个字段同时满足时才是成功：\n\n```json\n{\n  \"PromptFile\": \"已精确匹配的 .md 文件名\",\n  \"PromptCode\": \"从该同名 Skill .md 文件完整读取到的非空原始提示词\"\n}\n```\n\n在输出前必须同时确认：\n\n1. 当前 Skill 中唯一存在与 `PromptFileName` 完全同名的 `.md` 文件；\n2. `PromptFile` 等于这个配置文件名；\n3. `PromptCode` 是从该同名文件直接读取的 string，不是文件名、文件列表、元数据、错误响应、摘要或片段；\n4. `PromptCode.strip()` 非空。\n\n如果已找到真实 `PromptFile`，但 `PromptCode` 为空、缺失、截断或不是原始提示词，这不是“未配置 pageTitle”，而是“提示词读取未完成”。必须使用平台提供的每次失败重试机会，保持同一个 `PromptFile` 不变，重新执行 `find_skill_prompt_file_by_exact_name` 和 `read_skill_prompt_file_content`，重点取得该文件的完整原文。\n\n重试时不得改选其他提示词文件、不得猜测或生成提示词、不得输出提示词片段，也不得输出真实 `PromptFile` 加空 `PromptCode`。只有所有重试均无法读取并验证同一文件原文时，才输出：\n\n```json\n{\"PromptFile\":\"empty\",\"PromptCode\":\"\"}\n```\n\n读取工作流传入的 pageTitle，并直接读取当前 Skill 内的 `prompt-pageTitle-config.json`，完整遍历其中的 `mappings`：\n\n1. 只有 pageTitle 与某一 mappings.pageTitle 完全相等，且该条目的 PromptFileName 能在当前 Skill 的文件列表中按完整文件名唯一找到一个 `.md` 文件时，才是成功路由。\n2. 成功时，完整读取该提示词文件的原始文本，并只输出下列 JSON。\n\n{\n  \"PromptFile\": \"目标提示词文件的完整文件名.md\",\n  \"PromptCode\": \"目标提示词文件的完整原始文本\"\n}\n\n3. 仅当完整遍历后不存在唯一精确匹配、映射重复/损坏，或所有重试均无法读取并验证精确配置的同名文件时，才输出：\n\n{\"PromptFile\":\"empty\",\"PromptCode\":\"\"}\n\nPromptFile 和 PromptCode 均为 string。PromptFile 是提示词文件名；PromptCode 必须保留提示词文件的全部字符、换行、缩进、HTML注释、标题和规则。不得改写、缩写、补充、删除、解释、执行或用 Markdown 代码围栏包裹 PromptCode 内容。非 `\"empty\"` 的 PromptFile 绝不允许搭配空、缺失或非提示词原文的 PromptCode。\n\n禁止调用 download_file，禁止使用 fileMd5、parseFileMd5、任何下载参数或外部资源 ID 来查找、读取或下载配置和提示词文件。PromptFileName 和 PromptFile 只用于在当前 Skill 文件列表中进行完整文件名的唯一精确匹配。\n\n不得读取或提取当前 Markdown 数据，不得使用 GZK、title、DOC、DOCX、JPG、PNG、PDF 或其他运行时字段选择/执行提示词。PromptFile 为 \"empty\" 时，PromptCode 必须为 \"\"；不得选择其他提示词，也不得输出 out_data、OUTDATA、ExcelData、code、msg、PromptFileName 或任何解释文字。",
+      "outputInstruction": "{\n  \"PromptFile\": \"目标提示词文件的完整文件名.md\",\n  \"PromptCode\": \"目标提示词文件的完整原始文本\"\n}"
+    }
+  },
+  "condition_1784000545353_3060": {
+    "id": "condition_1784000545353_3060",
+    "shape": "condition",
+    "displayName": "预标注_文件类型判断",
+    "nodeName": "条件判断",
+    "position": {
+      "x": -4100,
+      "y": 110
+    },
+    "data": {
+      "branches": [
+        {
+          "branchName": "IF",
+          "logic": "or",
+          "conditions": [
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "xls",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "xlsx",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "csv",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE IF",
+          "logic": "and",
+          "conditions": [
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "json",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE IF",
+          "logic": "and",
+          "conditions": [
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "txt",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE IF",
+          "logic": "or",
+          "conditions": [
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "html",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "htm",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "shtml",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE",
+          "logic": "and",
+          "conditions": []
+        }
+      ]
+    }
+  },
+  "condition_1784778087767_2934": {
+    "id": "condition_1784778087767_2934",
+    "shape": "condition",
+    "displayName": "内审_数据为空清洗",
+    "nodeName": "条件判断",
+    "position": {
+      "x": 190,
+      "y": 190
+    },
+    "data": {
+      "branches": [
+        {
+          "branchName": "IF",
+          "logic": "or",
+          "conditions": [
+            {
+              "field": "out_data",
+              "fieldDesc": "最终输出",
+              "dataType": "Array<Object>",
+              "method": "contains",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "out_data.indicator_data",
+              "fieldDesc": "指标数据",
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE",
+          "logic": "and",
+          "conditions": []
+        }
+      ]
+    }
+  },
+  "condition_1785834433994_3451": {
+    "id": "condition_1785834433994_3451",
+    "shape": "condition",
+    "displayName": "发放_为空判断",
+    "nodeName": "条件判断",
+    "position": {
+      "x": 500,
+      "y": -1150
+    },
+    "data": {
+      "branches": [
+        {
+          "branchName": "IF",
+          "logic": "or",
+          "conditions": [
+            {
+              "field": "out_data.indicator_code",
+              "fieldDesc": "指标代码",
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "out_data",
+              "fieldDesc": "最终输出",
+              "dataType": "Array<Object>",
+              "method": "isEmpty",
+              "rightValue": "",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "out_data.remark",
+              "fieldDesc": "备注",
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE",
+          "logic": "and",
+          "conditions": []
+        }
+      ]
+    }
+  },
+  "condition_1785923282222_5545": {
+    "id": "condition_1785923282222_5545",
+    "shape": "condition",
+    "displayName": "发放_为空判断",
+    "nodeName": "条件判断",
+    "position": {
+      "x": 750,
+      "y": 930
+    },
+    "data": {
+      "branches": [
+        {
+          "branchName": "IF",
+          "logic": "or",
+          "conditions": [
+            {
+              "field": "out_data.indicator_code",
+              "fieldDesc": "指标代码",
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "out_data",
+              "fieldDesc": "最终输出",
+              "dataType": "Array<Object>",
+              "method": "isEmpty",
+              "rightValue": "",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "out_data.remark",
+              "fieldDesc": "备注",
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE",
+          "logic": "and",
+          "conditions": []
+        }
+      ]
+    }
+  },
+  "condition_1788925023921_9802": {
+    "id": "condition_1788925023921_9802",
+    "shape": "condition",
+    "displayName": "条件判断",
+    "nodeName": "条件判断",
+    "position": {
+      "x": -2930,
+      "y": -350
+    },
+    "data": {
+      "branches": [
+        {
+          "branchName": "IF",
+          "logic": "or",
+          "conditions": [
+            {
+              "field": "PythonFile",
+              "fieldDesc": "python文件名",
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "PythonCode",
+              "fieldDesc": "python代码",
+              "dataType": "String",
+              "method": "isEmpty",
+              "rightValue": "",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE",
+          "logic": "and",
+          "conditions": []
+        }
+      ]
+    }
+  },
+  "condition_1788925224307_5519": {
+    "id": "condition_1788925224307_5519",
+    "shape": "condition",
+    "displayName": "条件判断",
+    "nodeName": "条件判断",
+    "position": {
+      "x": -3060,
+      "y": -1460
+    },
+    "data": {
+      "branches": [
+        {
+          "branchName": "IF",
+          "logic": "or",
+          "conditions": [
+            {
+              "field": "PythonFile",
+              "fieldDesc": "python文件名",
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "PythonCode",
+              "fieldDesc": "python代码",
+              "dataType": "String",
+              "method": "isEmpty",
+              "rightValue": "",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE",
+          "logic": "and",
+          "conditions": []
+        }
+      ]
+    }
+  },
+  "condition_1788925556701_2950": {
+    "id": "condition_1788925556701_2950",
+    "shape": "condition",
+    "displayName": "条件判断",
+    "nodeName": "条件判断",
+    "position": {
+      "x": -2990,
+      "y": 860
+    },
+    "data": {
+      "branches": [
+        {
+          "branchName": "IF",
+          "logic": "or",
+          "conditions": [
+            {
+              "field": "PromptFile",
+              "fieldDesc": "Prompt文件内容",
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "PromptCode",
+              "fieldDesc": "Prompt文件内容",
+              "dataType": "String",
+              "method": "isEmpty",
+              "rightValue": "",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE",
+          "logic": "and",
+          "conditions": []
+        }
+      ]
+    }
+  },
+  "condition_1789899721706_3064": {
+    "id": "condition_1789899721706_3064",
+    "shape": "condition",
+    "displayName": "内审_判断嫌疑数据",
+    "nodeName": "条件判断",
+    "position": {
+      "x": 2390,
+      "y": 50
+    },
+    "data": {
+      "branches": [
+        {
+          "branchName": "IF",
+          "logic": "and",
+          "conditions": [
+            {
+              "field": "warning_data.indicator_code",
+              "fieldDesc": "指标代码",
+              "dataType": "String",
+              "method": "excludes",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "warning_data.indicator_name",
+              "fieldDesc": "指标名称",
+              "dataType": "String",
+              "method": "excludes",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE",
+          "logic": "and",
+          "conditions": []
+        }
+      ]
+    }
+  },
+  "condition_1789899819395_9075": {
+    "id": "condition_1789899819395_9075",
+    "shape": "condition",
+    "displayName": "内审_区分嫌疑数据",
+    "nodeName": "条件判断",
+    "position": {
+      "x": 2930,
+      "y": -380
+    },
+    "data": {
+      "branches": [
+        {
+          "branchName": "IF",
+          "logic": "and",
+          "conditions": [
+            {
+              "field": "warning_data.indicator_release_frequency",
+              "fieldDesc": "披露频率",
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "月",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE IF",
+          "logic": "and",
+          "conditions": [
+            {
+              "field": "warning_data.indicator_release_frequency",
+              "fieldDesc": "披露频率",
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "季",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE IF",
+          "logic": "and",
+          "conditions": [
+            {
+              "field": "warning_data.indicator_release_frequency",
+              "fieldDesc": "披露频率",
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "年",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE",
+          "logic": "and",
+          "conditions": []
+        }
+      ]
+    }
+  },
+  "condition_1789900867090_8204": {
+    "id": "condition_1789900867090_8204",
+    "shape": "condition",
+    "displayName": "内审_错误判断",
+    "nodeName": "条件判断",
+    "position": {
+      "x": 4670,
+      "y": -150
+    },
+    "data": {
+      "branches": [
+        {
+          "branchName": "IF",
+          "logic": "and",
+          "conditions": [
+            {
+              "field": "warning_data.indicator_code",
+              "fieldDesc": "指标代码",
+              "dataType": "String",
+              "method": "excludes",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "warning_data.indicator_data",
+              "fieldDesc": "指标数据",
+              "dataType": "String",
+              "method": "excludes",
+              "rightValue": "empty",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE",
+          "logic": "and",
+          "conditions": []
+        }
+      ]
+    }
+  },
+  "condition_1789900889289_1127": {
+    "id": "condition_1789900889289_1127",
+    "shape": "condition",
+    "displayName": "预标注_文件类型判断",
+    "nodeName": "条件判断",
+    "position": {
+      "x": 5450,
+      "y": -760
+    },
+    "data": {
+      "branches": [
+        {
+          "branchName": "IF",
+          "logic": "or",
+          "conditions": [
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "xls",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "xlsx",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "csv",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE IF",
+          "logic": "and",
+          "conditions": [
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "json",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE IF",
+          "logic": "and",
+          "conditions": [
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "txt",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE IF",
+          "logic": "or",
+          "conditions": [
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "html",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "htm",
+              "rightVariable": "",
+              "isRightVariable": false
+            },
+            {
+              "field": "fileType",
+              "fieldDesc": null,
+              "dataType": "String",
+              "method": "contains",
+              "rightValue": "shtml",
+              "rightVariable": "",
+              "isRightVariable": false
+            }
+          ]
+        },
+        {
+          "branchName": "ELSE",
+          "logic": "and",
+          "conditions": []
+        }
+      ]
+    }
+  },
+  "custom_rule_1782883582058_2442": {
+    "id": "custom_rule_1782883582058_2442",
+    "shape": "custom_rule",
+    "displayName": "预标注-指标代码单位",
+    "nodeName": "自定义规则",
+    "position": {
+      "x": -5130,
+      "y": 180
+    },
+    "data": {
+      "serviceApiId": "25",
+      "ruleId": "206",
+      "ruleType": "dynamic_query",
+      "ruleIndexId": "7167",
+      "sourceType": 1,
+      "batchExecution": false,
+      "inputParams": [
+        {
+          "fieldName": "pageTitle",
+          "desc": "pageTitle",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "pageTitle"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "indicator_code",
+          "desc": "indicator_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "GZK",
+            "GZK.ZBDM"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "indicator_name",
+          "desc": "indicator_name",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "GZK",
+            "GZK.ZBMC"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "constant_name",
+          "desc": "constant_name",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "GZK",
+            "GZK.ZBDW"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "indicator_release_frequency",
+          "desc": "indicator_release_frequency",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "GZK",
+            "GZK.indicator_release_frequency"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "workflowRuleEngineResult"
+    }
+  },
+  "custom_rule_1783328033583_7304": {
+    "id": "custom_rule_1783328033583_7304",
+    "shape": "custom_rule",
+    "displayName": "预标注_转换率查询",
+    "nodeName": "自定义规则",
+    "position": {
+      "x": -980,
+      "y": 320
+    },
+    "data": {
+      "serviceApiId": "25",
+      "ruleId": "206",
+      "ruleType": "dynamic_query",
+      "ruleIndexId": "3549",
+      "sourceType": 1,
+      "batchExecution": false,
+      "inputParams": [
+        {
+          "fieldName": "raw_unit",
+          "desc": "raw_unit",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "indicator_unit"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "target_code",
+          "desc": "target_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "KB_unit"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "convert_ratio",
+          "desc": "convert_ratio",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "convert_ratio"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "workflowRuleEngineResult"
+    }
+  },
+  "custom_rule_1783660550941_2952": {
+    "id": "custom_rule_1783660550941_2952",
+    "shape": "custom_rule",
+    "displayName": "预标注_单位标准化",
+    "nodeName": "自定义规则",
+    "position": {
+      "x": -1470,
+      "y": 320
+    },
+    "data": {
+      "serviceApiId": "25",
+      "ruleId": "404",
+      "ruleType": "feel_table",
+      "ruleIndexId": "",
+      "sourceType": 1,
+      "batchExecution": false,
+      "inputParams": [
+        {
+          "fieldName": "indicator_unit",
+          "desc": "转入指标单位",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "indicator_unit"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "indicator_unit_out",
+          "desc": "输出指标单位",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "indicator_unit"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "workflowRuleEngineResult"
+    }
+  },
+  "custom_rule_1784000706383_4551": {
+    "id": "custom_rule_1784000706383_4551",
+    "shape": "custom_rule",
+    "displayName": "预标注_转换率查询",
+    "nodeName": "自定义规则",
+    "position": {
+      "x": -1200,
+      "y": -980
+    },
+    "data": {
+      "serviceApiId": "25",
+      "ruleId": "206",
+      "ruleType": "dynamic_query",
+      "ruleIndexId": "3549",
+      "sourceType": 1,
+      "batchExecution": false,
+      "inputParams": [
+        {
+          "fieldName": "raw_unit",
+          "desc": "raw_unit",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray",
+            "unitArray.indicator_unit"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "target_code",
+          "desc": "target_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray",
+            "unitArray.KB_unit"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "raw_unit",
+          "desc": "raw_unit",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray",
+            "unitArray.indicator_unit"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "target_code",
+          "desc": "target_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray",
+            "unitArray.KB_unit"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "convert_ratio",
+          "desc": "convert_ratio",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray",
+            "unitArray.convert_ratio"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "workflowRuleEngineResult"
+    }
+  },
+  "custom_rule_1784622356690_2817": {
+    "id": "custom_rule_1784622356690_2817",
+    "shape": "custom_rule",
+    "displayName": "预标注_转换率查询",
+    "nodeName": "自定义规则",
+    "position": {
+      "x": -1640,
+      "y": 1030
+    },
+    "data": {
+      "serviceApiId": "25",
+      "ruleId": "206",
+      "ruleType": "dynamic_query",
+      "ruleIndexId": "3549",
+      "sourceType": 1,
+      "batchExecution": false,
+      "inputParams": [
+        {
+          "fieldName": "raw_unit",
+          "desc": "raw_unit",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray",
+            "unitArray.indicator_unit"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "target_code",
+          "desc": "target_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray",
+            "unitArray.KB_unit"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "raw_unit",
+          "desc": "raw_unit",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray",
+            "unitArray.indicator_unit"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "target_code",
+          "desc": "target_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray",
+            "unitArray.KB_unit"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "convert_ratio",
+          "desc": "convert_ratio",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray",
+            "unitArray.convert_ratio"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "workflowRuleEngineResult"
+    }
+  },
+  "custom_rule_1784881509231_9431": {
+    "id": "custom_rule_1784881509231_9431",
+    "shape": "custom_rule",
+    "displayName": "预标注_转换率查询",
+    "nodeName": "自定义规则",
+    "position": {
+      "x": -950,
+      "y": 480
+    },
+    "data": {
+      "serviceApiId": "25",
+      "ruleId": "206",
+      "ruleType": "dynamic_query",
+      "ruleIndexId": "3549",
+      "sourceType": 1,
+      "batchExecution": false,
+      "inputParams": [
+        {
+          "fieldName": "raw_unit",
+          "desc": "raw_unit",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "indicator_unit"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "target_code",
+          "desc": "target_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "KB_unit"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "convert_ratio",
+          "desc": "convert_ratio",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "convert_ratio"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "workflowRuleEngineResult"
+    }
+  },
+  "custom_rule_1789899872540_850": {
+    "id": "custom_rule_1789899872540_850",
+    "shape": "custom_rule",
+    "displayName": "内审_截止日期非月末",
+    "nodeName": "自定义规则",
+    "position": {
+      "x": 3490,
+      "y": -330
+    },
+    "data": {
+      "serviceApiId": "25",
+      "ruleId": "682",
+      "ruleType": "dynamic_query",
+      "ruleIndexId": "14878",
+      "sourceType": 1,
+      "batchExecution": false,
+      "inputParams": [
+        {
+          "fieldName": "indicator_code",
+          "desc": "indicator_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data",
+            "warning_data.indicator_code"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "indicator_code",
+          "desc": "indicator_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data",
+            "warning_data.indicator_code"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "problem_fin_time",
+          "desc": "problem_fin_time",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data",
+            "warning_data.problem_fin_time"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "workflowRuleEngineResult"
+    }
+  },
+  "custom_rule_1789899895268_8359": {
+    "id": "custom_rule_1789899895268_8359",
+    "shape": "custom_rule",
+    "displayName": "内审_截止日期非季末",
+    "nodeName": "自定义规则",
+    "position": {
+      "x": 3480,
+      "y": -180
+    },
+    "data": {
+      "serviceApiId": "25",
+      "ruleId": "682",
+      "ruleType": "dynamic_query",
+      "ruleIndexId": "14905",
+      "sourceType": 1,
+      "batchExecution": false,
+      "inputParams": [
+        {
+          "fieldName": "indicator_code",
+          "desc": "indicator_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data",
+            "warning_data.indicator_code"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "indicator_code",
+          "desc": "indicator_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data",
+            "warning_data.indicator_code"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "problem_fin_time",
+          "desc": "problem_fin_time",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data",
+            "warning_data.problem_fin_time"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "workflowRuleEngineResult"
+    }
+  },
+  "custom_rule_1789899918163_1834": {
+    "id": "custom_rule_1789899918163_1834",
+    "shape": "custom_rule",
+    "displayName": "内审_截止日期非年末",
+    "nodeName": "自定义规则",
+    "position": {
+      "x": 3480,
+      "y": -70
+    },
+    "data": {
+      "serviceApiId": "25",
+      "ruleId": "682",
+      "ruleType": "dynamic_query",
+      "ruleIndexId": "14917",
+      "sourceType": 1,
+      "batchExecution": false,
+      "inputParams": [
+        {
+          "fieldName": "indicator_code",
+          "desc": "indicator_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data",
+            "warning_data.indicator_code"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "indicator_code",
+          "desc": "indicator_code",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data",
+            "warning_data.problem_fin_time"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "problem_fin_time",
+          "desc": "problem_fin_time",
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data",
+            "warning_data.problem_fin_time"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "workflowRuleEngineResult"
+    }
+  },
+  "end": {
+    "id": "end",
+    "shape": "end",
+    "displayName": "发送",
+    "nodeName": "结束",
+    "position": {
+      "x": 7420,
+      "y": 20
+    },
+    "data": {
+      "result": []
+    }
+  },
+  "file_extract_1788759067870_453": {
+    "id": "file_extract_1788759067870_453",
+    "shape": "file_extract",
+    "displayName": "大模型执行",
+    "nodeName": "大模型",
+    "position": {
+      "x": -2470,
+      "y": 1030
+    },
+    "data": {
+      "fileMd5": "#template_config__0__markdownMD5",
+      "batchRead": false,
+      "modelSource": "BaiLian",
+      "aiModelId": "2101861565690597377",
+      "prompt": "<span class=\"highlighted-item\" node-pk=\"#template_config__0__PromptCode\" data-token=\"true\" contenteditable=\"false\">PromptCode</span>\n​<span class=\"highlighted-item\" node-pk=\"#template_config__0__GZK\" data-token=\"true\" contenteditable=\"false\">GZK</span>\n​<span class=\"highlighted-item\" node-pk=\"#template_config__0__title\" data-token=\"true\" contenteditable=\"false\">title</span>\n​<span class=\"highlighted-item\" node-pk=\"#template_config__0__publictime\" data-token=\"true\" contenteditable=\"false\">publictime</span><br class=\"Apple-interchange-newline\">​\n你是 Markdown 表格提取的大模型执行节点。输入变量PromptCode是已经由上游路由节点选定的提示词文件完整原文，你必须完整读取并严格执行其中的内容，执行PromptCode时会用到对应GZK,title,publictime中的内容。\n<br>",
+      "batchExecution": "1",
+      "temperature": 1,
+      "topP": 0.8,
+      "maxTimeout": "120",
+      "failureRetryCount": "3",
+      "inputConfig": {
+        "selectedType": "template_config",
+        "key": "#template_config__0__markdownMD5",
+        "keyArray": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__markdownMD5"
+        ],
+        "globalData": {
+          "indexCode": "markdownMD5",
+          "indexName": "MarkdownMD5文件",
+          "dataType": "String"
+        }
+      },
+      "outputFields": [
+        {
+          "fieldCode": "e8274819-c749-401f-98d3-ca13be2271b0",
+          "selectedType": "template_config",
+          "key": "#template_config__0__out_data",
+          "value": "",
+          "keyArray": [
+            "#template_config__0__templateConfigId",
+            "#template_config__0__out_data"
+          ],
+          "desc": "最终输出",
+          "globalData": {
+            "id": "daba0faa-11d9-4976-81a7-20badd4b0d2a",
+            "fieldName": "out_data",
+            "dataType": "Array<Object>",
+            "desc": "最终输出",
+            "selectedType": "manual",
+            "expanded": true,
+            "globalData": null,
+            "primaryKey": false,
+            "processOnly": false,
+            "storageFlag": 1,
+            "children": [
+              {
+                "id": "2e10069d-bf8a-4740-8af7-5ebfa0d41615",
+                "fieldName": "end_date",
+                "dataType": "String",
+                "desc": "截止日期",
+                "selectedType": "manual",
+                "expanded": true,
+                "globalData": null,
+                "primaryKey": false,
+                "processOnly": false,
+                "children": []
+              },
+              {
+                "id": "52d00d12-7fe0-49e9-9e36-6663502c56ae",
+                "fieldName": "indicator_data",
+                "dataType": "String",
+                "desc": "指标数据",
+                "selectedType": "manual",
+                "expanded": true,
+                "globalData": null,
+                "primaryKey": false,
+                "processOnly": false,
+                "children": []
+              },
+              {
+                "id": "6c234047-ff99-4c08-bf96-1822a6eb504a",
+                "fieldName": "indicator_name",
+                "dataType": "String",
+                "desc": "指标名称",
+                "selectedType": "manual",
+                "expanded": true,
+                "globalData": null,
+                "primaryKey": false,
+                "processOnly": false,
+                "children": []
+              },
+              {
+                "id": "8b54d62e-5ae7-4eb3-a979-a31e2f6c90a7",
+                "fieldName": "indicator_code",
+                "dataType": "String",
+                "desc": "指标代码",
+                "selectedType": "manual",
+                "expanded": true,
+                "globalData": null,
+                "primaryKey": false,
+                "processOnly": false,
+                "children": []
+              },
+              {
+                "id": "e90a8a16-65b1-4d0c-98b4-c9d890f1aea0",
+                "fieldName": "unit_ratio",
+                "dataType": "String",
+                "desc": "单位比例",
+                "selectedType": "manual",
+                "expanded": true,
+                "globalData": null,
+                "primaryKey": false,
+                "processOnly": false,
+                "children": []
+              },
+              {
+                "id": "8450ded8-bf52-4989-a116-a9a827a5e09f",
+                "fieldName": "pushtime",
+                "dataType": "String",
+                "desc": "发布时间",
+                "selectedType": "manual",
+                "expanded": true,
+                "globalData": null,
+                "primaryKey": false,
+                "processOnly": false,
+                "children": []
+              },
+              {
+                "id": "f0f644f1-3819-4e42-ad52-1fdc174caa7f",
+                "fieldName": "remark",
+                "dataType": "String",
+                "desc": "备注",
+                "selectedType": "manual",
+                "expanded": true,
+                "globalData": null,
+                "primaryKey": false,
+                "processOnly": false,
+                "children": []
+              },
+              {
+                "id": "50776166-e2c1-4f83-9921-1cb983adfc33",
+                "fieldName": "indicator_release_frequency",
+                "dataType": "String",
+                "desc": "披露频率",
+                "selectedType": "manual",
+                "expanded": true,
+                "globalData": null,
+                "primaryKey": false,
+                "processOnly": false,
+                "children": []
+              },
+              {
+                "id": "93398e21-cc22-478a-9f80-4be07f9a6aa8",
+                "fieldName": "indicator_unit",
+                "dataType": "String",
+                "desc": "采集到的单位",
+                "selectedType": "manual",
+                "expanded": true,
+                "primaryKey": false,
+                "globalData": null,
+                "processOnly": false,
+                "children": []
+              },
+              {
+                "id": "7d9e6d7c-4cd3-4812-b787-87c5e8c2c409",
+                "fieldName": "KB_unit",
+                "dataType": "String",
+                "desc": "库表单位",
+                "selectedType": "manual",
+                "expanded": true,
+                "primaryKey": false,
+                "globalData": null,
+                "processOnly": false,
+                "children": []
+              },
+              {
+                "id": "5714b1df-e6a1-4a9b-93b3-e0637b57b41d",
+                "fieldName": "convert_ratio",
+                "dataType": "String",
+                "desc": "转换率",
+                "selectedType": "manual",
+                "expanded": true,
+                "primaryKey": false,
+                "globalData": null,
+                "processOnly": false,
+                "children": []
+              },
+              {
+                "id": "5a99f283-4e2d-4bf9-9190-e09bb1d0f5f1",
+                "fieldName": "publictime",
+                "dataType": "String",
+                "desc": "信息发布日期",
+                "selectedType": "manual",
+                "expanded": true,
+                "primaryKey": false,
+                "globalData": null,
+                "processOnly": false,
+                "children": []
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "mark_task_1789900908138_3209": {
+    "id": "mark_task_1789900908138_3209",
+    "shape": "mark_task",
+    "displayName": "内审_excel标注",
+    "nodeName": "标注任务",
+    "position": {
+      "x": 6040,
+      "y": -690
+    },
+    "data": {
+      "markTaskTypeCode": "MARK0018",
+      "typeName": "EDB标注（团队）",
+      "markTaskPolicyCode": "activeAccept",
+      "filterTaskPolicy": [
+        "activeAccept",
+        "autoAssign"
+      ],
+      "fieldSource": "taskTemplate",
+      "taskTemplateId": "2103026958354526211",
+      "difficulty": 3,
+      "timeLimit": 1440,
+      "timeLimitUnit": "minute",
+      "markFields": [
+        {
+          "dataType": "String",
+          "indexCode": "fileMd5",
+          "indexName": "描述1",
+          "isRequired": false
+        },
+        {
+          "dataType": "Array<Object>",
+          "indexCode": "warning_data",
+          "indexName": "",
+          "isRequired": false
+        }
+      ]
+    }
+  },
+  "mark_task_1789901258389_3138": {
+    "id": "mark_task_1789901258389_3138",
+    "shape": "mark_task",
+    "displayName": "内审_json标注",
+    "nodeName": "标注任务",
+    "position": {
+      "x": 6040,
+      "y": -490
+    },
+    "data": {
+      "markTaskTypeCode": "MARK0018",
+      "typeName": "EDB标注（团队）",
+      "markTaskPolicyCode": "activeAccept",
+      "filterTaskPolicy": [
+        "activeAccept",
+        "autoAssign"
+      ],
+      "fieldSource": "taskTemplate",
+      "taskTemplateId": "2103026958354526212",
+      "difficulty": 3,
+      "timeLimit": 1440,
+      "timeLimitUnit": "minute",
+      "markFields": [
+        {
+          "dataType": "String",
+          "indexCode": "indicator_data",
+          "indexName": "",
+          "isRequired": false
+        },
+        {
+          "dataType": "String",
+          "indexCode": "indicator_name",
+          "indexName": "",
+          "isRequired": false
+        },
+        {
+          "dataType": "String",
+          "indexCode": "end_date",
+          "indexName": "",
+          "isRequired": false
+        },
+        {
+          "dataType": "String",
+          "indexCode": "publictime",
+          "indexName": "",
+          "isRequired": false
+        },
+        {
+          "dataType": "String",
+          "indexCode": "indicator_unit",
+          "indexName": "",
+          "isRequired": false
+        },
+        {
+          "dataType": "Array<Object>",
+          "indexCode": "warning_data",
+          "indexName": "",
+          "isRequired": false
+        }
+      ]
+    }
+  },
+  "mark_task_1789901258757_6472": {
+    "id": "mark_task_1789901258757_6472",
+    "shape": "mark_task",
+    "displayName": "内审_MD标注",
+    "nodeName": "标注任务",
+    "position": {
+      "x": 6050,
+      "y": -290
+    },
+    "data": {
+      "markTaskTypeCode": "MARK0018",
+      "typeName": "EDB标注（团队）",
+      "markTaskPolicyCode": "activeAccept",
+      "filterTaskPolicy": [
+        "activeAccept",
+        "autoAssign"
+      ],
+      "fieldSource": "taskTemplate",
+      "taskTemplateId": "2103026958354526213",
+      "difficulty": 3,
+      "timeLimit": 1440,
+      "timeLimitUnit": "minute",
+      "markFields": [
+        {
+          "dataType": "String",
+          "indexCode": "markdownMD5",
+          "indexName": "描述1",
+          "isRequired": false
+        },
+        {
+          "dataType": "Array<Object>",
+          "indexCode": "warning_data",
+          "indexName": "",
+          "isRequired": false
+        }
+      ]
+    }
+  },
+  "script_1781493487647_8448": {
+    "id": "script_1781493487647_8448",
+    "shape": "script",
+    "displayName": "预标注_规则库查询转",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -4660,
+      "y": 80
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "1",
+      "inputParams": [
+        {
+          "fieldName": "GZK",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "GZK"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "GZKJG",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "GZK",
+            "GZK.GZKJG"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1782882488873_9513": {
+    "id": "script_1782882488873_9513",
+    "shape": "script",
+    "displayName": "预标注_指标代码匹配",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -2060,
+      "y": 320
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "indicator_name",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "indicator_name"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "indicator_data",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "indicator_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "end_date",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "end_date"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "publictime",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "publictime"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "GZKJG",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "GZK",
+            "GZK.GZKJG"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "remark",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data",
+            "out_data.remark"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "KB_unit",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "KB_unit"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1783336551993_9163": {
+    "id": "script_1783336551993_9163",
+    "shape": "script",
+    "displayName": "指标单位清洗",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -490,
+      "y": 320
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "convert_ratio",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "convert_ratio"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1784000633609_4912": {
+    "id": "script_1784000633609_4912",
+    "shape": "script",
+    "displayName": "excel python 执行",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -2320,
+      "y": -620
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "fileMd5",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "fileMd5"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "title",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "title"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "publictime",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "publictime"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "PythonFile",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "PythonFile"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "PythonCode",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "PythonCode"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "ExcelData",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "excel_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1784000760345_8300": {
+    "id": "script_1784000760345_8300",
+    "shape": "script",
+    "displayName": "预标注_表格数据匹配",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -1770,
+      "y": -970
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "ExcelData",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "excel_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "GZKJG",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "GZK",
+            "GZK.GZKJG"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "PLPL",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "GZK",
+            "GZK.indicator_release_frequency"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "publictime",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "publictime"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "unitArray",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1784000824030_5230": {
+    "id": "script_1784000824030_5230",
+    "shape": "script",
+    "displayName": "内审_数据为空清洗",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -160,
+      "y": -1010
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1784000950198_7882": {
+    "id": "script_1784000950198_7882",
+    "shape": "script",
+    "displayName": "指标单位清洗",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -750,
+      "y": -1000
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "unitArray",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1784622420092_9684": {
+    "id": "script_1784622420092_9684",
+    "shape": "script",
+    "displayName": "内审_数据为空清洗",
+    "nodeName": "代码执行",
+    "position": {
+      "x": 0,
+      "y": 1320
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1784881455983_1950": {
+    "id": "script_1784881455983_1950",
+    "shape": "script",
+    "displayName": "预标注_TXT解析",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -2150,
+      "y": 480
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "fileMd5",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "fileMd5"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1784881503023_4633": {
+    "id": "script_1784881503023_4633",
+    "shape": "script",
+    "displayName": "预标注_TXT数据匹配",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -1550,
+      "y": 480
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "GZKJG",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "GZK",
+            "GZK.GZKJG"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "publictime",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "publictime"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1784881514079_184": {
+    "id": "script_1784881514079_184",
+    "shape": "script",
+    "displayName": "指标单位清洗",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -470,
+      "y": 480
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "convert_ratio",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "convert_ratio"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1784881528342_2657": {
+    "id": "script_1784881528342_2657",
+    "shape": "script",
+    "displayName": "内审_数据为空清洗",
+    "nodeName": "代码执行",
+    "position": {
+      "x": 130,
+      "y": 570
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1785147364004_2938": {
+    "id": "script_1785147364004_2938",
+    "shape": "script",
+    "displayName": "预标注_表格数据匹配",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -2070,
+      "y": 1180
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "GZKJG",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "GZK",
+            "GZK.GZKJG"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "publictime",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "publictime"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "unitArray",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1785149007095_1414": {
+    "id": "script_1785149007095_1414",
+    "shape": "script",
+    "displayName": "指标单位清洗",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -1150,
+      "y": 960
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "unitArray",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "unitArray"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1788421429256_5242": {
+    "id": "script_1788421429256_5242",
+    "shape": "script",
+    "displayName": "html python 执行",
+    "nodeName": "代码执行",
+    "position": {
+      "x": -2460,
+      "y": -1320
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "markdownMD5",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "markdownMD5"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "title",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "title"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "publictime",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "publictime"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "PythonFile",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "PythonFile"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "PythonCode",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "PythonCode"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "ExcelData",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "excel_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1789899524608_2034": {
+    "id": "script_1789899524608_2034",
+    "shape": "script",
+    "displayName": "内审_区分嫌疑数据",
+    "nodeName": "代码执行",
+    "position": {
+      "x": 1830,
+      "y": -250
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "PLPL",
+          "desc": null,
+          "dataType": "String",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data",
+            "out_data.indicator_release_frequency"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "warningdata",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1789899980900_6387": {
+    "id": "script_1789899980900_6387",
+    "shape": "script",
+    "displayName": "内审_前置校验",
+    "nodeName": "代码执行",
+    "position": {
+      "x": 4060,
+      "y": -460
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "warningdata",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "warningdata",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "script_1789901334598_4185": {
+    "id": "script_1789901334598_4185",
+    "shape": "script",
+    "displayName": "代码执行",
+    "nodeName": "代码执行",
+    "position": {
+      "x": 6660,
+      "y": -790
+    },
+    "data": {
+      "scriptType": "Python3",
+      "timeout": "120",
+      "failureRetryCount": "0",
+      "inputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        },
+        {
+          "fieldName": "warningdata",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "warning_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputParams": [
+        {
+          "fieldName": "OUTDATA",
+          "desc": null,
+          "dataType": "Array<Object>",
+          "selectedType": "template_config",
+          "value": [
+            "templateConfigId",
+            "out_data"
+          ],
+          "globalData": null
+        }
+      ],
+      "outputConfig": "codeOutputResult"
+    }
+  },
+  "start": {
+    "id": "start",
+    "shape": "start",
+    "displayName": "开始",
+    "nodeName": "开始",
+    "position": {
+      "x": -5490,
+      "y": 370
+    },
+    "data": {
+      "crawlList": [
+        "label",
+        "pushtime",
+        "end_date",
+        "parseFileMd5",
+        "columnLink",
+        "columnName",
+        "pageTitle",
+        "release_frequency",
+        "data_target_table",
+        "fileType",
+        "fileMd5",
+        "title",
+        "publictime",
+        "indicator_unit",
+        "indicator_name",
+        "indicator_data",
+        "rid",
+        "markdownMD5"
+      ],
+      "cleanFieldList": [],
+      "advancedConfigEnabled": false,
+      "appDependency": {
+        "workflowId": "",
+        "workflowName": "",
+        "parentId": "",
+        "refFields": []
+      }
+    }
+  }
+}

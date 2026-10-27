@@ -1,0 +1,1 @@
+{"status":1,"msg":null,"body":{"id":null,"ruleId":"206","ruleName":"EDB指标代码查询","ruleType":"dynamic_query","ruleScene":"workflow_node","ruleSceneDesc":"工作流节点","ruleDesc":null,"checkStrength":null,"version":22,"versionStr":"V22","inputParams":null,"inputRegexList":null,"outputParams":null,"feelExpression":null,"feelTable":null}}

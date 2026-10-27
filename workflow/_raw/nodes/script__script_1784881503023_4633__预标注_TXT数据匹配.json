@@ -1,0 +1,431 @@
+{
+  "position": {
+    "x": -1550,
+    "y": 480
+  },
+  "size": {
+    "width": 500,
+    "height": 50
+  },
+  "view": "vue-shape-view",
+  "shape": "script",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "right",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1784881503023_4633",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_1784881503023_4633",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "script_1784881503023_4633",
+  "data": {
+    "inputParams": [
+      {
+        "key": "5678c059-efb0-4917-a455-f359c54081b1",
+        "fieldName": "OUTDATA",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__out_data"
+        ],
+        "globalData": {
+          "id": "daba0faa-11d9-4976-81a7-20badd4b0d2a",
+          "fieldName": "out_data",
+          "dataType": "Array<Object>",
+          "desc": "最终输出",
+          "children": [
+            {
+              "id": "2e10069d-bf8a-4740-8af7-5ebfa0d41615",
+              "fieldName": "end_date",
+              "dataType": "String",
+              "desc": "截止日期",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "52d00d12-7fe0-49e9-9e36-6663502c56ae",
+              "fieldName": "indicator_data",
+              "dataType": "String",
+              "desc": "指标数据",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "6c234047-ff99-4c08-bf96-1822a6eb504a",
+              "fieldName": "indicator_name",
+              "dataType": "String",
+              "desc": "指标名称",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "8b54d62e-5ae7-4eb3-a979-a31e2f6c90a7",
+              "fieldName": "indicator_code",
+              "dataType": "String",
+              "desc": "指标代码",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": true,
+              "globalData": null
+            },
+            {
+              "id": "e90a8a16-65b1-4d0c-98b4-c9d890f1aea0",
+              "fieldName": "unit_ratio",
+              "dataType": "String",
+              "desc": "单位比例",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "8450ded8-bf52-4989-a116-a9a827a5e09f",
+              "fieldName": "pushtime",
+              "dataType": "String",
+              "desc": "发布时间",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "f0f644f1-3819-4e42-ad52-1fdc174caa7f",
+              "fieldName": "remark",
+              "dataType": "String",
+              "desc": "备注",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "50776166-e2c1-4f83-9921-1cb983adfc33",
+              "fieldName": "indicator_release_frequency",
+              "dataType": "String",
+              "desc": "披露频率",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            }
+          ],
+          "selectedType": "manual",
+          "expanded": true,
+          "isRequired": false,
+          "globalData": null
+        },
+        "dataType": "Array<Object>"
+      },
+      {
+        "key": "d0629696-9169-4738-8362-34842aef6dae",
+        "fieldName": "GZKJG",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__GZK",
+          "#template_config__0__GZK.GZKJG"
+        ],
+        "globalData": {
+          "id": "2bf671f1-588c-4d28-a912-52d3117bbeea",
+          "fieldName": "GZKJG",
+          "dataType": "String",
+          "desc": "规则库结果",
+          "children": [],
+          "selectedType": "manual",
+          "expanded": true,
+          "isRequired": false,
+          "globalData": null
+        },
+        "dataType": "String"
+      },
+      {
+        "key": "4bc83696-348e-43bc-844c-bb0a63c5907c",
+        "fieldName": "publictime",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__publictime"
+        ],
+        "globalData": {
+          "indexCode": "publictime",
+          "indexName": "信息发布日期",
+          "dataType": "String"
+        },
+        "dataType": "String"
+      }
+    ],
+    "scriptType": "Python3",
+    "scriptCode": "def main(params):\n    # 上一步OUTDATA\n    OUTDATA_SOURCE = params.get(\"OUTDATA\", [])\n    # 规则库匹配结果\n    GZKJG = params.get(\"GZKJG\", [])\n    # 外部统一传入的发布日期\n    publictime = params.get(\"publictime\", \"\")\n\n    OUTDATA = []\n    matched_count = 0\n\n    for data in OUTDATA_SOURCE:\n        indicator_name = str(data.get(\"indicator_name\") or \"\").strip()\n\n        for rule in GZKJG:\n            rule_name = str(rule.get(\"rule_indicator_name\") or \"\").strip()\n\n            if rule_name != indicator_name:\n                continue\n\n            matched_count += 1\n\n            indicator_code = str(rule.get(\"rule_indicator_code\") or \"\").strip()\n            indicator_data = data.get(\"indicator_data\", \"\")\n            indicator_unit = str(data.get(\"indicator_unit\") or \"\").strip()\n            kb_unit = str(rule.get(\"rule_constant_name\") or \"\").strip()\n            convert_ratio = str(rule.get(\"convert_ratio\") or \"\").strip()\n            indicator_release_frequency = str(\n                rule.get(\"indicator_release_frequency\") or \"\"\n            ).strip()\n\n            OUTDATA.append({\n                \"indicator_code\": indicator_code,\n                \"indicator_name\": indicator_name,\n                \"indicator_data\": indicator_data,\n                \"indicator_unit\": indicator_unit,\n                \"KB_unit\": kb_unit,\n                \"convert_ratio\": convert_ratio,\n                \"unit_ratio\": str(rule.get(\"rule_unit_ratio\") or \"\"),\n                \"indicator_release_frequency\": indicator_release_frequency,\n                \"publictime\": publictime,\n                \"end_date\": data.get(\"end_date\", \"\"),\n                \"remark\": data.get(\"remark\", \"\"),\n                \"PLPL\": rule.get(\"PLPL\", \"\")\n            })\n            break\n\n    # 所有指标都未匹配时输出标准空结构\n    if matched_count == 0:\n        OUTDATA.append({\n            \"indicator_code\": \"empty\",\n            \"indicator_name\": \"\",\n            \"indicator_data\": \"\",\n            \"indicator_unit\": \"\",\n            \"KB_unit\": \"\",\n            \"convert_ratio\": \"\",\n            \"unit_ratio\": \"\",\n            \"indicator_release_frequency\": \"\",\n            \"publictime\": publictime,\n            \"end_date\": \"\",\n            \"remark\": \"\",\n            \"PLPL\": \"\"\n        })\n\n    return {\n        \"OUTDATA\": OUTDATA\n    }",
+    "outputParams": [
+      {
+        "key": "633c8b5a-797f-4b5b-8cb4-f937fce7da93",
+        "fieldName": "OUTDATA",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__out_data"
+        ],
+        "globalData": {
+          "id": "daba0faa-11d9-4976-81a7-20badd4b0d2a",
+          "fieldName": "out_data",
+          "dataType": "Array<Object>",
+          "desc": "最终输出",
+          "children": [
+            {
+              "id": "2e10069d-bf8a-4740-8af7-5ebfa0d41615",
+              "fieldName": "end_date",
+              "dataType": "String",
+              "desc": "截止日期",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "52d00d12-7fe0-49e9-9e36-6663502c56ae",
+              "fieldName": "indicator_data",
+              "dataType": "String",
+              "desc": "指标数据",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "6c234047-ff99-4c08-bf96-1822a6eb504a",
+              "fieldName": "indicator_name",
+              "dataType": "String",
+              "desc": "指标名称",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "8b54d62e-5ae7-4eb3-a979-a31e2f6c90a7",
+              "fieldName": "indicator_code",
+              "dataType": "String",
+              "desc": "指标代码",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": true,
+              "globalData": null
+            },
+            {
+              "id": "e90a8a16-65b1-4d0c-98b4-c9d890f1aea0",
+              "fieldName": "unit_ratio",
+              "dataType": "String",
+              "desc": "单位比例",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "8450ded8-bf52-4989-a116-a9a827a5e09f",
+              "fieldName": "pushtime",
+              "dataType": "String",
+              "desc": "发布时间",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "f0f644f1-3819-4e42-ad52-1fdc174caa7f",
+              "fieldName": "remark",
+              "dataType": "String",
+              "desc": "备注",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "50776166-e2c1-4f83-9921-1cb983adfc33",
+              "fieldName": "indicator_release_frequency",
+              "dataType": "String",
+              "desc": "披露频率",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            }
+          ],
+          "selectedType": "manual",
+          "expanded": true,
+          "isRequired": false,
+          "globalData": null
+        },
+        "dataType": "Array<Object>"
+      }
+    ],
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "uniqueId": 10,
+    "nodeName": "代码执行",
+    "displayName": "预标注_TXT数据匹配",
+    "nodeCode": "script",
+    "outputConfig": "codeOutputResult",
+    "iconName": "code",
+    "iconSize": "18",
+    "isStencil": false,
+    "isExpanded": false,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2370,
+  "disableMovable": false
+}

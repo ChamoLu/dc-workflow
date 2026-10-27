@@ -1,0 +1,233 @@
+{
+  "position": {
+    "x": -3540,
+    "y": 640
+  },
+  "size": {
+    "width": 420,
+    "height": 1017
+  },
+  "view": "vue-shape-view",
+  "shape": "agent",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "right",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1788747171993_2204",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_1788747171993_2204",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "agent_1788747171993_2204",
+  "data": {
+    "uniqueId": 2,
+    "model": "qwen-plus",
+    "inputParams": [
+      {
+        "id": "",
+        "fieldName": "pageTitle",
+        "dataType": "",
+        "desc": "路径",
+        "widgetType": "",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__pageTitle"
+        ],
+        "selectedType": "template_config",
+        "globalData": {
+          "indexCode": "pageTitle",
+          "indexName": "路径",
+          "dataType": "String"
+        }
+      }
+    ],
+    "outputParams": [
+      {
+        "id": "",
+        "fieldName": "#template_config__0__PromptCode",
+        "dataType": "",
+        "desc": "",
+        "widgetType": "",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__PromptCode"
+        ],
+        "selectedType": "template_config",
+        "globalData": null
+      },
+      {
+        "id": "",
+        "fieldName": "PromptFile",
+        "dataType": "",
+        "desc": "Prompt文件名",
+        "widgetType": "",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__PromptFile"
+        ],
+        "selectedType": "template_config",
+        "globalData": {
+          "id": "9641f3fe-43de-4ffe-bd51-056b9711f2f0",
+          "fieldName": "PromptFile",
+          "dataType": "String",
+          "desc": "Prompt文件名",
+          "selectedType": "manual",
+          "expanded": true,
+          "primaryKey": false,
+          "storageFlag": 2,
+          "fromRelated": false,
+          "processOnly": false,
+          "storageLocked": false,
+          "globalData": null,
+          "children": []
+        }
+      }
+    ],
+    "taskPrompt": "你是 Markdown 提示词路由节点，不执行提示词内容，也不提取 Markdown 数据。你的唯一职责是：根据 pageTitle 在当前 Skill 内精确定位既有提示词文件，并把该文件完整原始文本作为 PromptCode 返回。\n\n规划并严格按以下固定步骤执行，不得增加下载、外部资源查询、Markdown 提取、提示词执行或兜底选择步骤：\n\n```text\nread_skill_config\n→ find_mapping\n→ find_skill_prompt_file_by_exact_name\n→ read_skill_prompt_file_content\n→ output_result\n```\n\n- `read_skill_config`：直接读取当前 Skill 内的 `prompt-pageTitle-config.json`。\n- `find_mapping`：完整遍历 `mappings`，以 `pageTitle` 得到唯一精确匹配的 `PromptFileName`。\n- `find_skill_prompt_file_by_exact_name`：在当前 Skill 文件列表中以完整文件名唯一精确匹配该 `.md` 文件。\n- `read_skill_prompt_file_content`：直接读取该 Skill `.md` 文件的完整原始文本，作为 `PromptCode`，并保留其文件名作为 `PromptFile`。\n- `output_result`：只有已验证取得该同名 `.md` 文件的完整、非空原始文本后，才输出文件名和原文；读取提示词为空时先按下列重试规则处理。\n\n## 成功判定与重试规则\n\n`PromptFileName` 或 `PromptFile` 命中不等于路由成功。只有下列两个字段同时满足时才是成功：\n\n```json\n{\n  \"PromptFile\": \"已精确匹配的 .md 文件名\",\n  \"PromptCode\": \"从该同名 Skill .md 文件完整读取到的非空原始提示词\"\n}\n```\n\n在输出前必须同时确认：\n\n1. 当前 Skill 中唯一存在与 `PromptFileName` 完全同名的 `.md` 文件；\n2. `PromptFile` 等于这个配置文件名；\n3. `PromptCode` 是从该同名文件直接读取的 string，不是文件名、文件列表、元数据、错误响应、摘要或片段；\n4. `PromptCode.strip()` 非空。\n\n如果已找到真实 `PromptFile`，但 `PromptCode` 为空、缺失、截断或不是原始提示词，这不是“未配置 pageTitle”，而是“提示词读取未完成”。必须使用平台提供的每次失败重试机会，保持同一个 `PromptFile` 不变，重新执行 `find_skill_prompt_file_by_exact_name` 和 `read_skill_prompt_file_content`，重点取得该文件的完整原文。\n\n重试时不得改选其他提示词文件、不得猜测或生成提示词、不得输出提示词片段，也不得输出真实 `PromptFile` 加空 `PromptCode`。只有所有重试均无法读取并验证同一文件原文时，才输出：\n\n```json\n{\"PromptFile\":\"empty\",\"PromptCode\":\"\"}\n```\n\n读取工作流传入的 pageTitle，并直接读取当前 Skill 内的 `prompt-pageTitle-config.json`，完整遍历其中的 `mappings`：\n\n1. 只有 pageTitle 与某一 mappings.pageTitle 完全相等，且该条目的 PromptFileName 能在当前 Skill 的文件列表中按完整文件名唯一找到一个 `.md` 文件时，才是成功路由。\n2. 成功时，完整读取该提示词文件的原始文本，并只输出下列 JSON。\n\n{\n  \"PromptFile\": \"目标提示词文件的完整文件名.md\",\n  \"PromptCode\": \"目标提示词文件的完整原始文本\"\n}\n\n3. 仅当完整遍历后不存在唯一精确匹配、映射重复/损坏，或所有重试均无法读取并验证精确配置的同名文件时，才输出：\n\n{\"PromptFile\":\"empty\",\"PromptCode\":\"\"}\n\nPromptFile 和 PromptCode 均为 string。PromptFile 是提示词文件名；PromptCode 必须保留提示词文件的全部字符、换行、缩进、HTML注释、标题和规则。不得改写、缩写、补充、删除、解释、执行或用 Markdown 代码围栏包裹 PromptCode 内容。非 `\"empty\"` 的 PromptFile 绝不允许搭配空、缺失或非提示词原文的 PromptCode。\n\n禁止调用 download_file，禁止使用 fileMd5、parseFileMd5、任何下载参数或外部资源 ID 来查找、读取或下载配置和提示词文件。PromptFileName 和 PromptFile 只用于在当前 Skill 文件列表中进行完整文件名的唯一精确匹配。\n\n不得读取或提取当前 Markdown 数据，不得使用 GZK、title、DOC、DOCX、JPG、PNG、PDF 或其他运行时字段选择/执行提示词。PromptFile 为 \"empty\" 时，PromptCode 必须为 \"\"；不得选择其他提示词，也不得输出 out_data、OUTDATA、ExcelData、code、msg、PromptFileName 或任何解释文字。",
+    "outputInstruction": "{\n  \"PromptFile\": \"目标提示词文件的完整文件名.md\",\n  \"PromptCode\": \"目标提示词文件的完整原始文本\"\n}",
+    "skillId": "337",
+    "maxSteps": "15",
+    "failRetryCount": "3",
+    "maxTimeout": "180",
+    "outputConfig": "OutputAgentResult",
+    "nodeName": "Agent",
+    "displayName": "md-Agent",
+    "nodeCode": "agent",
+    "iconName": "social-angular-outline",
+    "iconSize": "16",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2531
+}

@@ -1,0 +1,427 @@
+{
+  "position": {
+    "x": -1150,
+    "y": 960
+  },
+  "size": {
+    "width": 500,
+    "height": 50
+  },
+  "view": "vue-shape-view",
+  "shape": "script",
+  "ports": {
+    "groups": {
+      "in": {
+        "position": "left",
+        "zIndex": 10,
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      "out": {
+        "zIndex": 10,
+        "position": "right",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "in_1785149007095_1414",
+        "group": "in",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": "passive",
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      },
+      {
+        "id": "out_1785149007095_1414",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "script_1785149007095_1414",
+  "data": {
+    "inputParams": [
+      {
+        "key": "ab3468be-d349-4a1e-8c3c-fc1fea072d51",
+        "fieldName": "OUTDATA",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__out_data"
+        ],
+        "globalData": {
+          "id": "daba0faa-11d9-4976-81a7-20badd4b0d2a",
+          "fieldName": "out_data",
+          "dataType": "Array<Object>",
+          "desc": "最终输出",
+          "children": [
+            {
+              "id": "2e10069d-bf8a-4740-8af7-5ebfa0d41615",
+              "fieldName": "end_date",
+              "dataType": "String",
+              "desc": "截止日期",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "52d00d12-7fe0-49e9-9e36-6663502c56ae",
+              "fieldName": "indicator_data",
+              "dataType": "String",
+              "desc": "指标数据",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "6c234047-ff99-4c08-bf96-1822a6eb504a",
+              "fieldName": "indicator_name",
+              "dataType": "String",
+              "desc": "指标名称",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "8b54d62e-5ae7-4eb3-a979-a31e2f6c90a7",
+              "fieldName": "indicator_code",
+              "dataType": "String",
+              "desc": "指标代码",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": true,
+              "globalData": null
+            },
+            {
+              "id": "e90a8a16-65b1-4d0c-98b4-c9d890f1aea0",
+              "fieldName": "unit_ratio",
+              "dataType": "String",
+              "desc": "单位比例",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "8450ded8-bf52-4989-a116-a9a827a5e09f",
+              "fieldName": "pushtime",
+              "dataType": "String",
+              "desc": "发布日期",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "f0f644f1-3819-4e42-ad52-1fdc174caa7f",
+              "fieldName": "remark",
+              "dataType": "String",
+              "desc": "备注",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            }
+          ],
+          "selectedType": "manual",
+          "expanded": true,
+          "isRequired": false,
+          "globalData": null
+        },
+        "dataType": "Array<Object>"
+      },
+      {
+        "key": "e9247fbf-1367-4162-96ef-67f8d6d33f35",
+        "fieldName": "unitArray",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__unitArray"
+        ],
+        "globalData": {
+          "id": "7cdc17e8-9f12-43da-b9e4-984b7f065ec1",
+          "fieldName": "unitArray",
+          "dataType": "Array<Object>",
+          "desc": "单位匹配使用",
+          "selectedType": "manual",
+          "expanded": true,
+          "primaryKey": false,
+          "globalData": null,
+          "children": [
+            {
+              "id": "cdeba199-d08f-4fe4-a072-374a4631273b",
+              "fieldName": "indicator_unit",
+              "dataType": "String",
+              "desc": "采集单位",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "8f82932a-2a28-4dd3-8b23-4208a37fc353",
+              "fieldName": "KB_unit",
+              "dataType": "String",
+              "desc": "库表单位",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "children": []
+            },
+            {
+              "id": "47e950c1-4f8a-4643-9291-7208475eade5",
+              "fieldName": "convert_ratio",
+              "dataType": "String",
+              "desc": "转换率",
+              "selectedType": "manual",
+              "expanded": true,
+              "primaryKey": false,
+              "globalData": null,
+              "children": []
+            }
+          ]
+        },
+        "dataType": "Array<Object>"
+      }
+    ],
+    "scriptType": "Python3",
+    "scriptCode": "from decimal import Decimal, InvalidOperation\n\n\ndef to_decimal(value, default=\"0\"):\n    \"\"\"将输入转换为Decimal，空值或非法值使用默认值。\"\"\"\n    try:\n        if value is None:\n            return Decimal(default)\n        if isinstance(value, list):\n            if not value:\n                return Decimal(default)\n            value = value[0]\n        value = str(value).replace(\",\", \"\").strip()\n        if value == \"\":\n            return Decimal(default)\n        return Decimal(value)\n    except (InvalidOperation, TypeError, ValueError):\n        return Decimal(default)\n\n\ndef add_rule(rule_map, indicator_unit, KB_unit, ratio):\n    \"\"\"将单位转换规则加入字典。\"\"\"\n    indicator_unit = str(indicator_unit or \"\").strip()\n    KB_unit = str(KB_unit or \"\").strip()\n    ratio = str(ratio or \"\").strip()\n\n    if indicator_unit and KB_unit and ratio:\n        rule_map[(indicator_unit, KB_unit)] = ratio\n\n\ndef main(params):\n    # 指标数据\n    OUTDATA = params.get(\"OUTDATA\", [])\n    # SQL转换率查询结果\n    unitArray = params.get(\"unitArray\", {})\n\n    # 建立“采集单位+库表单位”与换算比例的映射\n    unit_ratio_map = {}\n\n    # 兼容SQL返回的列式结构\n    if isinstance(unitArray, dict):\n        indicator_units = unitArray.get(\"indicator_unit\", [])\n        KB_units = unitArray.get(\"KB_unit\", [])\n        ratios = unitArray.get(\"convert_ratio\", [])\n\n        if not isinstance(indicator_units, list):\n            indicator_units = [indicator_units]\n        if not isinstance(KB_units, list):\n            KB_units = [KB_units]\n        if not isinstance(ratios, list):\n            ratios = [ratios]\n\n        data_count = min(\n            len(indicator_units),\n            len(KB_units),\n            len(ratios)\n        )\n\n        for index in range(data_count):\n            add_rule(\n                unit_ratio_map,\n                indicator_units[index],\n                KB_units[index],\n                ratios[index]\n            )\n\n    # 逐条匹配OUTDATA并进行单位换算\n    for item in OUTDATA:\n        indicator_unit = str(\n            item.get(\"indicator_unit\") or \"\"\n        ).strip()\n\n        KB_unit = str(\n            item.get(\"KB_unit\") or \"\"\n        ).strip()\n\n        matched_ratio = unit_ratio_map.get(\n            (indicator_unit, KB_unit)\n        )\n\n        # SQL匹配不到时转换率默认为1\n        if matched_ratio is not None:\n            final_ratio = matched_ratio\n        else:\n            final_ratio = \"1\"\n\n        item[\"convert_ratio\"] = final_ratio\n\n        # 有效指标数据才进行单位换算\n        indicator_data = item.get(\"indicator_data\", \"\")\n\n        if (\n            indicator_data is None\n            or str(indicator_data).strip() == \"\"\n            or str(indicator_data).strip() == \"empty\"\n        ):\n            continue\n\n        value = to_decimal(indicator_data, \"0\")\n        ratio = to_decimal(final_ratio, \"1\")\n\n        item[\"indicator_data\"] = str(\n            value * ratio\n        )\n\n    return {\n        \"OUTDATA\": OUTDATA\n    }",
+    "outputParams": [
+      {
+        "key": "47cc11ab-874c-4580-95f5-00825dd0be43",
+        "fieldName": "OUTDATA",
+        "selectedType": "template_config",
+        "value": [
+          "#template_config__0__templateConfigId",
+          "#template_config__0__out_data"
+        ],
+        "globalData": {
+          "id": "daba0faa-11d9-4976-81a7-20badd4b0d2a",
+          "fieldName": "out_data",
+          "dataType": "Array<Object>",
+          "desc": "最终输出",
+          "children": [
+            {
+              "id": "2e10069d-bf8a-4740-8af7-5ebfa0d41615",
+              "fieldName": "end_date",
+              "dataType": "String",
+              "desc": "截止日期",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "52d00d12-7fe0-49e9-9e36-6663502c56ae",
+              "fieldName": "indicator_data",
+              "dataType": "String",
+              "desc": "指标数据",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "6c234047-ff99-4c08-bf96-1822a6eb504a",
+              "fieldName": "indicator_name",
+              "dataType": "String",
+              "desc": "指标名称",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "8b54d62e-5ae7-4eb3-a979-a31e2f6c90a7",
+              "fieldName": "indicator_code",
+              "dataType": "String",
+              "desc": "指标代码",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": true,
+              "globalData": null
+            },
+            {
+              "id": "e90a8a16-65b1-4d0c-98b4-c9d890f1aea0",
+              "fieldName": "unit_ratio",
+              "dataType": "String",
+              "desc": "单位比例",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "8450ded8-bf52-4989-a116-a9a827a5e09f",
+              "fieldName": "pushtime",
+              "dataType": "String",
+              "desc": "发布日期",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            },
+            {
+              "id": "f0f644f1-3819-4e42-ad52-1fdc174caa7f",
+              "fieldName": "remark",
+              "dataType": "String",
+              "desc": "备注",
+              "children": [],
+              "selectedType": "manual",
+              "expanded": true,
+              "isRequired": false,
+              "globalData": null
+            }
+          ],
+          "selectedType": "manual",
+          "expanded": true,
+          "isRequired": false,
+          "globalData": null
+        },
+        "dataType": "Array<Object>"
+      }
+    ],
+    "timeout": "120",
+    "failureRetryCount": "0",
+    "uniqueId": 14,
+    "nodeName": "代码执行",
+    "displayName": "指标单位清洗",
+    "nodeCode": "script",
+    "outputConfig": "codeOutputResult",
+    "iconName": "code",
+    "iconSize": "18",
+    "isStencil": false,
+    "isExpanded": false,
+    "canDelete": true,
+    "canCopy": true,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2432,
+  "disableMovable": false
+}

@@ -1,0 +1,378 @@
+[
+  {
+    "id": "script_1782882488873_9513",
+    "shape": "script",
+    "displayName": "预标注_指标代码匹配",
+    "x": -2060,
+    "y": 320,
+    "file": "script__script_1782882488873_9513__预标注_指标代码匹配.json"
+  },
+  {
+    "id": "custom_rule_1783660550941_2952",
+    "shape": "custom_rule",
+    "displayName": "预标注_单位标准化",
+    "x": -1470,
+    "y": 320,
+    "file": "custom_rule__custom_rule_1783660550941_2952__预标注_单位标准化.json"
+  },
+  {
+    "id": "custom_rule_1783328033583_7304",
+    "shape": "custom_rule",
+    "displayName": "预标注_转换率查询",
+    "x": -980,
+    "y": 320,
+    "file": "custom_rule__custom_rule_1783328033583_7304__预标注_转换率查询.json"
+  },
+  {
+    "id": "script_1783336551993_9163",
+    "shape": "script",
+    "displayName": "指标单位清洗",
+    "x": -490,
+    "y": 320,
+    "file": "script__script_1783336551993_9163__指标单位清洗.json"
+  },
+  {
+    "id": "condition_1784778087767_2934",
+    "shape": "condition",
+    "displayName": "内审_数据为空清洗",
+    "x": 190,
+    "y": 190,
+    "file": "condition__condition_1784778087767_2934__内审_数据为空清洗.json"
+  },
+  {
+    "id": "script_1784881455983_1950",
+    "shape": "script",
+    "displayName": "预标注_TXT解析",
+    "x": -2150,
+    "y": 480,
+    "file": "script__script_1784881455983_1950__预标注_TXT解析.json"
+  },
+  {
+    "id": "script_1784881503023_4633",
+    "shape": "script",
+    "displayName": "预标注_TXT数据匹配",
+    "x": -1550,
+    "y": 480,
+    "file": "script__script_1784881503023_4633__预标注_TXT数据匹配.json"
+  },
+  {
+    "id": "custom_rule_1784881509231_9431",
+    "shape": "custom_rule",
+    "displayName": "预标注_转换率查询",
+    "x": -950,
+    "y": 480,
+    "file": "custom_rule__custom_rule_1784881509231_9431__预标注_转换率查询.json"
+  },
+  {
+    "id": "script_1784881514079_184",
+    "shape": "script",
+    "displayName": "指标单位清洗",
+    "x": -470,
+    "y": 480,
+    "file": "script__script_1784881514079_184__指标单位清洗.json"
+  },
+  {
+    "id": "script_1784881528342_2657",
+    "shape": "script",
+    "displayName": "内审_数据为空清洗",
+    "x": 130,
+    "y": 570,
+    "file": "script__script_1784881528342_2657__内审_数据为空清洗.json"
+  },
+  {
+    "id": "custom_rule_1784622356690_2817",
+    "shape": "custom_rule",
+    "displayName": "预标注_转换率查询",
+    "x": -1640,
+    "y": 1030,
+    "file": "custom_rule__custom_rule_1784622356690_2817__预标注_转换率查询.json"
+  },
+  {
+    "id": "script_1785149007095_1414",
+    "shape": "script",
+    "displayName": "指标单位清洗",
+    "x": -1150,
+    "y": 960,
+    "file": "script__script_1785149007095_1414__指标单位清洗.json"
+  },
+  {
+    "id": "condition_1785923282222_5545",
+    "shape": "condition",
+    "displayName": "发放_为空判断",
+    "x": 750,
+    "y": 930,
+    "file": "condition__condition_1785923282222_5545__发放_为空判断.json"
+  },
+  {
+    "id": "script_1784622420092_9684",
+    "shape": "script",
+    "displayName": "内审_数据为空清洗",
+    "x": 0,
+    "y": 1320,
+    "file": "script__script_1784622420092_9684__内审_数据为空清洗.json"
+  },
+  {
+    "id": "start",
+    "shape": "start",
+    "displayName": "开始",
+    "x": -5490,
+    "y": 370,
+    "file": "start__start__开始.json"
+  },
+  {
+    "id": "custom_rule_1782883582058_2442",
+    "shape": "custom_rule",
+    "displayName": "预标注-指标代码单位",
+    "x": -5130,
+    "y": 180,
+    "file": "custom_rule__custom_rule_1782883582058_2442__预标注-指标代码单位.json"
+  },
+  {
+    "id": "script_1781493487647_8448",
+    "shape": "script",
+    "displayName": "预标注_规则库查询转",
+    "x": -4660,
+    "y": 80,
+    "file": "script__script_1781493487647_8448__预标注_规则库查询转.json"
+  },
+  {
+    "id": "condition_1784000545353_3060",
+    "shape": "condition",
+    "displayName": "预标注_文件类型判断",
+    "x": -4100,
+    "y": 110,
+    "file": "condition__condition_1784000545353_3060__预标注_文件类型判断.json"
+  },
+  {
+    "id": "script_1785147364004_2938",
+    "shape": "script",
+    "displayName": "预标注_表格数据匹配",
+    "x": -2070,
+    "y": 1180,
+    "file": "script__script_1785147364004_2938__预标注_表格数据匹配.json"
+  },
+  {
+    "id": "script_1784000760345_8300",
+    "shape": "script",
+    "displayName": "预标注_表格数据匹配",
+    "x": -1770,
+    "y": -970,
+    "file": "script__script_1784000760345_8300__预标注_表格数据匹配.json"
+  },
+  {
+    "id": "custom_rule_1784000706383_4551",
+    "shape": "custom_rule",
+    "displayName": "预标注_转换率查询",
+    "x": -1200,
+    "y": -980,
+    "file": "custom_rule__custom_rule_1784000706383_4551__预标注_转换率查询.json"
+  },
+  {
+    "id": "script_1784000950198_7882",
+    "shape": "script",
+    "displayName": "指标单位清洗",
+    "x": -750,
+    "y": -1000,
+    "file": "script__script_1784000950198_7882__指标单位清洗.json"
+  },
+  {
+    "id": "script_1784000824030_5230",
+    "shape": "script",
+    "displayName": "内审_数据为空清洗",
+    "x": -160,
+    "y": -1010,
+    "file": "script__script_1784000824030_5230__内审_数据为空清洗.json"
+  },
+  {
+    "id": "condition_1785834433994_3451",
+    "shape": "condition",
+    "displayName": "发放_为空判断",
+    "x": 500,
+    "y": -1150,
+    "file": "condition__condition_1785834433994_3451__发放_为空判断.json"
+  },
+  {
+    "id": "script_1788421429256_5242",
+    "shape": "script",
+    "displayName": "html python 执行",
+    "x": -2460,
+    "y": -1320,
+    "file": "script__script_1788421429256_5242__html python 执行.json"
+  },
+  {
+    "id": "script_1784000633609_4912",
+    "shape": "script",
+    "displayName": "excel python 执行",
+    "x": -2320,
+    "y": -620,
+    "file": "script__script_1784000633609_4912__excel python 执行.json"
+  },
+  {
+    "id": "condition_1788925023921_9802",
+    "shape": "condition",
+    "displayName": "条件判断",
+    "x": -2930,
+    "y": -350,
+    "file": "condition__condition_1788925023921_9802__条件判断.json"
+  },
+  {
+    "id": "condition_1788925224307_5519",
+    "shape": "condition",
+    "displayName": "条件判断",
+    "x": -3060,
+    "y": -1460,
+    "file": "condition__condition_1788925224307_5519__条件判断.json"
+  },
+  {
+    "id": "condition_1788925556701_2950",
+    "shape": "condition",
+    "displayName": "条件判断",
+    "x": -2990,
+    "y": 860,
+    "file": "condition__condition_1788925556701_2950__条件判断.json"
+  },
+  {
+    "id": "agent_1788490801520_763",
+    "shape": "agent",
+    "displayName": "HTML Agent",
+    "x": -3550,
+    "y": -1800,
+    "file": "agent__agent_1788490801520_763__HTML Agent.json"
+  },
+  {
+    "id": "agent_1788489761228_3708",
+    "shape": "agent",
+    "displayName": "excel Agent",
+    "x": -3440,
+    "y": -700,
+    "file": "agent__agent_1788489761228_3708__excel Agent.json"
+  },
+  {
+    "id": "agent_1788747171993_2204",
+    "shape": "agent",
+    "displayName": "md-Agent",
+    "x": -3540,
+    "y": 640,
+    "file": "agent__agent_1788747171993_2204__md-Agent.json"
+  },
+  {
+    "id": "file_extract_1788759067870_453",
+    "shape": "file_extract",
+    "displayName": "大模型执行",
+    "x": -2470,
+    "y": 1030,
+    "file": "file_extract__file_extract_1788759067870_453__大模型执行.json"
+  },
+  {
+    "id": "condition_1789899819395_9075",
+    "shape": "condition",
+    "displayName": "内审_区分嫌疑数据",
+    "x": 2930,
+    "y": -380,
+    "file": "condition__condition_1789899819395_9075__内审_区分嫌疑数据.json"
+  },
+  {
+    "id": "condition_1789900867090_8204",
+    "shape": "condition",
+    "displayName": "内审_错误判断",
+    "x": 4670,
+    "y": -150,
+    "file": "condition__condition_1789900867090_8204__内审_错误判断.json"
+  },
+  {
+    "id": "condition_1789900889289_1127",
+    "shape": "condition",
+    "displayName": "预标注_文件类型判断",
+    "x": 5450,
+    "y": -760,
+    "file": "condition__condition_1789900889289_1127__预标注_文件类型判断.json"
+  },
+  {
+    "id": "mark_task_1789901258389_3138",
+    "shape": "mark_task",
+    "displayName": "内审_json标注",
+    "x": 6040,
+    "y": -490,
+    "file": "mark_task__mark_task_1789901258389_3138__内审_json标注.json"
+  },
+  {
+    "id": "mark_task_1789901258757_6472",
+    "shape": "mark_task",
+    "displayName": "内审_MD标注",
+    "x": 6050,
+    "y": -290,
+    "file": "mark_task__mark_task_1789901258757_6472__内审_MD标注.json"
+  },
+  {
+    "id": "mark_task_1789900908138_3209",
+    "shape": "mark_task",
+    "displayName": "内审_excel标注",
+    "x": 6040,
+    "y": -690,
+    "file": "mark_task__mark_task_1789900908138_3209__内审_excel标注.json"
+  },
+  {
+    "id": "custom_rule_1789899918163_1834",
+    "shape": "custom_rule",
+    "displayName": "内审_截止日期非年末",
+    "x": 3480,
+    "y": -70,
+    "file": "custom_rule__custom_rule_1789899918163_1834__内审_截止日期非年末.json"
+  },
+  {
+    "id": "custom_rule_1789899895268_8359",
+    "shape": "custom_rule",
+    "displayName": "内审_截止日期非季末",
+    "x": 3480,
+    "y": -180,
+    "file": "custom_rule__custom_rule_1789899895268_8359__内审_截止日期非季末.json"
+  },
+  {
+    "id": "custom_rule_1789899872540_850",
+    "shape": "custom_rule",
+    "displayName": "内审_截止日期非月末",
+    "x": 3490,
+    "y": -330,
+    "file": "custom_rule__custom_rule_1789899872540_850__内审_截止日期非月末.json"
+  },
+  {
+    "id": "script_1789899980900_6387",
+    "shape": "script",
+    "displayName": "内审_前置校验",
+    "x": 4060,
+    "y": -460,
+    "file": "script__script_1789899980900_6387__内审_前置校验.json"
+  },
+  {
+    "id": "script_1789901334598_4185",
+    "shape": "script",
+    "displayName": "代码执行",
+    "x": 6660,
+    "y": -790,
+    "file": "script__script_1789901334598_4185__代码执行.json"
+  },
+  {
+    "id": "script_1789899524608_2034",
+    "shape": "script",
+    "displayName": "内审_区分嫌疑数据",
+    "x": 1830,
+    "y": -250,
+    "file": "script__script_1789899524608_2034__内审_区分嫌疑数据.json"
+  },
+  {
+    "id": "end",
+    "shape": "end",
+    "displayName": "发送",
+    "x": 7420,
+    "y": 20,
+    "file": "end__end__发送.json"
+  },
+  {
+    "id": "condition_1789899721706_3064",
+    "shape": "condition",
+    "displayName": "内审_判断嫌疑数据",
+    "x": 2390,
+    "y": 50,
+    "file": "condition__condition_1789899721706_3064__内审_判断嫌疑数据.json"
+  }
+]

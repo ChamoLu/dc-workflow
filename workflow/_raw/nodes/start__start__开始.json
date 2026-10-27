@@ -1,0 +1,128 @@
+{
+  "position": {
+    "x": -5490,
+    "y": 370
+  },
+  "size": {
+    "width": 300,
+    "height": 210
+  },
+  "view": "vue-shape-view",
+  "shape": "start",
+  "ports": {
+    "groups": {
+      "out": {
+        "zIndex": 10,
+        "position": "right",
+        "markup": [
+          {
+            "tagName": "circle",
+            "selector": "circle"
+          },
+          {
+            "tagName": "path",
+            "selector": "plus"
+          }
+        ],
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "start-out",
+        "group": "out",
+        "zIndex": 10,
+        "attrs": {
+          "circle": {
+            "r": 12,
+            "magnet": true,
+            "stroke": "#B0AFDF",
+            "strokeWidth": 3,
+            "fill": "#ffffff",
+            "cursor": "pointer",
+            "zIndex": 10,
+            "visibility": "visible",
+            "pointerEvents": "auto"
+          },
+          "plus": {
+            "d": "M 0 -8 L 0 8 M -8 0 L 8 0",
+            "strokeWidth": 3,
+            "fill": "none",
+            "pointerEvents": "none",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "stroke": "#B0AFDF",
+            "visibility": "hidden"
+          }
+        }
+      }
+    ]
+  },
+  "id": "start",
+  "data": {
+    "uniqueId": 0,
+    "crawlList": [
+      "label",
+      "pushtime",
+      "end_date",
+      "parseFileMd5",
+      "columnLink",
+      "columnName",
+      "pageTitle",
+      "release_frequency",
+      "data_target_table",
+      "fileType",
+      "fileMd5",
+      "title",
+      "publictime",
+      "indicator_unit",
+      "indicator_name",
+      "indicator_data",
+      "rid",
+      "markdownMD5"
+    ],
+    "cleanFieldList": [],
+    "advancedConfigEnabled": false,
+    "appDependency": {
+      "workflowId": "",
+      "workflowName": "",
+      "parentId": "",
+      "refFields": []
+    },
+    "nodeName": "开始",
+    "displayName": "开始",
+    "nodeCode": "start",
+    "iconName": "playon",
+    "iconSize": "22",
+    "outputConfig": "crawlData",
+    "isStencil": false,
+    "isExpanded": true,
+    "canDelete": false,
+    "canCopy": false,
+    "canAdd": true,
+    "canEdit": true
+  },
+  "zIndex": 2470
+}
